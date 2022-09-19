@@ -56,10 +56,6 @@ exports.logout = async (req, res) => {
   });
 };
 
-
-
-
-
 exports.getSignup = (req, res) => {
   if (req.user) {
     return res.redirect("/profile");
@@ -89,20 +85,19 @@ exports.postSignup = (req, res, next) => {
   });
 
   const user = new User({
-    userName: req.body.userName,
     email: req.body.email,
     password: req.body.password,
   });
 
   User.findOne(
-    { $or: [{ email: req.body.email }, { userName: req.body.userName }] },
+    {email: req.body.email },
     (err, existingUser) => {
       if (err) {
         return next(err);
       }
       if (existingUser) {
         req.flash("errors", {
-          msg: "Account with that email address or username already exists.",
+          msg: "Account with that email address or usernamealready exists.",
         });
         return res.redirect("../signup");
       }
