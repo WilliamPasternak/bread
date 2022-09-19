@@ -1,26 +1,92 @@
-<%- include('partials/header') -%>
+<%- include('partials/loggedIn') -%>
 
-
-  <div class="container">
+  <div class="row mt-5">
     <div class="row justify-content-center mt-5">
-      <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-12 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <p>
-                <%= posts[i].title%>
-              </p>
-              <span>
-                <%= posts[i].createdAt%>
-              </span>
+      <div class="container">
+        <h1> Most Recent Salaries</h1>
+        <table class='table table-striped'>
+          <thead>
+            <tr>
+              <th scope="col">Location</th>
+              <th scope="col">Business Type</th>
+              <th scope="col">Business Name</th>
+              <th scope="col">Job Title</th>
+              <th scope="col">Pay Type</th>
+              <th scope="col">Base Pay</th>
+              <th scope="col">Additional Pay</th>
+              <th scope="col">Benefits</th>
+              <th scope="col">Avg. Shift Length</th>
+              <th scope="col"># Shifts Per Week</th>
+              <th scope="col">Slow Tips</th>
+              <th scope="col">Busy Tips</th>
+              <th scope="col">Cash Tips in Check?</th>
+              <th scope="col">More Info</th>
 
-            </a>
-          </li>
-          <% } %>
-      </ul>
+              <!-- 
+        <th scope="col">Gender</th>
+        <th scope="col">Ethnicity</th>
+        <th scope="col">Age</th>
+        <th scope="col">Same Shifts</th>
+        <th scope="col">Comments</th>
+        <th scope="col">verified</th>
+        -->
+            </tr>
+          </thead>
+
+          <tbody>
+            <% for(let i=0; i<posts.length; i++) {%>
+              <td>
+                <%= posts[i].location%>
+
+              </td>
+              <td>
+                <%= posts[i].type%>
+              </td>
+              <td>
+                <%= posts[i].name%>
+              </td>
+              <td>
+                <%= posts[i].title%>
+              </td>
+              <td>
+                <%= posts[i].payType%>
+              </td>
+              <td>
+                <%= posts[i].base%>
+              </td>
+              <td>
+                <%= posts[i].extraPay%>
+              </td>
+              <td>
+                <%= posts[i].benefits%>
+              </td>
+              <td>
+                <%= posts[i].shiftLength%>
+              </td>
+              <td>
+                <%= posts[i].numShifts%>
+              </td>
+              <td>
+                <%= posts[i].slowTips%>
+              </td>
+              <td>
+                <%= posts[i].busyTips%>
+              </td>
+              <td>
+                <%= posts[i].cashTips%>
+              </td>
+              <td>
+                Test
+              </td>
+              </tr>
+
+              <%}%>
+          </tbody>
+        </table>
+
+      </div>
+
     </div>
   </div>
 
-
-
-  <%- include('partials/footer') -%>
+  <%- include('partials/loggedInFooter') -%>

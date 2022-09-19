@@ -1,16 +1,7 @@
-<%- include('partials/header') -%>
-  <div class="container">
+<%- include('partials/loggedIn') -%>
+  <div class="container d-flex justify-content-center">
     <div class="row mt-5">
-      <div class="col-6">
-
-        <div>
-          <p><strong>User Name</strong>: <%= user.userName %>
-          </p>
-          <p><strong>Email</strong>: <%= user.email %>
-          </p>
-          <a href="/logout" class="col-3 btn btn-primary">Logout</a>
-        </div>
-
+      <div class="col-12">
         <div class="mt-5">
           <h2>Share your salary</h2>
 
@@ -39,17 +30,13 @@
             </fieldset>
 
             <fieldset>
-              <legend> What do you do?</legend>
+              <legend> How much do you earn?</legend>
+              <p> Our goal is to provide the most accurate information. When filling out below, omit outliers and try to
+                focus on average earnings.</p>
               <div class="mb-3">
                 <label for="title" class="form-label">Job Title</label>
                 <input type="text" class="form-control" id="title" name="title" placeholder="Bartender" required>
               </div>
-            </fieldset>
-
-            <fieldset>
-              <legend> How much do you earn?</legend>
-              <p> Our goal is to provide the most accurate information. When filling out below, omit outliers and try to
-                focus on average earnings.</p>
               <div class="mb-3">
                 <label for="payType" class="form-label">Pay Type</label>
                 <div>
@@ -71,7 +58,7 @@
 
               <div class="mb-3">
                 <label for="extraPay" class="form-label">Additional Pay Offered </label>
-                <span>(Bonus, Stipend, Admin Pay, etc.)</span>
+                <span>(Bonus, Stipend, Admin Pay, etc. <em>Do not</em> include tips)</span>
                 <input type="text" class="form-control" id="extraPay" name="extraPay" placeholder="0">
               </div>
 
@@ -163,35 +150,6 @@
         </div>
       </div>
 
-
-
-      <!--  Original Form
-          <form action="/post/createPost" enctype="multipart/form-data" method="POST">
-
-
-            <div class="mb-3">
-              <label for="title" class="form-label">Title</label>
-              <input type="text" class="form-control" id="title" name="title">
-            </div>
-
-
-
-            <div class="mb-3">
-              <label for="caption" class="form-label">Caption</label>
-              <textarea class="form-control" id="caption" name="caption"></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="imgUpload" class="form-label">Image</label>
-              <input type="file" class="form-control" id="imageUpload" name="file">
-            </div>
-            <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-          </form>
-        -->
-
-
-
-
-
       <div class="col-6">
         <ul class="row list-unstyled">
           <% for(var i=0; i<posts.length; i++) {%>
@@ -202,11 +160,10 @@
             </li>
             <% } %>
         </ul>
-        <div class="row justify-content-center mt-5">
-          <a class="btn btn-primary" href="/feed">Return to Feed</a>
-        </div>
+
+
       </div>
     </div>
   </div>
   </div>
-  <%- include('partials/footer') -%>
+  <%- include('partials/loggedInFooter') -%>
