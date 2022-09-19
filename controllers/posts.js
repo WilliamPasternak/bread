@@ -56,8 +56,8 @@ module.exports = {
         age: req.body.age,
         sameShifts: req.body.sameShifts,
         comments: req.body.comments,
-        // approved: false
-        // verified: false
+        approved: false,
+        verified: false,
       });
       console.log("Wages has been submitted!");
       res.redirect("/profile");

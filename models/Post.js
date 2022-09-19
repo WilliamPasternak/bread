@@ -76,16 +76,31 @@ const PostSchema = new mongoose.Schema({
   },
   sameShifts: {
     type: String,
-    required: true,
+    required: false,
   },
   comments: {
     type: String,
-    required: true,
+    required: false,
   },
   createdAt: {
     type: Date,
     default: Date.now,
   },
+  // Trying to add approved and verified to db
+  approved: {
+    type: Boolean,
+    default: false,
+  },
+  verified: {
+    type: Boolean,
+    default: false,
+  },
+
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
+
 });
 
 module.exports = mongoose.model("Post", PostSchema);
