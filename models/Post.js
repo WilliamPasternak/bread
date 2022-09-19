@@ -20,7 +20,7 @@ const PostSchema = new mongoose.Schema({
   }, */
   name: {
     type: String,
-    required: false,
+    required: true,
   },
   title: {
     type: String,

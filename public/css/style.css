@@ -739,122 +739,6 @@ section {
 }
 
 /*--------------------------------------------------------------
-  # Pricing
-  --------------------------------------------------------------*/
-.pricing .row {
-    padding-top: 40px;
-}
-
-.pricing .box {
-    padding: 40px;
-    margin-bottom: 30px;
-    box-shadow: 0px 0px 30px rgba(73, 78, 92, 0.15);
-    background: #fff;
-    text-align: center;
-}
-
-.pricing h3 {
-    font-weight: 300;
-    margin-bottom: 15px;
-    font-size: 28px;
-}
-
-.pricing h4 {
-    font-size: 46px;
-    color: #5777ba;
-    font-weight: 400;
-    font-family: "Open Sans", sans-serif;
-    margin-bottom: 25px;
-}
-
-.pricing h4 span {
-    color: #bababa;
-    font-size: 18px;
-    display: block;
-}
-
-.pricing ul {
-    padding: 0;
-    list-style: none;
-    color: #999;
-    text-align: left;
-    line-height: 20px;
-}
-
-.pricing ul li {
-    padding-bottom: 12px;
-}
-
-.pricing ul i {
-    color: #5777ba;
-    font-size: 18px;
-    padding-right: 4px;
-}
-
-.pricing ul .na {
-    color: #ccc;
-}
-
-.pricing ul .na i {
-    color: #ccc;
-}
-
-.pricing ul .na span {
-    text-decoration: line-through;
-}
-
-.pricing .get-started-btn {
-    background: #47536e;
-    display: inline-block;
-    padding: 8px 30px;
-    border-radius: 20px;
-    color: #fff;
-    transition: none;
-    font-size: 14px;
-    font-weight: 400;
-    font-family: "Raleway", sans-serif;
-    transition: 0.3s;
-}
-
-.pricing .get-started-btn:hover {
-    background: #5777ba;
-}
-
-.pricing .featured {
-    z-index: 10;
-    margin: -30px -5px 0 -5px;
-}
-
-.pricing .featured .get-started-btn {
-    background: #5777ba;
-}
-
-.pricing .featured .get-started-btn:hover {
-    background: #748ec6;
-}
-
-@media (max-width: 992px) {
-    .pricing .box {
-        max-width: 60%;
-        margin: 0 auto 30px auto;
-    }
-}
-
-@media (max-width: 767px) {
-    .pricing .box {
-        max-width: 80%;
-        margin: 0 auto 30px auto;
-    }
-}
-
-@media (max-width: 420px) {
-    .pricing .box {
-        max-width: 100%;
-        margin: 0 auto 30px auto;
-    }
-}
-
-/*--------------------------------------------------------------
   # Frequently Asked Questions
   --------------------------------------------------------------*/
 .faq .accordion-list {
@@ -1263,4 +1147,12 @@ section {
         text-align: center;
         padding: 5px 0;
     }
+}
+
+/*--------------------------------------------------------------
+  # Salaries Table
+  --------------------------------------------------------------*/
+.subtext {
+    display: block;
+    font-size: .75rem;
 }

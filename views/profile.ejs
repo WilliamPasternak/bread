@@ -23,9 +23,8 @@
               </div>
 
               <div class="mb-3">
-                <label for="name" class="form-label">Name of establishment (OPTIONAL)</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="I'd prefer not to say"
-                  required>
+                <label for="name" class="form-label">Name of establishment</label>
+                <input type="text" class="form-control" id="name" name="name" value="-" required>
               </div>
             </fieldset>
 
@@ -53,7 +52,7 @@
                 <label for="base" class="form-label">Base Pay</label>
                 <span> (<em>After</em> employer tip credit) $15/hr with a $5 tip credit should be
                   $10/hr</span>
-                <input type="text" class="form-control" id="base" name="base" placeholder="$10" required>
+                <input type="text" class="form-control" id="base" name="base" placeholder="10" required>
               </div>
 
               <div class="mb-3">
@@ -68,26 +67,27 @@
                   placeholder="Health Benefits, Dental, 401k, Bonus">
               </div>
 
-              <div class="mb-3">
-                <label for="shiftLength" class="form-label">Average Shift Length (Hours)</label>
-                <input type="text" class="form-control" id="shiftLength" name="shiftLength" placeholder="8" required>
-              </div>
 
               <div class="mb-3">
                 <label for="numShifts" class="form-label">Shifts Worked Per Week</label>
                 <input type="text" class="form-control" id="numShifts" name="numShifts" placeholder="4" required>
               </div>
 
+              <div class="mb-3">
+                <label for="shiftLength" class="form-label">Average Shift Length (Hours)</label>
+                <input type="text" class="form-control" id="shiftLength" name="shiftLength" placeholder="8-10" required>
+              </div>
+
               <p> Average Tips Earned (If tipped employee)</p>
 
               <div class="mb-3">
                 <label for="slowTips" class="form-label"> Slow Shift</label>
-                <input type="text" class="form-control" id="slowTips" name="slowTips" placeholder="100">
+                <input type="text" class="form-control" id="slowTips" name="slowTips" placeholder="0">
               </div>
 
               <div class="mb-3">
                 <label for="busyTips" class="form-label"> Busy Shift</label>
-                <input type="text" class="form-control" id="busyTips" name="busyTips" placeholder="200">
+                <input type="text" class="form-control" id="busyTips" name="busyTips" placeholder="0">
               </div>
 
               <div class="mb-3">
