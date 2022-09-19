@@ -10,7 +10,7 @@ module.exports = function (passport) {
           return done(err);
         }
         if (!user) {
-          return done(null, false, { msg: `Email ${email} not found.` });
+          return done(null, false, { msg: `${email} has not created an account. Please check spelling or signup below` });
         }
         if (!user.password) {
           return done(null, false, {

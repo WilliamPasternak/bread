@@ -28,39 +28,45 @@ module.exports = {
       console.log(err);
     }
   },
+ 
   createPost: async (req, res) => {
     try {
-      // Upload image to cloudinary
-      const result = await cloudinary.uploader.upload(req.file.path);
-
+      // Upload image to cloudinary (MAKE THIS OPTIONAL)     
+        // const result = await cloudinary.uploader.upload(req.file.path);
+  
       await Post.create({
-        title: req.body.title,
-        image: result.secure_url,
-        cloudinaryId: result.public_id,
-        caption: req.body.caption,
-        likes: 0,
+        //image: result.secure_url, (MAKE THIS OPTIONAL)
+        //cloudinaryId: result.public_id,
         user: req.user.id,
+        location: req.body.location,
+        type: req.body.type,
+        name: req.body.name,
+        title: req.body.title,
+        payType: req.body.payType,
+        base: req.body.base,
+        extraPay: req.body.extraPay,
+        benefits: req.body.benefits,
+        shiftLength: req.body.shiftLength,
+        numShifts: req.body.numShifts,
+        slowTips: req.body.slowTips,
+        busyTips: req.body.busyTips,
+        cashTips: req.body.cashTips,
+        gender: req.body.gender,
+        ethnicity: req.body.ethnicity,
+        age: req.body.age,
+        sameShifts: req.body.sameShifts,
+        comments: req.body.comments,
+        // approved: false
+        // verified: false
       });
-      console.log("Post has been added!");
+      console.log("Wages has been submitted!");
       res.redirect("/profile");
     } catch (err) {
       console.log(err);
     }
-  },
-  likePost: async (req, res) => {
-    try {
-      await Post.findOneAndUpdate(
-        { _id: req.params.id },
-        {
-          $inc: { likes: 1 },
-        }
-      );
-      console.log("Likes +1");
-      res.redirect(`/post/${req.params.id}`);
-    } catch (err) {
-      console.log(err);
-    }
-  },
+  }, 
+
+  
   deletePost: async (req, res) => {
     try {
       // Find post by id
