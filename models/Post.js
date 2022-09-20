@@ -2,9 +2,6 @@ const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema({
 
-  // file was a name, but previously we had cloudinary so unclear if it needs to be incldued.
-  // go through below and remove / set requireds
-
   location: {
     type: String,
     required: true,
@@ -86,7 +83,6 @@ const PostSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  // Trying to add approved and verified to db
   approved: {
     type: Boolean,
     default: false,
@@ -95,7 +91,10 @@ const PostSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-
+  likes: {
+    type: Number,
+    required: true,
+  },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
