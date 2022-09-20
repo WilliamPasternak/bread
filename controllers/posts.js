@@ -29,6 +29,7 @@ module.exports = {
     }
   },
  
+
   likePost: async (req, res) => {
     try {
       await Post.findOneAndUpdate(
