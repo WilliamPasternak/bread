@@ -1,79 +1,92 @@
 <%- include('partials/loggedIn') -%>
 
-  <div class="row mt-5">
-    <div class="row justify-content-center mt-5">
-      <div class="container">
-        <h1> Most Recent Salaries</h1>
-        <table class='table table-striped'>
-          <thead>
-            <tr>
-              <th scope="col">Company</th>
-              <th scope="col">Business Type</th>
-              <th scope="col">Job Title</th>
-              <th scope="col">Base Pay</th>
-              <th scope="col">Additional Pay</th>
-              <th scope="col"># Shifts Per Week</th>
-              <th scope="col">Avg. Shift Length</th>
-              <th scope="col">Tip Range</th>
-              <th scope="col">More Info</th>
+  <div class="row justify-content-center mt-5">
+    <div class="container w-75">
+      <h1> Most Recent Salaries</h1>
+      <table class='table table-striped '>
+        <thead>
+          <tr>
+            <th scope="col">Business Type</th>
+            <th scope="col">Company</th>
+            <th scope="col">Job Title</th>
+            <th scope="col">Shifts Worked</th>
+            <th scope="col">Shift Length</th>
+            <th scope="col">Base Pay</th>
+            <th scope="col">Additional Pay</th>
+            <th scope="col">Tip Range</th>
+
+            <th scope="col">More Info</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for(let i=0; i<posts.length; i++) {%>
+
+            <td>
+              <%= posts[i].type%>
+            </td>
+
+            <td>
+              <%= posts[i].name%>
+                <span class='subtext'>
+                  <%= posts[i].location%>
+                    <span>
+            </td>
+
+
+            <td>
+              <%= posts[i].title%>
+            </td>
+
+            <td>
+              <%= posts[i].numShifts%>
+            </td>
+            <td>
+              <%= posts[i].shiftLength%>
+            </td>
+
+
+
+            <td>
+              <%= `$ ${posts[i].base}`%>
+                <span class='subtext'>
+                  <%= posts[i].payType%>
+                </span>
+            </td>
+
+            <td>
+              <%= `$ ${posts[i].extraPay}`%>
+            </td>
+
+            <td>
+              <% if(!posts[i].slowTips || !posts[i].busyTips || posts[i].slowTips==0 || posts[i].busyTips==0 ){ %>
+                N/A
+                <% } else{ %>
+                  <%= `$ ${posts[i].slowTips}`%>
+                    -
+                    <%= `$ ${posts[i].busyTips}`%>
+
+                      <% } %>
+            </td>
+
+
+
+
+
+
+
+            <td>
+              <a href="/post/<%= posts[i]._id%>"> Click Here</a>
+            </td>
             </tr>
-          </thead>
 
-          <tbody>
-            <% for(let i=0; i<posts.length; i++) {%>
-              <td>
-                <%= posts[i].name%>
-                  <span class='subtext'>
-                    <%= posts[i].location%>
-                      <span>
-              </td>
-              <td>
-                <%= posts[i].type%>
-              </td>
-
-              <td>
-                <%= posts[i].title%>
-              </td>
-              <td>
-                <%= `$ ${posts[i].base}`%>
-                  <span class='subtext'>
-                    <%= posts[i].payType%>
-                  </span>
-              </td>
-
-              <td>
-                <%= `$ ${posts[i].extraPay}`%>
-              </td>
-              <td>
-                <%= posts[i].numShifts%>
-              </td>
-              <td>
-                <%= posts[i].shiftLength%>
-              </td>
-
-
-              <td>
-                <% if(!posts[i].slowTips || !posts[i].busyTips || posts[i].slowTips==0 || posts[i].busyTips==0 ){ %>
-                  N/A
-                  <% } else{ %>
-                    <%= `$ ${posts[i].slowTips}`%>
-                      -
-                      <%= `$ ${posts[i].busyTips}`%>
-
-                        <% } %>
-              </td>
-              <td>
-                Test
-              </td>
-              </tr>
-
-              <%}%>
-          </tbody>
-        </table>
-
-      </div>
+            <%}%>
+        </tbody>
+      </table>
 
     </div>
+
+  </div>
   </div>
 
   <%- include('partials/loggedInFooter') -%>
