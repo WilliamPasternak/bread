@@ -43,6 +43,7 @@
             </td>
             <td>
               <%= posts[i].shiftLength%>
+                <span class='subtext'> Hours </span>
             </td>
 
 
@@ -55,12 +56,16 @@
             </td>
 
             <td>
-              <%= `$ ${posts[i].extraPay}`%>
+              <% if(!posts[i].extraPay || posts[i].extraPay==0){ %>
+                None
+                <% } else{ %>
+                  <%= `$ ${posts[i].extraPay}`%>
+                    <% } %>
             </td>
 
             <td>
               <% if(!posts[i].slowTips || !posts[i].busyTips || posts[i].slowTips==0 || posts[i].busyTips==0 ){ %>
-                N/A
+                Non-Tipped
                 <% } else{ %>
                   <%= `$ ${posts[i].slowTips}`%>
                     -
@@ -68,12 +73,6 @@
 
                       <% } %>
             </td>
-
-
-
-
-
-
 
             <td>
               <a href="/post/<%= posts[i]._id%>"> Click Here</a>

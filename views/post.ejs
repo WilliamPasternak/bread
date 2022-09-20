@@ -4,21 +4,132 @@
     <div class="row justify-content-center mt-5">
       <div class="col-6">
         <h2>
-          <%= post.title %>
+          <%= `${post.title} at ${post.name} (${post.location})` %>
         </h2>
-        <img class="img-fluid" src="<%= post.image%>" />
-        <div class="row justify-content-between">
-          <form class="col-1" action="/post/likePost/<%= post.id %>?_method=PUT" method="POST">
-            <button class="btn btn-primary fa fa-heart" type="submit"></button>
-          </form>
-          <h3 class="col-3">Likes: <%= post.likes %>
-          </h3>
-          <%if(post.user==user.id){ %>
-            <form action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST" class="col-3">
-              <button class="btn btn-primary fa fa-trash" type="submit"></button>
-            </form>
-            <%}%>
-        </div>
+
+
+        <h3> Company Information</h3>
+        <p>
+          Business Type:
+          <%= post.type %>
+        </p>
+
+        <h3> Compensation Breakdown:</h3>
+
+        <p>
+          Base Pay: <%= `$${post.base}` %>
+            <%= `( ${post.payType} )` %>
+        </p>
+
+
+
+        <% if(!post.slowTips || !post.busyTips || post.slowTips==0 || post.busyTips==0 ){ %>
+          <p>
+            <% } else{ %>
+              Tips per shift:
+              <%= `$ ${post.slowTips}`%>
+                -
+                <%= `$ ${post.busyTips}`%>
+          </p>
+          <% } %>
+
+
+
+            <!-- Hidden if no input selected-->
+            <% if(post.cashTips==='Cash' ){ %>
+              <p>
+                <%= `Cash tips are kept` %>
+                  <% } else if(post.cashTips=='Paycheck' ){ %>
+                    <%= `Cash tips are placed in paycheck and taxed` %>
+              </p>
+              <% } %>
+
+
+
+
+                <!-- Hidden if extra pay is empty-->
+                <% if(post.extraPay){ %>
+                  <p>
+                    <%= `Additional Pay: $ ${post.extraPay}`%>
+                  </p>
+                  <% } %>
+
+
+
+
+                    <% if(post.gender || post.ethnicity || post.age){ %>
+                      <h3> Demographic Information:</h3>
+                      <% } %>
+
+
+                        <p>
+                          <% if(post.gender){ %>
+                            Sex:
+                            <%= post.gender %>
+                              <% } %>
+                        </p>
+
+                        <p>
+                          <% if(post.ethnicity){ %>
+                            Ethnicity:
+                            <%= post.ethnicity %>
+                              <% } %>
+                        </p>
+
+
+                        <p>
+                          <% if(post.age){ %>
+                            Age:
+                            <%= post.age %>
+                              <% } %>
+                        </p>
+
+
+
+
+                        <h3> Shift Information:</h3>
+                        <p>
+                          Average Shift Length:
+                          <%= post.shiftLength %>
+                        </p>
+
+                        <p>
+                          Number of Shifts per week:
+                          <%= post.numShifts %>
+                        </p>
+
+                        <p>
+                          <% if(post.sameShifts){ %>
+                            Same Schedule each week :
+                            <%= post.sameShifts %>
+                              <% } %>
+                        </p>
+
+
+                        <% if(post.comments){ %>
+                          <h3>
+                            Comments:
+                            <%= post.comments %>
+                          </h3>
+                          <% } %>
+
+                            <!-- 
+                  <%= post.approved %>
+                  <%= post.verified %>
+                 -->
+
+                            <%if(post.user==user.id){ %>
+                              <form action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST" class="col-3">
+                                <button class="download-btn bi bi-trash" type="submit"> Remove</button>
+                              </form>
+                              <%}%>
+
+                                <!-- Flag Post -->
+                                <form class="col-1" action="/post/likePost/<%= post.id %>?_method=PUT" method="POST">
+                                  <button class="btn btn-primary fa fa-heart" type="submit"></button>
+                                </form>
+                                <h3 class="col-3">Likes: <%= post.likes %>
+
       </div>
 
 
