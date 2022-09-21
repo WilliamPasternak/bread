@@ -2,11 +2,15 @@
 
   <div class="container">
     <div class="row justify-content-center mt-5">
+
       <div class="col-6">
         <h2>
           <%= `${post.title} at ${post.name} (${post.location})` %>
         </h2>
 
+        <span class=subtext>
+          <%= `Shared: ${post.createdAt.toISOString().slice(5,10)}-${post.createdAt.toISOString().slice(0,4)}` %>
+        </span>
 
         <h3> Company Information</h3>
         <p>
