@@ -7,13 +7,14 @@ body {
 }
 
 a {
-    color: #5777ba;
+    color: #6fa684;
     text-decoration: none;
 }
 
 a:hover {
     color: #7b94c9;
     text-decoration: none;
+    font-weight: 700;
 }
 
 h1,
@@ -96,13 +97,6 @@ h6 {
 .logo:hover {
     transform: scale(1.2);
 }
-
-
-
-
-
-
-
 
 /*--------------------------------------------------------------
   # Navigation Menu
@@ -374,14 +368,17 @@ h6 {
     font-size: 48px;
     font-weight: 500;
     line-height: 56px;
-    color: #5777ba;
     color: #2c3c42;
     font-family: "Poppins", sans-serif;
 }
 
+h1,
+h2 {
+    color: #2c3c42;
+}
+
 #hero h2 {
-    color: #515f7d;
-    color: #6fa684;
+    color: #68a07e;
     margin-bottom: 50px;
     font-size: 20px;
 }
@@ -824,6 +821,11 @@ section {
 /*--------------------------------------------------------------
   # Contact
   --------------------------------------------------------------*/
+.contact {
+    margin: 0 auto;
+}
+
+
 .contact .info {
     padding: 20px 40px;
     background: #f1f3f6;
@@ -853,6 +855,7 @@ section {
 
 .contact {
     width: 100%;
+    width: 50%;
 }
 
 .contact label {
@@ -883,16 +886,16 @@ section {
 
 .contact button[type=submit] {
     background: #fff;
-    border: 2px solid #5777ba;
+    border: 2px solid #000;
     padding: 10px 24px;
-    color: #5777ba;
+    color: #000;
     transition: 0.4s;
     border-radius: 50px;
     margin-top: 5px;
 }
 
 .contact button[type=submit]:hover {
-    background: #5777ba;
+    background: #000;
     color: #fff;
 }
 
@@ -976,19 +979,20 @@ section {
     top: 0;
     right: 0;
     bottom: 0;
-    border: 0;
+    border: 1px solid black;
     background: none;
     font-size: 16px;
     padding: 0 20px;
-    background: #5777ba;
-    color: #fff;
+    background: #fff;
+    color: #000;
     transition: 0.3s;
     border-radius: 50px;
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 #footer .footer-newsletter form input[type=submit]:hover {
-    background: #415f9d;
+    background: #000;
+    color: #fff;
 }
 
 #footer .footer-top {
