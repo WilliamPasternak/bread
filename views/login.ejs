@@ -1,6 +1,6 @@
 <%- include('partials/_header') -%>
 
-  <main class="container">
+  <main class="container ">
     <div class="row justify-content-center">
       <section class="col-6 mt-5">
         <% if (locals.messages.errors) { %>
@@ -18,26 +18,31 @@
                     <% }) %>
                       <% } %>
 
-                        <h1> Log in</h1>
-                        <form action="/login" method="POST">
+                        <!-- Login Form -->
+                        <div class='text-center'>
+                          <img src="/imgs/logo3.png" class='form-logo' alt="">
+                        </div>
 
-                          <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="email" name="email"
-                              autofocus />
-                          </div>
+                        <div class='text-center'>
+                          <form action="/login" method="POST" class="text-center">
 
-                          <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" name="password" />
-                          </div>
-                          <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                        <p class="text-center">Not a member? <a data-toggle="tab" href="/signup">Sign Up</a></p>
+                            <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label">Email address</label>
+                              <input type="email" class="form-control" id="email" aria-describedby="email" name="email"
+                                autofocus />
+                            </div>
+
+                            <div class="mb-3">
+                              <label for="exampleInputPassword1" class="form-label">Password</label>
+                              <input type="password" class="form-control" id="exampleInputPassword1" name="password" />
+                            </div>
+
+                            <button type="submit" class="btn btn-form">Log In</button>
+                          </form>
+                          <p class="text-center">Not a member? <a data-toggle="tab" href="/signup">Sign Up</a></p>
+                        </div>
+                        <!-- Login Form -->
       </section>
 
     </div>
   </main>
-
-
-  <%- include('partials/_footer') -%>

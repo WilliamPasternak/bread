@@ -17,30 +17,38 @@
                     <% }) %>
                       <% } %>
 
-                        <h1> Sign Up </h1>
-                        <form action="/signup" method="POST">
 
-                          <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="email" name="email"
-                              autofocus>
 
-                          </div>
 
-                          <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
-                          </div>
-                          <div class="mb-3">
-                            <label for="confirmPassword" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
-                              required>
-                          </div>
-                          <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                        <p class="text-center">Already a member? <a href="/login">Log In</a></p>
+                        <!-- Signup Form -->
+                        <div class='text-center'>
+                          <img src="/imgs/logo3.png" class='form-logo' alt="">
+                          <form action="/signup" method="POST" class="text-center">
+
+                            <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label">Email
+                                address</label>
+                              <input type="email" class="form-control" placeholder="example@email.com" id="email"
+                                aria-describedby="email" name="email" autofocus>
+                            </div>
+
+                            <div class="mb-3">
+                              <label for="password" class="form-label">Password</label>
+                              <input type="password" class="form-control" id="password" placeholder="Min. 8 characters"
+                                name="password" required>
+                            </div>
+
+                            <div class="mb-3">
+                              <label for="confirmPassword" class="form-label">Confirm Password</label>
+                              <input type="password" class="form-control" id="confirmPassword"
+                                placeholder="Confirm Password" name="confirmPassword" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-form">Sign Up</button>
+                          </form>
+                          <p class="text-center">Already a member? <a href="/login">Log In</a></p>
+                        </div>
+                        <!-- End Signup Form-->
       </section>
     </div>
   </main>
-
-  <%- include('partials/_footer') -%>
