@@ -91,7 +91,7 @@ const PostSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  likes: {
+  likes: { // This was likes
     type: Number,
     required: true,
   },

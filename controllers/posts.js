@@ -6,7 +6,8 @@ module.exports = {
   getProfile: async (req, res) => {
     try {
       const posts = await Post.find({ user: req.user.id });
-      res.render("profile.ejs", { posts: posts, user: req.user, title: 'bread | Share Your Salary' });
+      res.render("share.ejs", { posts: posts, user: req.user, title: 'bread | Share Your Salary' });
+      //res.render("profile.ejs", { posts: posts, user: req.user, title: 'bread | Share Your Salary' });
     } catch (err) {
       console.log(err);
     }
@@ -14,7 +15,8 @@ module.exports = {
   getFeed: async (req, res) => {
     try {
       const posts = await Post.find().sort({ createdAt: "desc" }).lean();
-      res.render("feed.ejs", { posts: posts, title: 'bread | Recent Salaries' });
+      const post = await Post.findById(req.params.id);
+      res.render("feed.ejs", { posts: posts, post: post,title: 'bread | Recent Salaries' });
     } catch (err) {
       console.log(err);
     }
@@ -38,7 +40,7 @@ module.exports = {
           $inc: { likes: 1 },
         }
       );
-      console.log("Likes +1");
+      console.log("Flaged");
       res.redirect(`/post/${req.params.id}`);
     } catch (err) {
       console.log(err);
@@ -79,7 +81,7 @@ module.exports = {
         verified: false,
       });
       console.log("Wages has been submitted!");
-      res.redirect("/profile");
+      res.redirect("/feed");
     } catch (err) {
       console.log(err);
     }

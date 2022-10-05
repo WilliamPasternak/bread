@@ -1,4 +1,4 @@
-<%- include('partials/header') -%>
+<%- include('partials/_header') -%>
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
@@ -30,7 +30,7 @@
         <!-- ======= App Features Section ======= -->
         <span id="tscroll"></span>
         <section id="features" class="features">
-            <div class="container">
+            <div class="container pt-5">
 
                 <div class="row no-gutters">
                     <div class="col-xl-7 d-flex align-items-stretch order-2 order-lg-1">
@@ -41,7 +41,8 @@
                                     <i class="bi bi-clock"></i>
                                     <h4>Save time
                                     </h4>
-                                    <p>Don't waste your time applying, interviewing, or trailing before you know what
+                                    <p>Don't waste your time applying, interviewing, or trailing before you know
+                                        what
                                         you
                                         will earn.</p>
                                 </div>
@@ -59,7 +60,8 @@
                                     <i class="bx bx-bar-chart-alt-2
                   "></i>
                                     <h4>Compare Job Offers</h4>
-                                    <p> Knowing what you will earn on the job allows your to financially plan for your
+                                    <p> Knowing what you will earn on the job allows your to financially plan for
+                                        your
                                         life
                                     </p>
                                 </div>
@@ -101,6 +103,7 @@
 
 
         <!-- ======= Details Section ======= -->
+
         <section id="details" class="details">
             <div class="container">
 
@@ -317,9 +320,11 @@
         <!-- End Gallery Section -->
 
 
+
+
         <!-- ======= Frequently Asked Questions Section ======= -->
         <section id="faq" class="faq section-bg">
-            <div class="container" data-aos="fade-up">
+            <div class="container pt-5" data-aos="fade-up">
 
                 <div class="section-title">
                     <h2>Frequently Asked Questions</h2>
@@ -396,7 +401,8 @@
                                 <p>
                                     First, we hope noone is doing this. This is a resource to help everyone. If we have
                                     reason to believe
-                                    a listing is fake, we will reach out to the user for more information or remove the
+                                    a listing is fake, flag it and we will reach out to the user for more information or
+                                    remove the
                                     listing.
                                     Additionally if you suspect a listing to be inaccurate let us know.
                                 </p>
@@ -435,7 +441,8 @@
                                     class="bx bx-chevron-up icon-close"></i></a>
                             <div id="accordion-list-7" class="collapse" data-bs-parent=".accordion-list">
                                 <p>
-                                    Submit your salary along with supplemental information such as W2s, Paystubs, or Tip
+                                    Soon you will be able to submit your salary along with supplemental information such
+                                    as W2s, Paystubs, or Tip
                                     sheets.
                                 </p>
                             </div>
@@ -449,66 +456,52 @@
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact d-flex justify-content-center">
 
-            <div class="container" data-aos="fade-up">
+            <div class="container pt-4" data-aos="fade-up">
 
                 <div class="section-title">
                     <h2>Contact</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
-                        sint
-                        consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
-                        Quia
-                        fugiat sit
-                        in iste officiis commodi quidem hic quas.</p>
+                    <p> Want to know more? Have ideas on how this can be improved? Just want to say hello?</p>
                 </div>
 
-                <div class="row">
 
+                <form action="https://formsubmit.co/2132c172bc729286ba7d2c33efc1eb64" method="post"
+                    class="contact-form">
+                    <!-- Submission Email Subject-->
+                    <input type="hidden" name="_subject" value="Bread: Contact Message">
 
+                    <!-- Hide Captcha-->
+                    <input type="hidden" name="_captcha" value="false">
 
-                    <div class="col-lg-6">
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form"
-                            data-aos="fade-up">
-                            <div class="form-group">
-                                <input placeholder="Your Name" type="text" name="name" class="form-control" id="name"
-                                    required>
-                            </div>
-                            <div class="form-group mt-3">
-                                <input placeholder="Your Email" type="email" class="form-control" name="email"
-                                    id="email" required>
-                            </div>
-                            <div class="form-group mt-3">
-                                <input placeholder="Subject" type="text" class="form-control" name="subject"
-                                    id="subject" required>
-                            </div>
-                            <div class="form-group mt-3">
-                                <textarea placeholder="Message" class="form-control" name="message" rows="5"
-                                    required></textarea>
-                            </div>
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
-                            <div class="text-center"><button type="submit">Send Message</button></div>
-                        </form>
+                    <!-- Honeypot -->
+                    <input type="text" name="_honey" style="display:none">
+
+                    <!-- On Submission-->
+                    <input type="hidden" name="_next" value="https://www.williampasternak.com/">
+
+                    <div class="form-group">
+                        <input placeholder="Your Name" type="text" name="name" class="form-control" id="name" required>
                     </div>
 
-                </div>
+                    <div class="form-group mt-3">
+                        <input placeholder="Your Email" type="email" class="form-control" name="email" id="email"
+                            required>
+                    </div>
 
+                    <div class="form-group mt-3">
+                        <input placeholder="Subject" type="text" class="form-control" name="subject" id="subject"
+                            required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <textarea placeholder="Message" class="form-control" name="message" rows="5"
+                            required></textarea>
+                    </div>
+
+                    <div class="text-center"><button type="submit">Send Message</button></div>
+                </form>
             </div>
         </section>
         <!-- End Contact Section -->
 
     </main>
     <!-- End #main -->
-    <%- include('partials/footer') -%>
-
-
-        <!-- Leon Code Begins 
-<main class="container">
-    <div class="row justify-content-around mt-5">
-        <a href="/login" class="col-3 btn btn-primary"> Login</a>
-        <a href="/signup" class="col-3 btn btn-primary"> Signup</a>
-    </div>
-</main>
--->
+    <%- include('partials/_footer') -%>

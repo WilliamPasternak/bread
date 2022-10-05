@@ -9,6 +9,7 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 router.get("/:id", ensureAuth, postsController.getPost);
 router.post("/createPost", postsController.createPost);
 router.delete("/deletePost/:id", postsController.deletePost);
+//router.get("/editPost/:id", ensureAuth, postsController.editPost);
 router.put("/likePost/:id", postsController.likePost);
 
 // Old post route which uploaded a file.

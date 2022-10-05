@@ -850,79 +850,37 @@ section {
     font-size: 15px;
 }
 
-.contact .php-email-form {
+.contact {
     width: 100%;
 }
 
-.contact .php-email-form .error-message {
-    display: none;
-    color: #fff;
-    background: #ed3c0d;
-    text-align: left;
-    padding: 15px;
-    font-weight: 600;
-}
-
-.contact .php-email-form .error-message br+br {
-    margin-top: 25px;
-}
-
-.contact .php-email-form .sent-message {
-    display: none;
-    color: #fff;
-    background: #18d26e;
-    text-align: center;
-    padding: 15px;
-    font-weight: 600;
-}
-
-.contact .php-email-form .loading {
-    display: none;
-    background: #fff;
-    text-align: center;
-    padding: 15px;
-}
-
-.contact .php-email-form .loading:before {
-    content: "";
-    display: inline-block;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    margin: 0 10px -6px 0;
-    border: 3px solid #18d26e;
-    border-top-color: #eee;
-    -webkit-animation: animate-loading 1s linear infinite;
-    animation: animate-loading 1s linear infinite;
-}
-
-.contact .php-email-form label {
+.contact label {
     font-family: "Poppins", sans-serif;
     margin-bottom: 5px;
     color: #8a8c95;
 }
 
-.contact .php-email-form input,
-.contact .php-email-form textarea {
+.contact input,
+.contact textarea {
     border-radius: 0;
     box-shadow: none;
     font-size: 14px;
 }
 
-.contact .php-email-form input:focus,
-.contact .php-email-form textarea:focus {
+.contact input:focus,
+.contact textarea:focus {
     border-color: #5777ba;
 }
 
-.contact .php-email-form input {
+.contact input {
     padding: 10px 15px;
 }
 
-.contact .php-email-form textarea {
+.contact textarea {
     padding: 12px 15px;
 }
 
-.contact .php-email-form button[type=submit] {
+.contact button[type=submit] {
     background: #fff;
     border: 2px solid #5777ba;
     padding: 10px 24px;
@@ -932,19 +890,19 @@ section {
     margin-top: 5px;
 }
 
-.contact .php-email-form button[type=submit]:hover {
+.contact button[type=submit]:hover {
     background: #5777ba;
     color: #fff;
 }
 
 @media (max-width: 1024px) {
-    .contact .php-email-form {
+    .contact .contact-form {
         padding: 30px 15px 15px 15px;
     }
 }
 
 @media (max-width: 768px) {
-    .contact .php-email-form {
+    .contact .contact-form {
         padding: 15px 0 0 0;
     }
 }

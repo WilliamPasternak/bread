@@ -1,4 +1,4 @@
-<%- include('partials/loggedIn') -%>
+<%- include('partials/_loggedInHeader') -%>
 
   <div class="container">
     <div class="row justify-content-center mt-5">
@@ -8,133 +8,153 @@
           <%= `${post.title} at ${post.name} (${post.location})` %>
         </h2>
 
-        <span class=subtext>
-          <%= `Shared: ${post.createdAt.toISOString().slice(5,10)}-${post.createdAt.toISOString().slice(0,4)}` %>
-        </span>
 
-        <h3> Company Information</h3>
-        <p>
-          Business Type:
-          <%= post.type %>
-        </p>
+        <!-- Flag Post -->
+        <%if(post.user !=user.id){ %>
+          <form class="col-3" action="/post/likePost/<%= post.id %>?_method=PUT" method="POST">
+            <button class="btn-danger bi bi-flag" type="submit"> Flag </button>
+          </form>
+          <%}%>
 
-        <h3> Compensation Breakdown:</h3>
+            <!-- Delete Post-->
+            <%if(post.user==user.id){ %>
+              <form action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST">
+                <button class="btn-danger bi bi-trash" type="submit"> Remove</button>
+              </form>
+              <%}%>
 
-        <p>
-          Base Pay: <%= `$${post.base}` %>
-            <%= `( ${post.payType} )` %>
-        </p>
-
-
-
-        <% if(!post.slowTips || !post.busyTips || post.slowTips==0 || post.busyTips==0 ){ %>
-          <p>
-            <% } else{ %>
-              Tips per shift:
-              <%= `$ ${post.slowTips}`%>
-                -
-                <%= `$ ${post.busyTips}`%>
-          </p>
-          <% } %>
-
+                <!-- Edit Post -->
+                <!-- 
+                  if Current user made post
+                  Go back to the share your salary page, BUT pre-fill in all of the values with that posts info
+                  Make the submission a put?
+                  
+                -->
+                <%if(post.user==user.id){ %>
+                  <form action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST">
+                    <button class="btn-warning bi bi-pencil" type="submit"> Edit </button>
+                  </form>
+                  <%}%>
 
 
-            <!-- Hidden if no input selected-->
-            <% if(post.cashTips==='Cash' ){ %>
-              <p>
-                <%= `Cash tips are kept` %>
-                  <% } else if(post.cashTips=='Paycheck' ){ %>
-                    <%= `Cash tips are placed in paycheck and taxed` %>
-              </p>
-              <% } %>
+                    <!-- Date -->
+                    <span class=subtext>
+                      <%= `Shared:
+                        ${post.createdAt.toISOString().slice(5,10)}-${post.createdAt.toISOString().slice(0,4)}` %>
+                    </span>
 
+                    <h3> Company Information</h3>
+                    <p>
+                      Business Type:
+                      <%= post.type %>
+                    </p>
 
+                    <h3> Compensation Breakdown:</h3>
 
-
-                <!-- Hidden if extra pay is empty-->
-                <% if(post.extraPay){ %>
-                  <p>
-                    <%= `Additional Pay: $ ${post.extraPay}`%>
-                  </p>
-                  <% } %>
+                    <p>
+                      Base Pay: <%= `$${post.base}` %>
+                        <%= `( ${post.payType} )` %>
+                    </p>
 
 
 
-
-                    <% if(post.gender || post.ethnicity || post.age){ %>
-                      <h3> Demographic Information:</h3>
+                    <% if(!post.slowTips || !post.busyTips || post.slowTips==0 || post.busyTips==0 ){ %>
+                      <p>
+                        <% } else{ %>
+                          Tips per shift:
+                          <%= `$ ${post.slowTips}`%>
+                            -
+                            <%= `$ ${post.busyTips}`%>
+                      </p>
                       <% } %>
 
-
-                        <p>
-                          <% if(post.gender){ %>
-                            Sex:
-                            <%= post.gender %>
-                              <% } %>
-                        </p>
-
-                        <p>
-                          <% if(post.ethnicity){ %>
-                            Ethnicity:
-                            <%= post.ethnicity %>
-                              <% } %>
-                        </p>
-
-
-                        <p>
-                          <% if(post.age){ %>
-                            Age:
-                            <%= post.age %>
-                              <% } %>
-                        </p>
-
-
-
-
-                        <h3> Shift Information:</h3>
-                        <p>
-                          Average Shift Length:
-                          <%= post.shiftLength %>
-                        </p>
-
-                        <p>
-                          Number of Shifts per week:
-                          <%= post.numShifts %>
-                        </p>
-
-                        <p>
-                          <% if(post.sameShifts){ %>
-                            Same Schedule each week :
-                            <%= post.sameShifts %>
-                              <% } %>
-                        </p>
-
-
-                        <% if(post.comments){ %>
-                          <h3>
-                            Comments:
-                          </h3>
+                        <!-- Hidden if no input selected-->
+                        <% if(post.cashTips==='Cash' ){ %>
                           <p>
-                            <%= post.comments %>
+                            <%= `Cash tips are kept` %>
+                              <% } else if(post.cashTips=='Paycheck' ){ %>
+                                <%= `Cash tips are placed in paycheck and taxed` %>
                           </p>
                           <% } %>
 
-                            <!-- 
+                            <!-- Hidden if extra pay is empty-->
+                            <% if(post.extraPay){ %>
+                              <p>
+                                <%= `Additional Pay: $ ${post.extraPay}`%>
+                              </p>
+                              <% } %>
+
+                                <% if(post.gender || post.ethnicity || post.age){ %>
+                                  <h3> Demographic Information:</h3>
+                                  <% } %>
+
+                                    <p>
+                                      <% if(post.gender){ %>
+                                        Sex:
+                                        <%= post.gender %>
+                                          <% } %>
+                                    </p>
+
+                                    <p>
+                                      <% if(post.ethnicity){ %>
+                                        Ethnicity:
+                                        <%= post.ethnicity %>
+                                          <% } %>
+                                    </p>
+
+
+                                    <p>
+                                      <% if(post.age){ %>
+                                        Age:
+                                        <%= post.age %>
+                                          <% } %>
+                                    </p>
+
+
+
+
+                                    <h3> Shift Information:</h3>
+                                    <p>
+                                      Average Shift Length:
+                                      <%= post.shiftLength %>
+                                    </p>
+
+                                    <p>
+                                      Number of Shifts per week:
+                                      <%= post.numShifts %>
+                                    </p>
+
+                                    <p>
+                                      <% if(post.sameShifts){ %>
+                                        Same Schedule each week :
+                                        <%= post.sameShifts %>
+                                          <% } %>
+                                    </p>
+
+
+                                    <% if(post.comments){ %>
+                                      <h3>
+                                        Comments:
+                                      </h3>
+                                      <p>
+                                        <%= post.comments %>
+                                      </p>
+                                      <% } %>
+
+                                        <!-- 
                   <%= post.approved %>
                   <%= post.verified %>
                  -->
 
-                            <%if(post.user==user.id){ %>
-                              <form action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST" class="col-3">
-                                <button class="download-btn bi bi-trash" type="submit"> Remove</button>
-                              </form>
-                              <%}%>
 
-                                <!-- Flag Post -->
-                                <form class="col-1" action="/post/likePost/<%= post.id %>?_method=PUT" method="POST">
-                                  <button class="btn btn-primary fa fa-heart" type="submit"></button>
-                                </form>
-                                <h3 class="col-3">Likes: <%= post.likes %>
+
+
+
+
+
+
+
+
 
       </div>
 
@@ -145,4 +165,4 @@
     </div>
   </div>
 
-  <%- include('partials/loggedInFooter') -%>
+  <%- include('partials/_loggedInFooter') -%>
