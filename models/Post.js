@@ -91,10 +91,31 @@ const PostSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  likes: { // This was likes
+  likes: { 
     type: Number,
     required: true,
   },
+  familyMeal: { 
+    type: String,
+    required: false,
+  },
+  breaks: { 
+    type: String,
+    required: false,
+  },
+  overTime: { 
+    type: String,
+    required: false,
+  },
+  poolHouse: { 
+    type: String,
+    required: false,
+  },
+  fullTips: { 
+    type: String,
+    required: false,
+  },
+  
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",

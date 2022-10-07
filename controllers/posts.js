@@ -77,8 +77,13 @@ module.exports = {
         sameShifts: req.body.sameShifts,
         comments: req.body.comments,
         likes: 0,
-        approved: false,
-        verified: false,
+        approved: req.body.approved,
+        verified: req.body.verified,
+        familyMeal: req.body.familyMeal,
+        breaks:  req.body.breaks,
+        overTime: req.body.overTime,
+        poolHouse: req.body.poolHouse,
+        fullTips: req.body.fullTips,
       });
       console.log("Wages has been submitted!");
       res.redirect("/feed");

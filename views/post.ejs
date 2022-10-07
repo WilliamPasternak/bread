@@ -49,99 +49,135 @@
                   <%= post.type %>
                 </p>
 
-                <h3> Compensation Breakdown:</h3>
-
-                <p>
-                  Base Pay: <%= `$${post.base}` %>
-                    <%= `( ${post.payType} )` %>
-                </p>
-
-
-
-                <% if(!post.slowTips || !post.busyTips || post.slowTips==0 || post.busyTips==0 ){ %>
+                <% if(post.familyMeal){ %>
                   <p>
-                    <% } else{ %>
-                      Tips per shift:
-                      <%= `$ ${post.slowTips}`%>
-                        -
-                        <%= `$ ${post.busyTips}`%>
+                    Family Provided?
+                    <%= post.familyMeal %>
                   </p>
                   <% } %>
 
-                    <!-- Hidden if no input selected-->
-                    <% if(post.cashTips==='Cash' ){ %>
+                    <% if(post.overTime){ %>
                       <p>
-                        <%= `Cash tips are kept` %>
-                          <% } else if(post.cashTips=='Paycheck' ){ %>
-                            <%= `Cash tips are placed in paycheck and taxed` %>
+                        Allows overtime?
+                        <%= post.overTime%>
                       </p>
                       <% } %>
 
-                        <!-- Hidden if extra pay is empty-->
-                        <% if(post.extraPay){ %>
+
+
+
+                        <h3> Compensation Breakdown:</h3>
+
+                        <p>
+                          Base Pay: <%= `$${post.base}` %>
+                            <%= `( ${post.payType} )` %>
+                        </p>
+                        <% if(!post.slowTips || !post.busyTips || post.slowTips==0 || post.busyTips==0 ){ %>
                           <p>
-                            <%= `Additional Pay: $ ${post.extraPay}`%>
+                            <% } else{ %>
+                              Tips per shift:
+                              <%= `$ ${post.slowTips}`%>
+                                -
+                                <%= `$ ${post.busyTips}`%>
                           </p>
                           <% } %>
 
-                            <% if(post.gender || post.ethnicity || post.age){ %>
-                              <h3> Demographic Information:</h3>
+                            <% if(post.poolHouse){ %>
+                              <p>
+                                Pool House?
+                                <%= post.poolHouse %>
+                              </p>
                               <% } %>
 
-                                <p>
-                                  <% if(post.gender){ %>
-                                    Sex:
-                                    <%= post.gender %>
-                                      <% } %>
-                                </p>
-
-                                <p>
-                                  <% if(post.ethnicity){ %>
-                                    Ethnicity:
-                                    <%= post.ethnicity %>
-                                      <% } %>
-                                </p>
-
-
-                                <p>
-                                  <% if(post.age){ %>
-                                    Age:
-                                    <%= post.age %>
-                                      <% } %>
-                                </p>
-
-
-
-
-                                <h3> Shift Information:</h3>
-                                <p>
-                                  Average Shift Length:
-                                  <%= post.shiftLength %>
-                                </p>
-
-                                <p>
-                                  Number of Shifts per week:
-                                  <%= post.numShifts %>
-                                </p>
-
-                                <p>
-                                  <% if(post.sameShifts){ %>
-                                    Same Schedule each week :
-                                    <%= post.sameShifts %>
-                                      <% } %>
-                                </p>
-
-
-                                <% if(post.comments){ %>
-                                  <h3>
-                                    Comments:
-                                  </h3>
+                                <!-- Hidden if no input selected-->
+                                <% if(post.cashTips==='Cash' ){ %>
                                   <p>
-                                    <%= post.comments %>
+                                    <%= `Cash tips are kept` %>
+                                      <% } else if(post.cashTips=='Paycheck' ){ %>
+                                        <%= `Cash tips are placed in paycheck and taxed` %>
                                   </p>
                                   <% } %>
 
-                                    <!-- 
+                                    <!-- Hidden if extra pay is empty-->
+                                    <% if(post.extraPay){ %>
+                                      <p>
+                                        <%= `Additional Pay: $ ${post.extraPay}`%>
+                                      </p>
+                                      <% } %>
+
+
+                                        <p>
+                                          Do new hires receive full tips?
+                                          <%= post.fullTips %>
+                                        </p>
+
+
+
+                                        <% if(post.gender || post.ethnicity || post.age){ %>
+                                          <h3> Demographic Information:</h3>
+                                          <% } %>
+
+                                            <p>
+                                              <% if(post.gender){ %>
+                                                Sex:
+                                                <%= post.gender %>
+                                                  <% } %>
+                                            </p>
+
+                                            <p>
+                                              <% if(post.ethnicity){ %>
+                                                Ethnicity:
+                                                <%= post.ethnicity %>
+                                                  <% } %>
+                                            </p>
+
+
+                                            <p>
+                                              <% if(post.age){ %>
+                                                Age:
+                                                <%= post.age %>
+                                                  <% } %>
+                                            </p>
+
+
+
+
+                                            <h3> Shift Information:</h3>
+                                            <p>
+                                              Average Shift Length:
+                                              <%= post.shiftLength %>
+                                            </p>
+
+                                            <% if(post.breaks){ %>
+                                              <p>
+                                                Are you able to take breaks?
+                                                <%= post.breaks%>
+                                              </p>
+                                              <% } %>
+
+                                                <p>
+                                                  Number of Shifts per week:
+                                                  <%= post.numShifts %>
+                                                </p>
+
+                                                <p>
+                                                  <% if(post.sameShifts){ %>
+                                                    Same Schedule each week :
+                                                    <%= post.sameShifts %>
+                                                      <% } %>
+                                                </p>
+
+
+                                                <% if(post.comments){ %>
+                                                  <h3>
+                                                    Comments:
+                                                  </h3>
+                                                  <p>
+                                                    <%= post.comments %>
+                                                  </p>
+                                                  <% } %>
+
+                                                    <!-- 
                   <%= post.approved %>
                   <%= post.verified %>
                  -->
