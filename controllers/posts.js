@@ -91,10 +91,47 @@ module.exports = {
     }
   }, 
 
+  editPost: async (req, res) => {
+    try {
+      /*
+      const post = await Post.findById(req.params.id);
+      const posts = await Post.find().lean();
+      */
+      const posts = await Post.find().sort({ createdAt: "desc" }).lean();
+      const post = await Post.findById(req.params.id);
+
+      if(!post){
+        res.render('feed.ejs')
+      }
+
+      if(post.user != req.user.id){ 
+       // Working: res.render("index.ejs",{ title: 'bread | Pay Transparency for the Hospitality Industry', posts: posts, user: req.user}); 
+
+// This is from the get feed function
+      
+      res.render("feed.ejs", { posts: posts, post: post, user: req.user, title: 'bread | Recent Salaries' });
+
+
+
+
+      } else {
+        res.render("edit.ejs", { post: post, user: req.user, title: 'Edit your post' });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
+
+
+
+
+
 
   // Edit Post (In Progres)
   // Shows Edit Page
-  editPost: async (req, res) => {
+  //Working Edit Post Below
+  /* editPost: async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
       res.render("edit.ejs", { post: post, user: req.user, title: 'Edit your post' });
@@ -103,8 +140,8 @@ module.exports = {
       console.log(err);
     }
   },
-
-  ////////////////////////////
+*/
+////////////////////////////
 
   
   deletePost: async (req, res) => {
