@@ -3,96 +3,103 @@
   <div class="row justify-content-center mt-5">
     <div class="container w-75">
 
-
       <h1> Most Recent Salaries</h1>
+      <span> Your Submissions:</span>
+      <% for(let i=0; i<posts.length; i++) {%>
+        <% if(posts[i].approved && posts[i].user==user.id ){ %>
+          <a href="/post/<%= posts[i]._id%>">
+            <%= posts[i].name %>
+          </a>
+          <% } %>
+            <% } %>
 
-      <a href="/share" class="download-btn"><i class="bi bi-person-plus"></i> Add your
-        salary</a>
-
-
-      <table class='table table-striped '>
-        <thead>
-          <tr>
-            <th scope="col">Business Type</th>
-            <th scope="col">Company</th>
-            <th scope="col">Job Title</th>
-            <th scope="col">Shifts Worked</th>
-            <th scope="col">Shift Length</th>
-            <th scope="col">Base Pay</th>
-            <th scope="col">Additional Pay</th>
-            <th scope="col">Tip Range</th>
-            <th scope="col">More Info</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% for(let i=0; i<posts.length; i++) {%>
-
-            <!-- Only approved posts-->
-            <% if(posts[i].approved ){ %>
-              <td>
-                <%= posts[i].type%>
-              </td>
-
-              <td>
-                <%= posts[i].name%>
-                  <span class='subtext'>
-                    <%= posts[i].location%>
-                      <span>
-              </td>
+              <a href="/share" class="download-btn"><i class="bi bi-person-plus"></i> Add your
+                salary</a>
 
 
-              <td>
-                <%= posts[i].title%>
-              </td>
+              <table class='table table-striped '>
+                <thead>
+                  <tr>
+                    <th scope="col">Company</th>
+                    <th scope="col">Business Type</th>
+                    <th scope="col">Job Title</th>
+                    <th scope="col">Shifts Worked</th>
+                    <th scope="col">Shift Length</th>
+                    <th scope="col">Base Pay</th>
+                    <th scope="col">Tip Range</th>
+                    <th scope="col">Additional Pay</th>
+                    <th scope="col">Additional </th>
+                  </tr>
+                </thead>
 
-              <td>
-                <%= posts[i].numShifts%>
-              </td>
-              <td>
-                <%= posts[i].shiftLength%>
-                  <span class='subtext'> Hours </span>
-              </td>
+                <tbody>
+                  <% for(let i=0; i<posts.length; i++) {%>
 
+                    <!-- Only approved posts-->
+                    <% if(posts[i].approved ){ %>
 
-              <td>
-                <%= `$ ${posts[i].base}`%>
-                  <span class='subtext'>
-                    <%= posts[i].payType%>
-                  </span>
-              </td>
+                      <td>
+                        <%= posts[i].name%>
+                          <span class='subtext'>
+                            <%= posts[i].location%>
+                              <span>
+                      </td>
 
-              <!-- Show None if user did not include extra pay-->
-              <td>
-                <% if(!posts[i].extraPay || posts[i].extraPay==0){ %>
-                  None
-                  <% } else{ %>
-                    <%= `$ ${posts[i].extraPay}`%>
+                      <td>
+                        <%= posts[i].type%>
+                      </td>
+
+                      <td>
+                        <%= posts[i].title%>
+                      </td>
+
+                      <td>
+                        <%= posts[i].numShifts%>
+                      </td>
+                      <td>
+                        <%= posts[i].shiftLength%>
+                          <span class='subtext'> Hours </span>
+                      </td>
+
+                      <!-- Show None if user did not include extra pay-->
+                      <td>
+                        <% if(!posts[i].extraPay || posts[i].extraPay==0){ %>
+                          None
+                          <% } else{ %>
+                            <%= `$ ${posts[i].extraPay}`%>
+                              <% } %>
+                      </td>
+
+                      <td>
+                        <%= `$ ${posts[i].base}`%>
+                          <span class='subtext'>
+                            <%= posts[i].payType%>
+                          </span>
+                      </td>
+
+                      <!-- Show 'Non-Tipped' if user did not enter tips, or inputted 0-->
+                      <td>
+                        <% if(!posts[i].slowTips || !posts[i].busyTips || posts[i].slowTips==0 || posts[i].busyTips==0
+                          ){ %>
+                          Non-Tipped
+                          <% } else{ %>
+                            <%= `$ ${posts[i].slowTips}`%>
+                              -
+                              <%= `$ ${posts[i].busyTips}`%>
+                                <% } %>
+                      </td>
+
+                      <td>
+                        <a href="/post/<%= posts[i]._id%>"> Click Here</a>
+                      </td>
+                      </tr>
+
                       <% } %>
-              </td>
+                        <!-- End Only Approved Posts-->
 
-              <!-- Show 'Non-Tipped' if user did not enter tips, or inputted 0-->
-              <td>
-                <% if(!posts[i].slowTips || !posts[i].busyTips || posts[i].slowTips==0 || posts[i].busyTips==0 ){ %>
-                  Non-Tipped
-                  <% } else{ %>
-                    <%= `$ ${posts[i].slowTips}`%>
-                      -
-                      <%= `$ ${posts[i].busyTips}`%>
-                        <% } %>
-              </td>
-
-              <td>
-                <a href="/post/<%= posts[i]._id%>"> Click Here</a>
-              </td>
-              </tr>
-
-              <% } %>
-                <!-- End Only Approved Posts-->
-
-                <%}%>
-        </tbody>
-      </table>
+                        <%}%>
+                </tbody>
+              </table>
 
     </div>
 

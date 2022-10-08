@@ -190,11 +190,9 @@
                 </div>
               </div>
 
-              <!-- END NEW QUESTIONS-->
-
               <div class=" mb-3">
                 <label for="comments" class="form-label">Additional Comments</label>
-                <textarea class="form-control" id="comments" name="comments"></textarea>
+                <textarea class="form-control" id="comments" name="comments"> </textarea>
               </div>
 
             </fieldset>
@@ -213,20 +211,8 @@
         </div>
       </div>
 
-      <div class="col-6">
-        <ul class="row list-unstyled">
-          <% for(var i=0; i<posts.length; i++) {%>
-            <li class="col-6 justify-content-between mt-5">
-              <a href="/post/<%= posts[i]._id%>">
-                <img class="img-fluid" src="<%= posts[i].image%>">
-              </a>
-            </li>
-            <% } %>
-        </ul>
-
-
-      </div>
     </div>
+  </div>
   </div>
   </div>
   <%- include('partials/_loggedInFooter') -%>

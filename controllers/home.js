@@ -1,45 +1,20 @@
 const Post = require("../models/Post");
 
-/*
-module.exports = {
-  getIndex: (req, res) => {
-    res.render("index.ejs",{ title: 'bread | Pay Transparency for the Hospitality Industry' });
-  },
-};
-*/
+// Not sure If I need below
+const passport = require("passport");
+const validator = require("validator");
+const User = require("../models/User");
 
-/*
-module.exports = {
-  getIndex: (req, res) => {
-  try {
-    res.render("index.ejs",{ title: 'bread | Pay Transparency for the Hospitality Industry' });
-  } catch (err) {
-    console.log(err);
-  }
-}}
-
-*/
 
 
 module.exports = {
   getIndex: async (req, res) => {
   try {
     const posts = await Post.find().lean();
-    res.render("index.ejs",{ title: 'bread | Pay Transparency for the Hospitality Industry', posts: posts });
+    res.render("index.ejs",{ title: 'bread | Pay Transparency for the Hospitality Industry', posts: posts, user: req.user}); //user:user,  
   } catch (err) {
     console.log(err);
   }
 }}
 
-/*
-getFeed: async (req, res) => {
-  try {
-    const posts = await Post.find().lean();
-    const post = await Post.findById(req.params.id);
-    res.render("feed.ejs", { posts: posts, post: post,title: 'bread | Recent Salaries' });
-  } catch (err) {
-    console.log(err);
-  }
-},
-
-*/
+// Added user: user above and const User.

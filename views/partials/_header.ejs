@@ -8,10 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Change inidividual pages titles while using partial-->
-  <!-- <title>Bread</title> -->
   <title>
     <%= title %>
   </title>
+
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -59,8 +59,15 @@
           <li><a class="nav-link scrollto" href="/#features">Learn More</a></li>
           <li><a class="nav-link scrollto" href="/#faq">F.A.Q</a></li>
           <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
-          <li><a class="getstarted" href="/login">Log In</a></li>
-          <li><a class="getstarted" href="/signup">Signup</a></li>
+          <!-- If User is not logged in, show login and signup links-->
+          <%if(!user){ %>
+            <li><a class="getstarted" href="/login">Log In</a></li>
+            <li><a class="getstarted" href="/signup">Signup</a></li>
+            <%}%>
+
+              <!-- END USER LOGGED IN-->
+
+
 
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

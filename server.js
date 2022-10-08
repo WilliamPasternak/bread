@@ -60,6 +60,23 @@ app.use("/", mainRoutes);
 app.use("/post", postRoutes);
 app.use("/comment", commentRoutes);
 
+// Send 404 Image.
+app.use((req, res, next) => {
+  res.status(404).send(
+      `
+      <style>
+        img {
+          width: 80vw;
+          display: block;
+          margin: 0 auto;
+      }
+      </style>
+    
+      <img src="/imgs/404.svg" alt="404 Error Page Not Found" >
+      `)
+})
+
+
 //Server Running
 app.listen(process.env.PORT, () => {
   console.log("Server is running, you better catch it!");

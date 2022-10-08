@@ -1,4 +1,4 @@
-const cloudinary = require("../middleware/cloudinary");
+// const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
 const Comment = require("../models/Comment");
 
@@ -7,7 +7,6 @@ module.exports = {
     try {
       const posts = await Post.find({ user: req.user.id });
       res.render("share.ejs", { posts: posts, user: req.user, title: 'bread | Share Your Salary' });
-      //res.render("profile.ejs", { posts: posts, user: req.user, title: 'bread | Share Your Salary' });
     } catch (err) {
       console.log(err);
     }
@@ -16,7 +15,8 @@ module.exports = {
     try {
       const posts = await Post.find().sort({ createdAt: "desc" }).lean();
       const post = await Post.findById(req.params.id);
-      res.render("feed.ejs", { posts: posts, post: post,title: 'bread | Recent Salaries' });
+      res.render("feed.ejs", { posts: posts, post: post, user: req.user, title: 'bread | Recent Salaries' });
+      
     } catch (err) {
       console.log(err);
     }
@@ -25,13 +25,13 @@ module.exports = {
     try {
       const post = await Post.findById(req.params.id);
       const comments = await Comment.find({post: req.params.id}).sort({ createdAt: "desc" }).lean();
-      res.render("post.ejs", { post: post, user: req.user, comments: comments, title: 'Post Title' });
+      res.render("post.ejs", { post: post, user: req.user, comments: comments, title: `${post.title} at ${post.name} (${post.id})` });
+
     } catch (err) {
       console.log(err);
     }
   },
  
-
   likePost: async (req, res) => {
     try {
       await Post.findOneAndUpdate(
@@ -91,6 +91,35 @@ module.exports = {
       console.log(err);
     }
   }, 
+
+
+  // Edit Post
+  editPost: async (req, res) => {
+    try {const post = await Post.findOne({
+      _id: req.params.id,
+    }).lean()
+
+    if (!post) {
+      return res.render('error/404')
+    }
+
+    if (post.user != req.user.id) {
+      res.redirect('/feed')
+    } else {
+      res.render('stories/edit', {
+        post,
+      })
+    }
+      
+    } catch (err) {
+      console.log(err);
+      return res.render('error/500')
+    }
+  },
+
+
+  //
+
 
   
   deletePost: async (req, res) => {
