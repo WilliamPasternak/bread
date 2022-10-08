@@ -1,6 +1,6 @@
 // const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
-const Comment = require("../models/Comment");
+
 
 module.exports = {
   getProfile: async (req, res) => {
@@ -24,8 +24,7 @@ module.exports = {
   getPost: async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
-      const comments = await Comment.find({post: req.params.id}).sort({ createdAt: "desc" }).lean();
-      res.render("post.ejs", { post: post, user: req.user, comments: comments, title: `${post.title} at ${post.name} (${post.id})` });
+      res.render("post.ejs", { post: post, user: req.user,  title: `${post.title} at ${post.name} (${post.id})` });
 
     } catch (err) {
       console.log(err);
@@ -94,17 +93,18 @@ module.exports = {
 
 
   // Edit Post (In Progres)
+  // Shows Edit Page
   editPost: async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
-      const comments = await Comment.find({post: req.params.id}).sort({ createdAt: "desc" }).lean();
-      res.render("edit.ejs", { post: post, user: req.user, comments: comments, title: `${post.title} at ${post.name} (${post.id})` });
+      res.render("edit.ejs", { post: post, user: req.user, title: 'Edit your post' });
 
     } catch (err) {
       console.log(err);
     }
   },
 
+  ////////////////////////////
 
   
   deletePost: async (req, res) => {
