@@ -1,9 +1,9 @@
 # bread
 bread is a free resource for reviewing and sharing salary information for the hospitality industry. It is completely anonymous and crowd-sourced.
 
-**Link to project:** 
+**Link to project:** Coming Soon!
 
-![alt tag](https://github.com/WilliamPasternak/bread/blob/main/breadHero.png)
+![alt tag](https://github.com/WilliamPasternak/bread/blob/main/bread.gif)
 
 ## How It's Made:
 
@@ -14,7 +14,6 @@ How its built...
 ## Optimizations
 
 **Design:**
-- Icons on hero buttons not in line with text. (Change size or placement)
 - Center align contact form
 - Display # salaries in database at any moment
 - Write Website Copy
