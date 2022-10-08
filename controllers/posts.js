@@ -93,32 +93,17 @@ module.exports = {
   }, 
 
 
-  // Edit Post
+  // Edit Post (In Progres)
   editPost: async (req, res) => {
-    try {const post = await Post.findOne({
-      _id: req.params.id,
-    }).lean()
+    try {
+      const post = await Post.findById(req.params.id);
+      const comments = await Comment.find({post: req.params.id}).sort({ createdAt: "desc" }).lean();
+      res.render("edit.ejs", { post: post, user: req.user, comments: comments, title: `${post.title} at ${post.name} (${post.id})` });
 
-    if (!post) {
-      return res.render('error/404')
-    }
-
-    if (post.user != req.user.id) {
-      res.redirect('/feed')
-    } else {
-      res.render('stories/edit', {
-        post,
-      })
-    }
-      
     } catch (err) {
       console.log(err);
-      return res.render('error/500')
     }
   },
-
-
-  //
 
 
   
