@@ -107,6 +107,29 @@ module.exports = {
       console.log(err);
     }
   },
+
+  // Update Post
+  updatePost: async (req, res) => {
+    try {
+      await Post.findOneAndUpdate(
+        { _id: req.params.id }, req.body
+      );
+      res.redirect("/feed")
+     //res.redirect(`/post/${req.params.id}`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
+ 
+  ///////////////////
+
+
+
+
+
+
+
   
   deletePost: async (req, res) => {
     try {

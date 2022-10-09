@@ -7,8 +7,10 @@
 
                     <!-- enctype multipart form data might casue problems IF no images are uploaded-->
                     <!-- removed this from after form action below enctype="multipart/form-data" -->
-                    <form action="/post/createPost" method="POST" class="mb-3">
-                        <input type="hidden" name="_method" value='PUT'>
+
+                    <!-- Essentially this EDIT form needs to be a PUT NOT a POST. -->
+                    <form action="/post/editPost/<%= post.id %>?_method=PUT" method="POST" class="mb-3">
+
                         <fieldset>
                             <legend> Where do you work?</legend>
                             <div class="mb-3">

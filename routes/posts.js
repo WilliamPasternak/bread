@@ -13,7 +13,10 @@ router.put("/likePost/:id", postsController.likePost);
 
 // Edit Posts
 router.get("/editPost/:id", ensureAuth, postsController.editPost);
-//router.put("/editPost/:id", postsController.updatePost);
+router.put("/editPost/:id", postsController.updatePost);
+
+
+
 
 // Old post route which uploaded a file.
 //router.post("/createPost", //upload.single("file"), postsController.createPost);
