@@ -4,7 +4,7 @@
     <div class="container w-75">
 
       <h1> Most Recent Salaries</h1>
-      <span> Your Submissions:</span>
+      <span> Your Submission(s):</span>
       <% for(let i=0; i<posts.length; i++) {%>
         <% if(posts[i].approved && posts[i].user==user.id ){ %>
           <a href="/post/<%= posts[i]._id%>">

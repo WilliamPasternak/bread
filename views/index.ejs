@@ -41,10 +41,10 @@
                         <a href="#main" class="download-btn"><i class="bi bi-info-circle"></i> Learn
                             More</a>
 
-                        <!-- Toggle Button Appearance-->
+                        <!-- Toggled Button Appearance-->
                         <%if(user){ %>
                             <a href="/feed" class="download-btn"><i class="bi bi-search"></i>
-                                Browse Salaries
+                                View Salaries
                             </a>
                             <%}%>
 
@@ -293,6 +293,17 @@
                             alt="A piggy bank with coins falling around it">
                     </div>
                 </div>
+            </div>
+            <div class='d-flex justify-content-center'>
+
+                <!-- View Salaries (If Logged In)-->
+                <%if(user){ %>
+                    <a href="/feed" class="download-btn"><i class="bi bi-search"></i>
+                        View Salaries
+                    </a>
+                    <%}%>
+
+
             </div>
         </section>
         <!-- ======= End Section Six ======= -->

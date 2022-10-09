@@ -1,7 +1,6 @@
 // const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
 
-
 module.exports = {
   getProfile: async (req, res) => {
     try {
@@ -30,19 +29,16 @@ module.exports = {
       console.log(err);
     }
   },
- 
-  //likePost: async (req, res) => {
+
     flagPost: async (req, res) => {
 
     try {
       await Post.findOneAndUpdate(
         { _id: req.params.id },
         {
-          //$inc: { likes: 1 },
           $inc: { flagged: 1 },
         }
       );
-      console.log("Flaged");
       res.redirect(`/post/${req.params.id}`);
     } catch (err) {
       console.log(err);
@@ -76,7 +72,6 @@ module.exports = {
         age: req.body.age,
         sameShifts: req.body.sameShifts,
         comments: req.body.comments,
-        //likes: 0,
         flagged: 0,
         approved: req.body.approved,
         verified: req.body.verified,
