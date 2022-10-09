@@ -11,8 +11,6 @@ const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
 
-
-
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
 
@@ -59,23 +57,11 @@ app.use(flash());
 app.use("/", mainRoutes);
 app.use("/post", postRoutes);
 
-
-// Send 404 Image.
+// Send 404 Page 
 app.use((req, res, next) => {
-  res.status(404).send(
-      `
-      <style>
-        img {
-          width: 80vw;
-          display: block;
-          margin: 0 auto;
-      }
-      </style>
-    
-      <img src="/imgs/404.svg" alt="404 Error Page Not Found" >
-      `)
+  let posts = 0
+  res.status(404).render('404.ejs', { title: 'bread | Pay Transparency for the Hospitality Industry', user: req.user}); 
 })
-
 
 //Server Running
 app.listen(process.env.PORT, () => {

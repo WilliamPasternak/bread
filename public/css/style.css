@@ -7,10 +7,6 @@ body {
     overflow-x: hidden;
 }
 
-
-
-
-
 a {
     color: #6fa684;
     text-decoration: none;
@@ -1140,6 +1136,23 @@ th {
     text-align: center;
 }
 
+/*--------------------------------------------------------------
+  # 404 Page 
+  --------------------------------------------------------------*/
+.error-page {
+    margin-top: 10vh;
+}
+
+.error-page h1,
+.error-page p {
+    text-align: center;
+}
+
+#error-img {
+    width: 30vw;
+    display: block;
+    margin: 0 auto;
+}
 
 /*--------------------------------------------------------------
   # Forms: ( Login & Signup)
