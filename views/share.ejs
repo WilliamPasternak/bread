@@ -7,7 +7,7 @@
 
           <!-- enctype multipart form data might casue problems IF no images are uploaded-->
           <!-- removed this from after form action below enctype="multipart/form-data" -->
-          <form action="/post/createPost" method="POST">
+          <form action="/post/createPost" method="POST" class='mb-3'>
             <fieldset>
               <legend> Where do you work?</legend>
               <div class="mb-3">
@@ -132,7 +132,6 @@
                 </div>
               </div>
 
-              <!-- New Questions -->
               <div class=" mb-3">
                 <label for="fullTips" class="form-label">Do new hires receive full tips?</label>
                 <div>
@@ -204,7 +203,7 @@
               <input type="file" class="form-control" id="imageUpload" name="file">
             </div>
              -->
-            <button type="submit" class="btn btn-form" value="Upload">Submit</button>
+            <button type="submit" class="btn btn-form btn-save" value="Upload">Submit</button>
 
 
           </form>
