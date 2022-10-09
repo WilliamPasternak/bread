@@ -46,8 +46,6 @@ module.exports = {
     }
   },
 
-
-
   createPost: async (req, res) => {
     try {
       // Upload image to cloudinary (MAKE THIS OPTIONAL)     
@@ -84,7 +82,6 @@ module.exports = {
         poolHouse: req.body.poolHouse,
         fullTips: req.body.fullTips,
       });
-      console.log("Wages has been submitted!");
       res.redirect("/feed");
     } catch (err) {
       console.log(err);
@@ -113,8 +110,7 @@ module.exports = {
   
   deletePost: async (req, res) => {
     try {
-      // Find post by id
-      let post = await Post.findById({ _id: req.params.id });
+      // let post = await Post.findById({ _id: req.params.id });
       // Delete image from cloudinary
       //await cloudinary.uploader.destroy(post.cloudinaryId);
       // Delete post from db
