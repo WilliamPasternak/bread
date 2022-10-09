@@ -94,14 +94,14 @@ module.exports = {
       const post = await Post.findById(req.params.id);
 
       if(!post){
-        res.render('feed.ejs')
+        res.redirect('feed.ejs')
       }
 
       if(post.user != req.user.id){ 
-      res.render("feed.ejs", { posts: posts, post: post, user: req.user, title: 'bread | Recent Salaries' });
+      res.redirect("/feed")
 
       } else {
-        res.render("edit.ejs", { post: post, user: req.user, title: 'Edit your post' });
+       res.render("edit.ejs", { post: post, user: req.user, title: 'Edit your post' });
       }
     } catch (err) {
       console.log(err);
@@ -115,22 +115,11 @@ module.exports = {
         { _id: req.params.id }, req.body
       );
       res.redirect("/feed")
-     //res.redirect(`/post/${req.params.id}`);
     } catch (err) {
       console.log(err);
     }
   },
 
- 
-  ///////////////////
-
-
-
-
-
-
-
-  
   deletePost: async (req, res) => {
     try {
       // let post = await Post.findById({ _id: req.params.id });
