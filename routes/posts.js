@@ -9,7 +9,8 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 router.get("/:id", ensureAuth, postsController.getPost);
 router.post("/createPost", postsController.createPost);
 router.delete("/deletePost/:id", postsController.deletePost);
-router.put("/likePost/:id", postsController.likePost);
+//router.put("/likePost/:id", postsController.likePost);
+router.put("/flagPost/:id", postsController.flagPost);
 
 // Edit Posts
 router.get("/editPost/:id", ensureAuth, postsController.editPost);

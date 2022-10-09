@@ -31,12 +31,15 @@ module.exports = {
     }
   },
  
-  likePost: async (req, res) => {
+  //likePost: async (req, res) => {
+    flagPost: async (req, res) => {
+
     try {
       await Post.findOneAndUpdate(
         { _id: req.params.id },
         {
-          $inc: { likes: 1 },
+          //$inc: { likes: 1 },
+          $inc: { flagged: 1 },
         }
       );
       console.log("Flaged");
@@ -73,7 +76,8 @@ module.exports = {
         age: req.body.age,
         sameShifts: req.body.sameShifts,
         comments: req.body.comments,
-        likes: 0,
+        //likes: 0,
+        flagged: 0,
         approved: req.body.approved,
         verified: req.body.verified,
         familyMeal: req.body.familyMeal,

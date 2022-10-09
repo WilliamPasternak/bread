@@ -14,7 +14,8 @@
 
         <!-- Flag Post -->
         <%if(post.user !=user.id){ %>
-          <form class="col-3" action="/post/likePost/<%= post.id %>?_method=PUT" method="POST">
+          <!-- <form class="col-3" action="/post/likePost/<%= post.id %>?_method=PUT" method="POST"> -->
+          <form class="col-3" action="/post/flagPost/<%= post.id %>?_method=PUT" method="POST">
             <button class="btn bi bi-flag" type="submit"> Flag </button>
           </form>
           <%}%>

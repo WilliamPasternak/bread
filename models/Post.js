@@ -91,7 +91,8 @@ const PostSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  likes: { 
+ // likes: { 
+  flagged: { 
     type: Number,
     required: true,
   },
