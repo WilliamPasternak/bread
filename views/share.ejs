@@ -3,7 +3,7 @@
     <div class="row mt-5">
       <div class="col-12">
         <div class="mt-5">
-          <h1>Share your salary</h1>
+          <h1 class='post-header'>Share your salary</h1>
 
           <!-- enctype multipart form data might casue problems IF no images are uploaded-->
           <!-- removed this from after form action below enctype="multipart/form-data" -->
@@ -108,17 +108,22 @@
 
               <div class="mb-3">
                 <label for="gender" class="form-label">Gender</label>
-                <input type="text" class="form-control" id="gender" name="gender"">
+                <input type="text" class="form-control" id="gender" name="gender">
               </div>
 
               <div class=" mb-3">
                 <label for="ethnicity" class="form-label">Ethnicity</label>
-                <input type="text" class="form-control" id="ethnicity" name="ethnicity"">
+                <input type="text" class="form-control" id="ethnicity" name="ethnicity">
               </div>
 
               <div class=" mb-3">
                 <label for="age" class="form-label">Age</label>
-                <input type="text" class="form-control" id="age" name="age"">
+                <input type="text" class="form-control" id="age" name="age">
+              </div>
+
+              <div class=" mb-3">
+                <label for="orientation" class="form-label">Sexual Orientation</label>
+                <input type="text" class="form-control" id="orientation" name="orientation">
               </div>
 
               <div class=" mb-3">
@@ -182,8 +187,8 @@
                 <div>
                   <select name="familyMeal" id="familyMeal">
                     <option value='-'>-</option>
-                    <option value="Yes">Yes (for free)</option>
-                    <option value="Yes">Yes (at a cost)</option>
+                    <option value="Yes (for free)">Yes (for free)</option>
+                    <option value="Yes (at a cost)">Yes (at a cost)</option>
                     <option value="No">No</option>
                   </select>
                 </div>
@@ -194,15 +199,17 @@
                 <textarea class="form-control" id="comments" name="comments"> </textarea>
               </div>
 
+              <h3> Add Supporting Documents</h3>
+              <p> Upload a W2, Paystub or Tipsheet to verify your salary (Coming Soon!) </p>
+              <!-- 
+              <div class=" mb-3">
+                <label for="imgUpload" class="form-label">Supporting Documents</label>
+                <p> You can upload a W2, Paystubs or Tipsheet to verify your salary</p>
+                <input type="file" class="form-control" id="imageUpload" name="file">
+              </div>
+               -->
             </fieldset>
 
-            <!-- 
-            <div class=" mb-3">
-              <label for="imgUpload" class="form-label">Supporting Documents</label>
-              <p> You can upload a W2, Paystubs or Tipsheet to verify your salary</p>
-              <input type="file" class="form-control" id="imageUpload" name="file">
-            </div>
-             -->
             <button type="submit" class="btn btn-form btn-save" value="Upload">Submit</button>
 
 

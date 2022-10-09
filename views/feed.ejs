@@ -62,14 +62,6 @@
                           <span class='subtext'> Hours </span>
                       </td>
 
-                      <!-- Show None if user did not include extra pay-->
-                      <td>
-                        <% if(!posts[i].extraPay || posts[i].extraPay==0){ %>
-                          None
-                          <% } else{ %>
-                            <%= `$ ${posts[i].extraPay}`%>
-                              <% } %>
-                      </td>
 
                       <td>
                         <%= `$ ${posts[i].base}`%>
@@ -78,16 +70,24 @@
                           </span>
                       </td>
 
+
                       <!-- Show 'Non-Tipped' if user did not enter tips, or inputted 0-->
                       <td>
                         <% if(!posts[i].slowTips || !posts[i].busyTips || posts[i].slowTips==0 || posts[i].busyTips==0
                           ){ %>
                           Non-Tipped
                           <% } else{ %>
-                            <%= `$ ${posts[i].slowTips}`%>
-                              -
-                              <%= `$ ${posts[i].busyTips}`%>
+                            <%= `$${posts[i].slowTips}`%>-<%= `$${posts[i].busyTips}`%>
                                 <% } %>
+                      </td>
+
+                      <!-- Show None if user did not include extra pay-->
+                      <td>
+                        <% if(!posts[i].extraPay || posts[i].extraPay==0){ %>
+                          None
+                          <% } else{ %>
+                            <%= `$ ${posts[i].extraPay}`%>
+                              <% } %>
                       </td>
 
                       <td>

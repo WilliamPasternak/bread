@@ -80,6 +80,7 @@ module.exports = {
         overTime: req.body.overTime,
         poolHouse: req.body.poolHouse,
         fullTips: req.body.fullTips,
+        orientation: req.body.orientation,
       });
       res.redirect("/feed");
     } catch (err) {

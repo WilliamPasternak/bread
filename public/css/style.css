@@ -1,6 +1,10 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: "Open Sans", sans-serif;
     color: #585a61;
@@ -256,7 +260,7 @@ h6 {
     width: 250%;
     height: 200%;
     z-index: -1;
-    background-color: #e8ecf5;
+    background: #e8ecf5;
     transform: skewY(135deg);
 }
 
@@ -769,7 +773,7 @@ th {
 }
 
 /*--------------------------------------------------------------
-  # Forms: ( Login & Signup)
+  # Forms: ( Login, Signup, Share)
   --------------------------------------------------------------*/
 .form-logo {
     width: 250px;
@@ -789,6 +793,18 @@ th {
 .btn-save {
     background-color: #6fa684;
     color: white;
+}
+
+legend {
+    border-bottom: 2px solid #753BBD;
+}
+
+fieldset {
+    border: 1px solid lightgrey;
+    margin: 2vh 0;
+    padding: 5%;
+    border-radius: 5px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, .15);
 }
 
 /*--------------------------------------------------------------
@@ -922,25 +938,24 @@ h1 {
 /*--------------------------------------------------------------
   # Data Display
   --------------------------------------------------------------*/
-
-.presentation {
-    border: 1px solid #000;
-    width: 80vw;
-    margin: 0 auto;
-    height: 40vh;
-    font-size: 1rem;
-    display: flex;
+.post-head {
+    height: 15vh;
 }
 
-.presentation h2,
-.presentation h3,
-.presentation form {
-    font-size: 1rem;
+.post-head .subtext {
+    margin-top: 1.5rem;
 }
 
-.presentation form,
-.presentation h2 {
-    display: inline;
+.post-header,
+h3 {
+    color: #2E3C40;
+    font-size: 2em;
+    font-weight: 600;
+    line-height: 1;
+    padding-bottom: .25em;
+    margin: 0 0 0.142857143em;
+    border-bottom: 2px solid #753BBD;
+    transition: color .45s ease, border .45s ease;
 }
 
 #delete-post {
@@ -951,11 +966,58 @@ main div h2 {
     display: inline;
 }
 
-.title {
-    color: #6fa684;
-}
-
 .comments {
     width: 50vw;
     margin: 0 auto;
+}
+
+.page-contain {
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    background: #E7F3F1;
+    border: .75em solid white;
+    padding: 2em;
+}
+
+.data-card {
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    width: 20vw;
+    overflow: hidden;
+    border-radius: .5em;
+    text-decoration: none;
+    text-align: center;
+    background: #fff;
+    margin: 1em;
+    padding: 2.75em 2.5em;
+    box-shadow: 0 1.5em 2.5em -.5em rgba(#000000, .1);
+    transition: transform .45s ease, background .45s ease;
+}
+
+.data-card:hover {
+    transform: scale(1.03);
+}
+
+
+
+.data-card h4 {
+    color: #627084;
+    /*text-transform: uppercase;*/
+    font-size: 1.125em;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    margin: 0 0 1em;
+    transition: color .45s ease;
+}
+
+.data-card p {
+    color: #000;
+    font-weight: 600;
+    line-height: 1.8;
+    margin: 0 0 0em;
+    transform: translateY(-1em);
+    transition: opacity .45s ease, transform .5s ease;
 }

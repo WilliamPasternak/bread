@@ -1,191 +1,199 @@
 <%- include('partials/_loggedInHeader') -%>
   <main>
 
-
-    <div class="mt-5 text-center">
-      <h2>
+    <div class="mt-5 text-center post-head">
+      <h2 class='post-header'>
         <%= `${post.title} at ${post.name} (${post.location})` %>
       </h2>
 
       <!-- Date -->
-      <span class=subtext>
-        <%= `${post.createdAt.toISOString().slice(5,10)}-${post.createdAt.toISOString().slice(0,4)}` %>
+      <span class='subtext'>
+        <%= ` Posted ${post.createdAt.toISOString().slice(5,10)}-${post.createdAt.toISOString().slice(0,4)}` %>
+          <!-- Verified -->
+          <span>|</span>
+          <% if(post.verified){ %>
+            Verified Salary!
+            <% } else{ %>
+              <span>
+                <%= `Salary Not Verified`%>
+              </span>
+              <% } %>
       </span>
 
-      <!-- Verified -->
-      <% if(post.verified){ %>
-        Verified Salary!
-        <% } else{ %>
-          <%= `Salary Not Verified`%>
-            <% } %>
 
+      <!-- Edit Post -->
+      <%if(post.user==user.id){ %>
+        <span>
+          <a href=" /post/editPost/<%= post.id %>">
+            <button class="btn bi bi-pencil" type="submit"> Edit </button>
+          </a>
+        </span>
 
-              <!-- Edit Post -->
-              <%if(post.user==user.id){ %>
-                <span>
-                  <a href=" /post/editPost/<%= post.id %>">
-                    <button class="btn bi bi-pencil" type="submit"> Edit </button>
-                  </a>
-                </span>
+        <!-- Delete Post-->
+        <form id='delete-post' action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST">
+          <button class="btn bi bi-trash" type="submit"> Remove</button>
+        </form>
+        <%}%>
 
-                <!-- Delete Post-->
-                <form id='delete-post' action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST">
-                  <button class="btn bi bi-trash" type="submit"> Remove</button>
-                </form>
-                <%}%>
-
-                  <!-- Flag Post -->
-                  <%if(post.user !=user.id){ %>
-                    <form action="/post/flagPost/<%= post.id %>?_method=PUT" method="POST">
-                      <button class="btn bi bi-flag" type="submit"> Flag </button>
-                    </form>
-                    <%}%>
+          <!-- Flag Post -->
+          <%if(post.user !=user.id){ %>
+            <form action="/post/flagPost/<%= post.id %>?_method=PUT" method="POST">
+              <button class="btn bi bi-flag" type="submit"> Flag </button>
+            </form>
+            <%}%>
     </div>
 
+    <section class="page-contain">
+      <!-- Card One -->
+      <div class="data-card">
+        <h3>Company</h3>
+        <h4>Business Type</h4>
+        <p>
+          <%= post.type %>
+        </p>
 
-
-    <section class="d-flex align-items-center presentation">
-
-      <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
-
-        <!-- Company Info-->
-        <div class="icon-box">
-          <h4 class="title">Company</h4>
-
+        <% if(post.overTime){ %>
+          <h4>Allows Overtime</h4>
           <p>
-            Business Type:
-            <%= post.type %>
+            <%= post.overTime%>
           </p>
+          <% } %>
 
-          <% if(post.overTime){ %>
-            <p>
-              Allows overtime?
-              <%= post.overTime%>
-            </p>
-            <% } %>
-
-              <% if(post.familyMeal){ %>
-                <p>
-                  Family Provided?
-                  <%= post.familyMeal %>
-                </p>
-                <% } %>
-        </div>
+            <% if(post.familyMeal){ %>
+              <h4> Family Meal Provided?</h4>
+              <p>
+                <%= post.familyMeal %>
+              </p>
+              <% } %>
       </div>
 
-      <!-- Shift Information -->
-      <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="300">
-        <div class="icon-box">
-          <h4 class="title">Shift Details</h4>
+      <!-- Card Two  -->
+      <div class="data-card">
+        <h3>Shift Details</h3>
+
+        <h4> Shifts per week </h4>
+        <p>
+          <%= post.numShifts %>
+        </p>
+
+        <h4>Shift Length</h4>
+        <p>
+          <%= post.shiftLength %>hrs
+        </p>
+
+        <% if(post.breaks){ %>
+          <h4> Able to take breaks </h4>
           <p>
-            Average Shift Length:
-            <%= post.shiftLength %>
+            <%= post.breaks%>
           </p>
+          <% } %>
 
-          <% if(post.breaks){ %>
-            <p>
-              Are you able to take breaks?
-              <%= post.breaks%>
-            </p>
-            <% } %>
-
+            <% if(post.sameShifts){ %>
+              <h4> Same Schedule each week </h4>
               <p>
-                Number of Shifts per week:
-                <%= post.numShifts %>
+                <%= post.sameShifts %>
+                  <% } %>
               </p>
 
-              <p>
-                <% if(post.sameShifts){ %>
-                  Same Schedule each week :
-                  <%= post.sameShifts %>
-                    <% } %>
-              </p>
-        </div>
       </div>
 
-      <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="400">
-        <div class="icon-box">
-          <h4 class="title"><a href="">Compensation</a></h4>
-          <p>
-            Base Pay: <%= `$${post.base}` %>
-              <%= `( ${post.payType} )` %>
-          </p>
-          <% if(!post.slowTips || !post.busyTips || post.slowTips==0 || post.busyTips==0 ){ %>
+      <!--  Card Three-->
+      <div class="data-card">
+        <h3>Compensation</h3>
+        <h4> Base Pay</h4>
+        <p>
+          <%= `$${post.base}` %>
+            <%= `( ${post.payType} )` %>
+        </p>
+
+        <% if(!post.slowTips || !post.busyTips || post.slowTips==0 || post.busyTips==0 ){ %>
+          <% } else{ %>
+            <h4> Tips per shift </h4>
             <p>
-              <% } else{ %>
-                Tips per shift:
-                <%= `$ ${post.slowTips}`%>
-                  -
-                  <%= `$ ${post.busyTips}`%>
+              <%= `$ ${post.slowTips}`%>
+                -
+                <%= `$ ${post.busyTips}`%>
             </p>
             <% } %>
 
-              <% if(post.poolHouse){ %>
+              <!-- Hidden if no input selected-->
+              <% if(post.cashTips==='Cash' ){ %>
                 <p>
-                  Pool House?
-                  <%= post.poolHouse %>
+                  <%= `Cash tips are kept` %>
+                    <% } else if(post.cashTips=='Paycheck' ){ %>
+                      <p>
+                        <%= `Cash tips are placed in paycheck` %>
+                      </p>
                 </p>
                 <% } %>
 
-                  <!-- Hidden if no input selected-->
-                  <% if(post.cashTips==='Cash' ){ %>
+
+                  <% if(post.poolHouse){ %>
+                    <h4>Pool House</h4>
                     <p>
-                      <%= `Cash tips are kept` %>
-                        <% } else if(post.cashTips=='Paycheck' ){ %>
-                          <%= `Cash tips are placed in paycheck and taxed` %>
+                      <%= post.poolHouse %>
                     </p>
                     <% } %>
 
+
+
                       <!-- Hidden if extra pay is empty-->
                       <% if(post.extraPay){ %>
+                        <h4> Additional Pay</h4>
                         <p>
-                          <%= `Additional Pay: $ ${post.extraPay}`%>
+                          <%= post.extraPay %>
                         </p>
                         <% } %>
 
+                          <h4> Do new hires receive full tips? </h4>
                           <p>
-                            Do new hires receive full tips?
                             <%= post.fullTips %>
                           </p>
-        </div>
+
       </div>
 
-      <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="500">
-        <div class="icon-box">
-          <div class="icon"><i class="ri-fingerprint-line"></i></div>
-
-
-          <% if(post.gender || post.ethnicity || post.age){ %>
-            <h4 class="title">Demographic</h4>
-            <% } %>
+      <!-- Card Four-->
+      <% if(post.gender || post.ethnicity || post.age || post.orientation){ %>
+        <div class="data-card">
+          <h3>Demographics</h3>
+          <% } %>
+            <% if(post.gender){ %>
+              <h4>Sex</h4>
               <p>
-                <% if(post.gender){ %>
-                  Sex:
-                  <%= post.gender %>
-                    <% } %>
+                <%= post.gender %>
+                  <% } %>
               </p>
 
-              <p>
-                <% if(post.ethnicity){ %>
-                  Ethnicity:
+              <% if(post.ethnicity){ %>
+                <h4>Ethnicity</h4>
+                <p>
                   <%= post.ethnicity %>
-                    <% } %>
-              </p>
+                </p>
+                <% } %>
 
-              <p>
-                <% if(post.age){ %>
-                  Age:
-                  <%= post.age %>
+                  <% if(post.age){ %>
+                    <h4>Age</h4>
+                    <p>
+                      <%= post.age %>
+                    </p>
                     <% } %>
-              </p>
+
+                      <% if(post.orientation){ %>
+                        <h4>Orientation</h4>
+                        <p>
+                          <%= post.orientation %>
+                        </p>
+                        <% } %>
         </div>
-      </div>
     </section>
+    <!-- New Card layout-->
 
+
+    <!-- Comments-->
     <div class='text-center comments'>
       <% if(post.comments){ %>
         <h3>
-          Comments:
+          Comments
         </h3>
         <p>
           <%= post.comments %>
@@ -194,37 +202,7 @@
     </div>
 
 
-
-
-
-
-    <div class="container">
-      <div class="row justify-content-center mt-5">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-
-
-
-
-
+    </div>
     </div>
     </div>
   </main>

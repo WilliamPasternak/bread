@@ -91,7 +91,6 @@ const PostSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
- // likes: { 
   flagged: { 
     type: Number,
     required: true,
@@ -113,6 +112,10 @@ const PostSchema = new mongoose.Schema({
     required: false,
   },
   fullTips: { 
+    type: String,
+    required: false,
+  },
+  orientation: { 
     type: String,
     required: false,
   },
