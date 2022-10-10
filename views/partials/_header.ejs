@@ -7,7 +7,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Change inidividual pages titles while using partial-->
   <title>
     <%= title %>
   </title>
@@ -34,7 +33,6 @@
     crossorigin="anonymous" />
 
   <!-- Vendor CSS Files -->
-  <!-- Including this breaks my page. <link href="assets/vendor/aos/aos.css" rel="stylesheet"> -->
   <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
@@ -56,6 +54,14 @@
 
       <nav id="navbar" class="navbar">
         <ul>
+          <li class="dropdown"><a href="#"><span> <i class="bi bi-globe"></i> Language | EN</span> <i
+                class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/">English</a></li>
+              <li><a href="/es/">Español</a></li>
+              <li><a href="/fr">Français</a></li>
+            </ul>
+          </li>
           <li><a class="nav-link scrollto" href="/#main">Learn More</a></li>
           <li><a class="nav-link scrollto" href="/#faq">F.A.Q</a></li>
           <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
@@ -64,6 +70,7 @@
             <li><a class="getstarted" href="/login">Log In</a></li>
             <li><a class="getstarted" href="/signup">Signup</a></li>
             <%}%>
+
 
               <!-- END USER LOGGED IN-->
 

@@ -1,0 +1,243 @@
+<%- include('partials/_loggedInHeader') -%>
+    <div class="container d-flex justify-content-center w-50">
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="mt-5">
+                    <h1>Edit your salary</h1>
+
+                    <!-- enctype multipart form data might casue problems IF no images are uploaded-->
+                    <!-- removed this from after form action below enctype="multipart/form-data" -->
+
+                    <!-- Essentially this EDIT form needs to be a PUT NOT a POST. -->
+                    <form action="/post/editPost/<%= post.id %>?_method=PUT" method="POST" class="mb-3">
+
+                        <fieldset>
+                            <legend> Where do you work?</legend>
+                            <div class="mb-3">
+                                <label for="location" class="form-label">City & State</label>
+                                <input autofocus type="text" class="form-control" id="location" name="location"
+                                    value="<%- post.location -%>" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="type" class="form-label">Type of establishment</label>
+                                <input type="'text" class="form-control" id="type" name="type" placeholder="Restaurant"
+                                    value="<%- post.type -%>" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name of establishment</label>
+                                <input type="text" class="form-control" id="name" name="name" value='<%-
+                                    post.name -%>' required>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend> How much do you earn?</legend>
+                            <p> Our goal is to provide the most accurate information. When filling out below, omit
+                                outliers and try to
+                                focus on average earnings.</p>
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Job Title</label>
+                                <input type="text" class="form-control" id="title" name="title" placeholder="Bartender"
+                                    value='<%- post.title -%>' required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="payType" class="form-label">Pay Type</label>
+                                <div>
+                                    <select name="payType" id="payType" name='payType' required>
+                                        <option>-</option>
+                                        <option value="Hourly">Hourly</option>
+                                        <option value="Weekly">Weekly</option>
+                                        <option value="Annually">Annually</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="mb-3">
+                                <label for="base" class="form-label">Base Pay</label>
+                                <span> (<em>After</em> employer tip credit) $15/hr with a $5 tip credit should be
+                                    $10/hr</span>
+                                <input type="text" class="form-control" id="base" name="base" placeholder="10" value='<%-
+                                    post.base -%>' required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="extraPay" class="form-label">Additional Pay Offered </label>
+                                <span>(Bonus, Stipend, Admin Pay, etc. <em>Do not</em> include tips)</span>
+                                <input type="text" class="form-control" id="extraPay" name="extraPay" placeholder="0"
+                                    value='<%- post.extraPay -%>'>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="benefits" class="form-label">Company Provided Benefits</label>
+                                <input type="text" class="form-control" id="benefits" name="benefits"
+                                    placeholder="Health Benefits, Dental, 401k, Bonus" value='<%- post.benefits -%>'>
+                            </div>
+
+
+                            <div class="mb-3">
+                                <label for="numShifts" class="form-label">Shifts Worked Per Week</label>
+                                <input type="text" class="form-control" id="numShifts" name="numShifts" placeholder="4"
+                                    value='<%- post.numShifts -%>' required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="shiftLength" class="form-label">Average Shift Length (Hours)</label>
+                                <input type="text" class="form-control" id="shiftLength" name="shiftLength"
+                                    placeholder="8-10" value='<%- post.shiftLength -%>' required>
+                            </div>
+
+                            <p> Average Tips Earned (If tipped employee)</p>
+
+                            <div class="mb-3">
+                                <label for="slowTips" class="form-label"> Slow Shift</label>
+                                <input type="text" class="form-control" id="slowTips" name="slowTips" placeholder="0"
+                                    value='<%- post.slowTips -%>'>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="busyTips" class="form-label"> Busy Shift</label>
+                                <input type="text" class="form-control" id="busyTips" name="busyTips" placeholder="0"
+                                    value='<%- post.busyTips -%>'>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="cashTips" class="form-label"> Do you receive cash tips nightly or in
+                                    your
+                                    paycheck?</label>
+                                <div>
+
+                                    <select name="cashTips" id="cashTips" name="cashTips">
+                                        <option value='-'>-</option>
+                                        <option value="Cash">Cash</option>
+                                        <option value="Paycheck">Paycheck</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend> Optional Information</legend>
+
+                            <div class="mb-3">
+                                <label for="gender" class="form-label">Gender</label>
+                                <input type="text" class="form-control" id="gender" name="gender" value='<%- post.gender
+                                    -%>'>
+                            </div>
+
+                            <div class=" mb-3">
+                                <label for="ethnicity" class="form-label">Ethnicity</label>
+                                <input type="text" class="form-control" id="ethnicity" name="ethnicity" value='<%-
+                                    post.ethnicity -%>'>
+                            </div>
+
+                            <div class=" mb-3">
+                                <label for="age" class="form-label">Age</label>
+                                <input type="text" class="form-control" id="age" name="age" value='<%- post.age -%>'>
+                            </div>
+
+                            <div class=" mb-3">
+                                <label for="sameShifts" class="form-label">Do you work the same shifts each
+                                    week?</label>
+                                <div>
+
+                                    <select name="sameShifts" id="sameShifts">
+                                        <option value='-'>-</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class=" mb-3">
+                                <label for="fullTips" class="form-label">Do new hires receive full tips?</label>
+                                <div>
+                                    <select name="fullTips" id="fullTips">
+                                        <option value='-'>-</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class=" mb-3">
+                                <label for="poolHouse" class="form-label">Is your establishment a pool house or do you
+                                    keep your own
+                                    tips?</label>
+                                <div>
+                                    <select name="poolHouse" id="poolHouse">
+                                        <option value='-'>-</option>
+                                        <option value="Yes">Pool House</option>
+                                        <option value="No">Keep your own tips</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class=" mb-3">
+                                <label for="overTime" class="form-label">Does your employer allow you to work
+                                    overtime?</label>
+                                <div>
+                                    <select name="overTime" id="overTime">
+                                        <option value='-'>-</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class=" mb-3">
+                                <label for="breaks" class="form-label">Are you able to take breaks at work? </label>
+                                <div>
+                                    <select name="breaks" id="breaks">
+                                        <option value='-'>-</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class=" mb-3">
+                                <label for="familyMeal" class="form-label">Is family meal provided? </label>
+                                <div>
+                                    <select name="familyMeal" id="familyMeal">
+                                        <option value='-'>-</option>
+                                        <option value="Yes">Yes (for free)</option>
+                                        <option value="Yes">Yes (at a cost)</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+                            <div class=" mb-3">
+                                <label for="comments" class="form-label">Additional Comments</label>
+                                <textarea class="form-control" id="comments"
+                                    name="comments"><%- post.comments -%></textarea>
+                            </div>
+
+                        </fieldset>
+
+                        <!-- 
+            <div class=" mb-3">
+              <label for="imgUpload" class="form-label">Supporting Documents</label>
+              <p> You can upload a W2, Paystubs or Tipsheet to verify your salary</p>
+              <input type="file" class="form-control" id="imageUpload" name="file">
+            </div>
+             -->
+                        <button type="submit" class="btn btn-form btn-save" value="Upload">Save</button>
+                        <button class="btn btn-form btn-cancel" value="Upload">Cancel</button>
+
+
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+    <%- include('partials/_loggedInFooter') -%>

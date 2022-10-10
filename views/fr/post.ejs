@@ -1,0 +1,210 @@
+<%- include('partials/_loggedInHeader') -%>
+  <main>
+
+    <div class="mt-5 text-center post-head">
+      <h2 class='post-header'>
+        <%= `${post.title} at ${post.name} (${post.location})` %>
+      </h2>
+
+      <!-- Date -->
+      <span class='subtext'>
+        <%= ` Posted ${post.createdAt.toISOString().slice(5,10)}-${post.createdAt.toISOString().slice(0,4)}` %>
+          <!-- Verified -->
+          <span>|</span>
+          <% if(post.verified){ %>
+            Verified Salary!
+            <% } else{ %>
+              <span>
+                <%= `Salary Not Verified`%>
+              </span>
+              <% } %>
+      </span>
+
+
+      <!-- Edit Post -->
+      <%if(post.user==user.id){ %>
+        <span>
+          <a href=" /post/editPost/<%= post.id %>">
+            <button class="btn bi bi-pencil" type="submit"> Edit </button>
+          </a>
+        </span>
+
+        <!-- Delete Post-->
+        <form id='delete-post' action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST">
+          <button class="btn bi bi-trash" type="submit"> Remove</button>
+        </form>
+        <%}%>
+
+          <!-- Flag Post -->
+          <%if(post.user !=user.id){ %>
+            <form action="/post/flagPost/<%= post.id %>?_method=PUT" method="POST">
+              <button class="btn bi bi-flag" type="submit"> Flag </button>
+            </form>
+            <%}%>
+    </div>
+
+    <section class="page-contain">
+      <!-- Card One -->
+      <div class="data-card">
+        <h3>Company</h3>
+        <h4>Business Type</h4>
+        <p>
+          <%= post.type %>
+        </p>
+
+        <% if(post.overTime){ %>
+          <h4>Allows Overtime</h4>
+          <p>
+            <%= post.overTime%>
+          </p>
+          <% } %>
+
+            <% if(post.familyMeal){ %>
+              <h4> Family Meal Provided?</h4>
+              <p>
+                <%= post.familyMeal %>
+              </p>
+              <% } %>
+      </div>
+
+      <!-- Card Two  -->
+      <div class="data-card">
+        <h3>Shift Details</h3>
+
+        <h4> Shifts per week </h4>
+        <p>
+          <%= post.numShifts %>
+        </p>
+
+        <h4>Shift Length</h4>
+        <p>
+          <%= post.shiftLength %>hrs
+        </p>
+
+        <% if(post.breaks){ %>
+          <h4> Able to take breaks </h4>
+          <p>
+            <%= post.breaks%>
+          </p>
+          <% } %>
+
+            <% if(post.sameShifts){ %>
+              <h4> Same Schedule each week </h4>
+              <p>
+                <%= post.sameShifts %>
+                  <% } %>
+              </p>
+
+      </div>
+
+      <!--  Card Three-->
+      <div class="data-card">
+        <h3>Compensation</h3>
+        <h4> Base Pay</h4>
+        <p>
+          <%= `$${post.base}` %>
+            <%= `( ${post.payType} )` %>
+        </p>
+
+        <% if(!post.slowTips || !post.busyTips || post.slowTips==0 || post.busyTips==0 ){ %>
+          <% } else{ %>
+            <h4> Tips per shift </h4>
+            <p>
+              <%= `$ ${post.slowTips}`%>
+                -
+                <%= `$ ${post.busyTips}`%>
+            </p>
+            <% } %>
+
+              <!-- Hidden if no input selected-->
+              <% if(post.cashTips==='Cash' ){ %>
+                <p>
+                  <%= `Cash tips are kept` %>
+                    <% } else if(post.cashTips=='Paycheck' ){ %>
+                      <p>
+                        <%= `Cash tips received in paycheck` %>
+                      </p>
+                </p>
+                <% } %>
+
+
+                  <% if(post.poolHouse){ %>
+                    <h4>Pool House</h4>
+                    <p>
+                      <%= post.poolHouse %>
+                    </p>
+                    <% } %>
+
+
+
+                      <!-- Hidden if extra pay is empty-->
+                      <% if(post.extraPay){ %>
+                        <h4> Additional Pay</h4>
+                        <p>
+                          <%= post.extraPay %>
+                        </p>
+                        <% } %>
+
+                          <h4> Do new hires receive full tips? </h4>
+                          <p>
+                            <%= post.fullTips %>
+                          </p>
+
+      </div>
+
+      <!-- Card Four-->
+      <% if(post.gender || post.ethnicity || post.age || post.orientation){ %>
+        <div class="data-card">
+          <h3>Demographics</h3>
+          <% } %>
+            <% if(post.gender){ %>
+              <h4>Sex</h4>
+              <p>
+                <%= post.gender %>
+                  <% } %>
+              </p>
+
+              <% if(post.ethnicity){ %>
+                <h4>Ethnicity</h4>
+                <p>
+                  <%= post.ethnicity %>
+                </p>
+                <% } %>
+
+                  <% if(post.age){ %>
+                    <h4>Age</h4>
+                    <p>
+                      <%= post.age %>
+                    </p>
+                    <% } %>
+
+                      <% if(post.orientation){ %>
+                        <h4>Orientation</h4>
+                        <p>
+                          <%= post.orientation %>
+                        </p>
+                        <% } %>
+        </div>
+    </section>
+    <!-- New Card layout-->
+
+
+    <!-- Comments-->
+    <div class='text-center comments'>
+      <% if(post.comments){ %>
+        <h3>
+          Comments
+        </h3>
+        <p>
+          <%= post.comments %>
+        </p>
+        <% } %>
+    </div>
+
+
+    </div>
+    </div>
+    </div>
+  </main>
+
+  <%- include('partials/_loggedInFooter') -%>
