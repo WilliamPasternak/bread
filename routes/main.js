@@ -23,8 +23,6 @@ router.post("/signup", authController.postSignup);
 module.exports = router;
 
 
-
-
 if (typeof window !== 'undefined') {
 
 (function() {
