@@ -9,6 +9,8 @@ body {
     font-family: "Open Sans", sans-serif;
     color: #585a61;
     overflow-x: hidden;
+    scrollbar-face-color: slategray;
+    scrollbar-track-color: #b8c0c8;
 }
 
 a {
@@ -1020,4 +1022,37 @@ main div h2 {
     margin: 0 0 0em;
     transform: translateY(-1em);
     transition: opacity .45s ease, transform .5s ease;
+}
+
+/*--------------------------------------------------------------
+  # Feed
+  --------------------------------------------------------------*/
+::-webkit-scrollbar {
+    width: 0.15em;
+    height: 0.15em;
+}
+
+::-webkit-scrollbar-thumb {
+    background: slategray;
+}
+
+::-webkit-scrollbar-track {
+    background: #b8c0c8;
+}
+
+.feed {
+    max-height: 500px;
+    overflow-y: scroll;
+    margin-bottom: 5vh;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    position: sticky;
+    background: #fff;
+    top: 0;
+}
+
+.table {
+    margin-bottom: 0;
 }
