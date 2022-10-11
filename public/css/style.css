@@ -1176,7 +1176,7 @@ thead {
         display: flex;
     }
 
-    /*
+
     table td::before {
         content: attr(label);
         font-weight: 100;
@@ -1184,7 +1184,7 @@ thead {
         width: 1rem;
         min-width: 120px;
     }
-    */
+
 
     .mobile-feed {
         display: flex;
