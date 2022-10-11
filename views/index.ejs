@@ -42,17 +42,20 @@
                             More</a>
 
                         <!-- Toggled Button Appearance-->
-                        <%if(user){ %>
-                            <a href="/feed" class="download-btn"><i class="bi bi-search"></i>
-                                View Salaries
+
+                        <%if(!user){ %>
+                            <a href="/signup" class="download-btn"><i class="bi bi-person-plus"></i>
+                                Sign Up
                             </a>
                             <%}%>
 
-                                <%if(!user){ %>
-                                    <a href="/signup" class="download-btn"><i class="bi bi-person-plus"></i>
-                                        Sign Up
+                                <%if(user){ %>
+                                    <a href="/feed" class="download-btn"><i class="bi bi-search"></i>
+                                        View Salaries
                                     </a>
                                     <%}%>
+
+
                                         <!-- End Button Toggle-->
                     </div>
                 </div>
