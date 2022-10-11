@@ -10,11 +10,16 @@
                     </a>
                     page.
                 </p>
-                <p>
-                    <strong> Once
-                        verified the image you upload will be deleted from our servers. </strong>
 
-                </p>
+                <span>
+                    <strong> Once
+                        verified uploaded documents will be deleted from our servers. </strong>
+                </span>
+                <span class='subtext pb-1'>
+                    Accepted file types (.jpg .jpeg .png .pdf)
+                </span>
+
+
                 <form action="/post/verify" enctype="multipart/form-data" method="POST">
                     <div class="mb-3">
                         <label for="imgUpload" class="form-label">Supporting Document</label>
@@ -23,6 +28,7 @@
 
                     <button type="submit" class="btn btn-form">Verify</button>
                 </form>
+
             </div>
         </div>
 
