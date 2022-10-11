@@ -31,7 +31,6 @@ This is a full stack web application in which the user can
 - Calculate & Track your weekly earnings 
 - Signup with other methods
 - Ability to reset password
-- Salaries Page (Sortable, Searchable, etc.)
 - Give admin account ability to edit DB documents in app
 - Limit 'Flags' to one per user, per post
 - Clean up user data on form submit
