@@ -635,10 +635,6 @@ section {
   --------------------------------------------------------------*/
 .contact {
     margin: 0 auto;
-}
-
-.contact {
-    width: 100%;
     width: 50%;
 }
 
@@ -840,8 +836,24 @@ th {
     margin: 0 auto;
 }
 
+.user-form {
+    margin: 0 auto;
+    width: 50%;
+}
+
 @media screen and (max-width: 768px) {
+
     /* Fix Dimensions of Logo */
+    .form-logo {
+        width: 50vw;
+        margin: 0 auto;
+    }
+
+    .user-form {
+        width: 80%;
+    }
+
+
     /* Fix Dimensions of Form Width */
 }
 
