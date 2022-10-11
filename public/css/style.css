@@ -1038,10 +1038,6 @@ h1 {
     }
 }
 
-
-
-
-
 /*--------------------------------------------------------------
   # Data Display
   --------------------------------------------------------------*/
@@ -1106,8 +1102,6 @@ main div h2 {
 .data-card:hover {
     transform: scale(1.03);
 }
-
-
 
 .data-card h4 {
     color: #627084;
@@ -1177,6 +1171,7 @@ thead {
         display: flex;
     }
 
+    /*
     table td::before {
         content: attr(label);
         font-weight: 100;
@@ -1184,22 +1179,11 @@ thead {
         width: 1rem;
         min-width: 120px;
     }
+    */
 
     .mobile-feed {
         display: flex;
     }
-
-    table {
-        width: 80%;
-    }
-
-    body {
-        overflow-x: hidden;
-        max-width: 100%;
-    }
-
-
-
 }
 
 
