@@ -1130,29 +1130,29 @@ main div h2 {
 @media screen and (max-width: 600px) {
     .page-contain {
         flex-direction: column;
-        height: 275vh;
+        height: 300vh;
+        padding: 0;
     }
-
-    .data-card {
-        width: 80vw;
-        height: 100vh;
-        overflow: hidden;
-
-    }
-
-    .post-head {
-        height: 25vh;
-    }
-
-    .post-header {
-        line-height: 1.5;
-    }
-
-
-
 
 
 }
+
+.data-card {
+
+    width: 80vw;
+    height: 100vh;
+    overflow: hidden;
+
+}
+
+.post-head {
+    height: 25vh;
+}
+
+.post-header {
+    line-height: 1.5;
+}
+
 
 
 
