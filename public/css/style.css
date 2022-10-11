@@ -831,6 +831,17 @@ th {
 /*--------------------------------------------------------------
   # Forms: ( Login, Signup, Share)
   --------------------------------------------------------------*/
+.share {
+    width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+    .share {
+        width: 90%;
+    }
+}
+
+
 .form-logo {
     width: 25vw;
     margin: 0 auto;
