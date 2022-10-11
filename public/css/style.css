@@ -12,6 +12,11 @@ body {
     overflow-x: hidden;
     scrollbar-face-color: slategray;
     scrollbar-track-color: #b8c0c8;
+    position: relative
+}
+
+html {
+    overflow-x: hidden;
 }
 
 a {
