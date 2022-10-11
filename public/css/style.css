@@ -518,8 +518,6 @@ section {
 
 }
 
-
-
 /*--------------------------------------------------------------
   # Details
   --------------------------------------------------------------*/
@@ -808,6 +806,26 @@ section {
 }
 
 /*--------------------------------------------------------------
+  # Coming Soon 
+  --------------------------------------------------------------*/
+.coming-soon h1 {
+    color: #2E3C40;
+    font-size: 2em;
+    font-weight: 600;
+    line-height: 1;
+    padding-bottom: .25em;
+    margin: 0 0 0.142857143em;
+    border-bottom: 2px solid #753BBD;
+    transition: color .45s ease, border .45s ease;
+}
+
+.coming-soon {
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+/*--------------------------------------------------------------
   # Salaries Table
   --------------------------------------------------------------*/
 .subtext {
@@ -874,9 +892,6 @@ th {
     .user-form {
         width: 80%;
     }
-
-    /* Fix Dimensions of Form Width */
-
 }
 
 .btn-form {

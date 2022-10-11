@@ -1,0 +1,73 @@
+<%- include('partials/_header') -%>
+    <main id="main">
+        <section class="d-flex align-items-center">
+            <div class="container">
+                <div class="col-md-8 pt-5 coming-soon" data-aos="fade-up">
+                    <h1> Planned Features </h1>
+                    <p> Features are regularly being rolled out</p>
+
+                </div>
+
+                <!-- ======= Contact Section ======= -->
+                <div class="container contact pb-4" data-aos="fade-up">
+                    <div class="section-title">
+                        <h2>Feature Request</h2>
+                        <p> Have an idea for a feature?</p>
+                    </div>
+
+                    <form action="https://formsubmit.co/2132c172bc729286ba7d2c33efc1eb64" method="post"
+                        class="contact-form">
+                        <!-- Submission Email Subject-->
+                        <input type="hidden" name="_subject" value="Bread: Feature Request">
+
+                        <!-- Hide Captcha-->
+                        <input type="hidden" name="_captcha" value="false">
+
+                        <!-- Honeypot -->
+                        <input type="text" name="_honey" style="display:none">
+
+                        <!-- On Submission-->
+                        <input type="hidden" name="_next" value="http://www.86bread.com/coming-soon/">
+
+                        <div>
+                            <div class="form-group">
+                                <input placeholder="Your Name" type="text" name="name" class="form-control" id="name"
+                                    required>
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <input placeholder="Your Email" type="email" class="form-control" name="email"
+                                    id="email" required>
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <input placeholder="Subject" type="text" class="form-control" name="subject"
+                                    id="subject" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <textarea placeholder="Message" class="form-control" name="message" rows="5"
+                                    required></textarea>
+                            </div>
+
+                            <div class="text-center"><button type="submit">Send Message</button></div>
+                    </form>
+                </div>
+                <!-- End Contact Section -->
+
+
+
+            </div>
+        </section>
+
+
+
+
+
+    </main>
+    <!-- End #main -->
+
+
+
+
+
+    <%- include('partials/_footer') -%>

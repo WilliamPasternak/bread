@@ -5,19 +5,26 @@ const homeController = require("../controllers/home");
 const postsController = require("../controllers/posts");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-//Main Routes - simplified for now
-
+//Main Routes 
 router.get("/", homeController.getIndex); 
-  // Different Language Options
+// Different Language Options
   router.get("/es/", homeController.getIndexES);  
   router.get("/fr/", homeController.getIndexFR);  
+// Share Your Salary 
 router.get("/share", ensureAuth, postsController.getProfile);
+// Recent Salaries 
 router.get("/feed", ensureAuth, postsController.getFeed);
+// Login & Out
 router.get("/login", authController.getLogin);
 router.post("/login", authController.postLogin);
 router.get("/logout", authController.logout);
+// Sign Up 
 router.get("/signup", authController.getSignup);
 router.post("/signup", authController.postSignup);
+// Coming Soon
+router.get("/coming-soon/", homeController.getComingSoon);
+
+
 
 
 module.exports = router;
