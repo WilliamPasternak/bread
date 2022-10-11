@@ -1,37 +1,46 @@
 # bread
 bread is a free resource for reviewing and sharing salary information for the hospitality industry. It is completely anonymous and crowd-sourced.
 
-**Link to project:** Coming Soon!
-
-![alt tag](https://github.com/WilliamPasternak/bread/blob/main/bread.gif)
+**Link to project:** http://www.86bread.com
+  <p align = 'center'>
+<img align="center" src="https://github.com/WilliamPasternak/bread/blob/main/bread.gif" alt="bread project website">
+</p>
 
 ## How It's Made:
 
-**Tech used:** Bootstrap, CSS, JavaScript, Node.js, Express, Mongoose, 
+**Tech used:** Bootstrap, EJS, CSS, JavaScript, Node.js, Express, Mongoose, Cloudinary 
 
-How its built...
+This is a full stack web application in which the user can
+- Create an account which is handled by Passport.js 
+- Submit a Pay form which is stored on our servers.
+- Logged in users can edit and delete their own posts.
+- Upload salary verification documentation. Their image is temporarily stored on Cloudinary and a link to that image is stored in a MongoDB collection.
+- Review salaries in a dynamic table populated by EJS
+- Report questionable salaries with PUT
 
 ## Optimizations
 
 **Design:**
-- Center align contact form
-- Display # salaries in database at any moment
-- Write Website Copy
-- Add Required alerts on form when it is not filled out. 
+- Implement stylized alert on 
+- Ensure all screen sizes work
+- International locations & dates
+- Spanish and French native translations
+- User Profile page
 
 **Functionality:**
 - Calculate & Track your weekly earnings 
-- Ability to edit submissions
-- Signup with other methods (such as google)
+- Signup with other methods
 - Ability to reset password
 - Salaries Page (Sortable, Searchable, etc.)
-- Make Image uploadable optional. (For Salary Verification)
-- Implement Likes & Dislikes
+- Give admin account ability to edit DB documents in app
+- Limit 'Flags' to one per user, per post
+- Clean up user data on form submit
+- Edit post should pre-fill with selected drop down option
 
-## Lessons Learned:
 
-
-
+**Efficiency:**
+- Remove unused styling
+- Reduce unneeded data passed into ejs
 
 ## More Projects
 <table bordercolor="#66b2b2">
