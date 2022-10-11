@@ -1,0 +1,35 @@
+<%- include('partials/_loggedInheader') -%>
+
+    <div class="container mt-5">
+        <div class='text-center user-form'>
+            <div class="mt-5">
+                <h1 class='post-header'>Verify Your Salary </h1>
+                <form action="/post/verify" enctype="multipart/form-data" method="POST">
+                    <div class="mb-3">
+                        <label for="imgUpload" class="form-label">Image</label>
+                        <input type="file" class="form-control" id="imageUpload" name="file">
+                    </div>
+
+                    <button type="submit" class="btn btn-form">Verify</button>
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+    </div>
+    <!-- Login Form -->
+
+
+
+
+
+
+
+
+
+    <%- include('partials/_footer-bare') -%>

@@ -5,13 +5,16 @@
     <div class="container w-75">
 
       <h1 class='post-header'> Most Recent Salaries</h1>
-      <p>
-        <i class="bi bi-patch-check"> Denotes a Verified Salary submitted with supporting documents.</i>
-      </p>
-      <span> Your Submission(s):</span>
+
+
+      <span id='submissions'> Your Submission(s):</span>
 
       <% for(let i=0; i<posts.length; i++) {%>
+
+
         <% if(posts[i].approved && posts[i].user==user.id ){ %>
+
+
           <a href="/post/<%= posts[i]._id%>">
             <%= posts[i].name %>
           </a>
@@ -19,9 +22,13 @@
           <% } %>
             <% } %>
 
+
               <a href="/share" class="download-btn"><i class="bi bi-person-plus"></i> Add your
                 salary</a>
 
+              <p>
+                <i class="bi bi-patch-check"> Denotes a Verified Salary submitted with supporting documents.</i>
+              </p>
 
 
               <!-- MOBILE FEED -->
@@ -87,7 +94,7 @@
                       <th scope="col">Base Pay</th>
                       <th scope="col">Tip Range</th>
                       <th scope="col">Additional Pay</th>
-                      <th scope="col">Additional </th>
+                      <th scope="col">Details </th>
                     </tr>
                   </thead>
 

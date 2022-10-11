@@ -1,11 +1,20 @@
-// const cloudinary = require("../middleware/cloudinary");
+const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
+const Verify = require("../models/Verify");
 
 module.exports = {
   getProfile: async (req, res) => {
     try {
       const posts = await Post.find({ user: req.user.id });
       res.render("share.ejs", { posts: posts, user: req.user, title: 'bread | Share Your Salary' });
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  getVerified: async (req, res) => {
+    try {
+      const posts = await Verify.find({ user: req.user.id });
+      res.render("verify.ejs", { posts: posts, user: req.user, title: 'bread | Verify Your Salary'  });
     } catch (err) {
       console.log(err);
     }
@@ -20,6 +29,7 @@ module.exports = {
       console.log(err);
     }
   },
+ 
 
   getPost: async (req, res) => {
     try {
@@ -52,8 +62,6 @@ module.exports = {
         // const result = await cloudinary.uploader.upload(req.file.path);
   
       await Post.create({
-        //image: result.secure_url, (MAKE THIS OPTIONAL)
-        //cloudinaryId: result.public_id,
         user: req.user.id,
         location: req.body.location,
         type: req.body.type,
@@ -89,6 +97,25 @@ module.exports = {
       console.log(err);
     }
   }, 
+
+  verifyPost: async (req, res) => {
+    try {
+      // Upload image to cloudinary
+      const result = await cloudinary.uploader.upload(req.file.path);
+
+      await Verified.create({
+        image: result.secure_url,
+        cloudinaryId: result.public_id,
+        user: req.user.id,
+      });
+      console.log("Verification has been submitted!");
+      res.redirect("/feed");
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
+
 
   editPost: async (req, res) => {
     try {

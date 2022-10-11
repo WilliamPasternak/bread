@@ -14,6 +14,8 @@ router.get("/", homeController.getIndex);
 router.get("/share", ensureAuth, postsController.getProfile);
 // Recent Salaries 
 router.get("/feed", ensureAuth, postsController.getFeed);
+// Verify Salary
+router.get("/verify", postsController.getVerified);
 // Login & Out
 router.get("/login", authController.getLogin);
 router.post("/login", authController.postLogin);
