@@ -41,31 +41,32 @@
                       <!-- Only approved posts-->
                       <% if(posts[i].approved ){ %>
 
-                        <td>
+                        <td label='Name'>
                           <%= posts[i].name%>
                             <span class=' subtext'>
                               <%= posts[i].location%>
                                 <span>
                         </td>
 
-                        <td>
+                        <td label='Type'>
                           <%= posts[i].type%>
                         </td>
 
-                        <td>
+                        <td label='Title'>
                           <%= posts[i].title%>
                         </td>
 
-                        <td>
+                        <td label='Shifts'>
                           <%= posts[i].numShifts%>
                         </td>
-                        <td>
+
+                        <td label='Shift Length'>
                           <%= posts[i].shiftLength%>
                             <span class='subtext'> Hours </span>
                         </td>
 
 
-                        <td>
+                        <td label="Pay">
                           <%= `$ ${posts[i].base}`%>
                             <span class='subtext'>
                               <%= posts[i].payType%>
@@ -74,7 +75,7 @@
 
 
                         <!-- Show 'Non-Tipped' if user did not enter tips, or inputted 0-->
-                        <td>
+                        <td label="Tip Range">
                           <% if(!posts[i].slowTips || !posts[i].busyTips || posts[i].slowTips==0 || posts[i].busyTips==0
                             ){ %>
                             Non-Tipped
@@ -84,7 +85,7 @@
                         </td>
 
                         <!-- Show None if user did not include extra pay-->
-                        <td>
+                        <td label="Extra Pay">
                           <% if(!posts[i].extraPay || posts[i].extraPay==0){ %>
                             None
                             <% } else{ %>
@@ -92,7 +93,7 @@
                                 <% } %>
                         </td>
 
-                        <td>
+                        <td label="More Info">
                           <a href="/post/<%= posts[i]._id%>"> Click Here</a>
                         </td>
                         </tr>
