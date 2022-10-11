@@ -22,7 +22,7 @@ router.get("/logout", authController.logout);
 router.get("/signup", authController.getSignup);
 router.post("/signup", authController.postSignup);
 // Coming Soon
-router.get("/coming-soon/", homeController.getComingSoon);
+router.get("/features/", homeController.getComingSoon);
 
 
 
