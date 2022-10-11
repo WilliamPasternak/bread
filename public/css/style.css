@@ -1168,7 +1168,6 @@ thead {
 
 @media screen and (max-width: 600px) {
 
-
     table thead,
     .feed {
         display: none;
@@ -1189,6 +1188,17 @@ thead {
     .mobile-feed {
         display: flex;
     }
+
+    table {
+        margin: 0 auto;
+    }
+
+    body {
+        overflow-x: hidden;
+        max-width: 100%;
+    }
+
+
 
 }
 
