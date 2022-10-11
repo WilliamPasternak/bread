@@ -103,7 +103,7 @@ module.exports = {
       // Upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
 
-      await Verified.create({
+      await Verify.create({
         image: result.secure_url,
         cloudinaryId: result.public_id,
         user: req.user.id,
