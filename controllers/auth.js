@@ -40,7 +40,7 @@ exports.postLogin = (req, res, next) => {
         return next(err);
       }
       req.flash("success", { msg: "Success! You are logged in." });
-      res.redirect(req.session.returnTo || "/share");
+      res.redirect(req.session.returnTo || "/feed");
     });
   })(req, res, next);
 };
@@ -59,7 +59,7 @@ exports.logout = async (req, res) => {
 
 exports.getSignup = (req, res) => {
   if (req.user) {
-    return res.redirect("/share");
+    return res.redirect("/feed");
   }
   res.render("signup", {
     title: "Create Account",
@@ -111,7 +111,7 @@ exports.postSignup = (req, res, next) => {
           if (err) {
             return next(err);
           }
-          res.redirect("/share");
+          res.redirect("/feed");
         });
       });
     }
