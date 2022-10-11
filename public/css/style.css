@@ -841,6 +841,11 @@ th {
     width: 50%;
 }
 
+.user-form {
+    width: 40%;
+    margin: 0 auto;
+}
+
 @media screen and (max-width: 768px) {
 
     /* Fix Dimensions of Logo */
@@ -853,8 +858,8 @@ th {
         width: 80%;
     }
 
-
     /* Fix Dimensions of Form Width */
+
 }
 
 .btn-form {
