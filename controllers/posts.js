@@ -82,6 +82,7 @@ module.exports = {
         fullTips: req.body.fullTips,
         orientation: req.body.orientation,
       });
+     
       res.redirect("/feed");
     } catch (err) {
       console.log(err);
