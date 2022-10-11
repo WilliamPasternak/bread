@@ -1130,7 +1130,7 @@ main div h2 {
 @media screen and (max-width: 600px) {
     .page-contain {
         flex-direction: column;
-        height: 300vh;
+        height: 375vh;
         padding: 0;
     }
 
@@ -1141,7 +1141,7 @@ main div h2 {
     }
 
     .data-card h3 {
-        font-size: 1rem;
+        font-size: 2.5rem;
     }
 
     .post-head {
