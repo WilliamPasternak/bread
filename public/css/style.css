@@ -1144,6 +1144,12 @@ main div h2 {
     background: #b8c0c8;
 }
 
+thead {
+    position: sticky;
+    background: #fff;
+    top: 0;
+}
+
 .feed {
     max-height: 500px;
     overflow-y: scroll;
@@ -1151,14 +1157,12 @@ main div h2 {
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
-thead {
-    position: sticky;
-    background: #fff;
-    top: 0;
-}
-
 .table {
     margin-bottom: 0;
+}
+
+.mobile-feed {
+    display: none;
 }
 
 @media screen and (max-width: 600px) {
@@ -1172,10 +1176,20 @@ thead {
 
     table td::before {
         content: attr(label);
-        font-weight: bold;
+        font-weight: 100;
         width: 120px;
+        width: 1rem;
         min-width: 120px;
     }
+
+    .feed {
+        display: none;
+    }
+
+    .mobile-feed {
+        display: block;
+    }
+
 }
 
 

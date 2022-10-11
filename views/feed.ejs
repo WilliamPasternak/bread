@@ -18,6 +18,49 @@
               <a href="/share" class="download-btn"><i class="bi bi-person-plus"></i> Add your
                 salary</a>
 
+
+
+              <!-- MOBILE FEED -->
+              <div class='mobile-feed'>
+                <table class='table table-striped'>
+                  <thead>
+                    <tr>
+                      <th scope="col">Company</th>
+                      <th scope="col">Job Title</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for(let i=0; i<posts.length; i++) {%>
+
+                      <!-- Only approved posts-->
+                      <% if(posts[i].approved ){ %>
+                        <tr>
+                          <td label='Company'>
+                            <%= posts[i].name%>
+                              <span class=' subtext'>
+                                <%= posts[i].location%>
+                                  <span>
+                          </td>
+
+                          <td label='Position'>
+                            <%= posts[i].title%>
+                          </td>
+
+
+
+                          <td label="Details">
+                            <a href="/post/<%= posts[i]._id%>"> Click Here</a>
+                          </td>
+                        </tr>
+
+                        <% } %>
+                          <%}%>
+                  </tbody>
+                </table>
+              </div>
+
+
+              <!-- Desktop Feed -->
               <div class='feed'>
                 <table class='table table-striped'>
 
@@ -64,7 +107,6 @@
                           <%= posts[i].shiftLength%>
                             <span class='subtext'> Hours </span>
                         </td>
-
 
                         <td label="Pay">
                           <%= `$ ${posts[i].base}`%>
