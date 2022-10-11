@@ -1134,11 +1134,14 @@ main div h2 {
         padding: 0;
     }
 
-
     .data-card {
         width: 80vw;
         height: 100vh;
         overflow: hidden;
+    }
+
+    .data-card h3 {
+        font-size: 1rem;
     }
 
     .post-head {
