@@ -1044,7 +1044,7 @@ h1 {
 }
 
 /*--------------------------------------------------------------
-  # Data Display
+  # Data Display (Post Page)
   --------------------------------------------------------------*/
 .post-head {
     height: 15vh;
@@ -1110,7 +1110,6 @@ main div h2 {
 
 .data-card h4 {
     color: #627084;
-    /*text-transform: uppercase;*/
     font-size: 1.125em;
     font-weight: 700;
     line-height: 1;
@@ -1127,6 +1126,17 @@ main div h2 {
     transform: translateY(-1em);
     transition: opacity .45s ease, transform .5s ease;
 }
+
+@media screen and (max-width: 600px) {
+    .page-contain {
+        display: none;
+    }
+
+
+}
+
+
+
 
 /*--------------------------------------------------------------
   # Feed
