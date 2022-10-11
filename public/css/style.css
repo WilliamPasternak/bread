@@ -1174,6 +1174,7 @@ thead {
 
     table td {
         display: flex;
+        justify-content: center;
     }
 
     .mobile-feed {

@@ -34,19 +34,27 @@
 
                       <!-- Only approved posts-->
                       <% if(posts[i].approved ){ %>
+                        <!-- 
+                        <td label='Submitted'>
+                          <%=
+                            `${posts[i].createdAt.toISOString().slice(5,10)}-${posts[i].createdAt.toISOString().slice(0,4)}
+                            `%>
+                        </td>
+                        -->
+
+                        <td label='Company'>
+                          <%= posts[i].name%>
+                            <span class=' subtext'>
+                              <%= posts[i].location%>
+                                <span>
+                        </td>
+
+
                         <tr>
-                          <td label='Company'>
-                            <%= posts[i].name%>
-                              <span class=' subtext'>
-                                <%= posts[i].location%>
-                                  <span>
-                          </td>
 
                           <td label='Position'>
                             <%= posts[i].title%>
                           </td>
-
-
 
                           <td label="Details">
                             <a href="/post/<%= posts[i]._id%>"> Click Here</a>
