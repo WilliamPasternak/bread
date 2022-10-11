@@ -959,10 +959,6 @@ h1 {
     text-decoration: underline #6fa684;
 }
 
-
-
-
-/* Center align p text on mobile */
 @media (max-width: 768px) {
     .words p {
         width: 100%;
@@ -1132,6 +1128,7 @@ comments p {
     transition: opacity .45s ease, transform .5s ease;
 }
 
+
 @media screen and (max-width: 600px) {
     .page-contain {
         flex-direction: column;
@@ -1157,9 +1154,6 @@ comments p {
         line-height: 1.5;
     }
 }
-
-
-
 
 /*--------------------------------------------------------------
   # Feed
@@ -1203,6 +1197,24 @@ thead {
     font-size: .75rem;
 }
 
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #6fa684;
+    background-color: #5777ba;
+    border-color: black;
+    border-color: #dee2e6;
+
+}
+
+.page-link {
+    color: #6c757d;
+}
+
+.page-link:hover {
+    color: #000;
+}
 
 /*--------------------------------------------------------------
   # Mobile Salaries Feed
