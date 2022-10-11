@@ -19,28 +19,30 @@
                       <% } %>
 
                         <!-- Login Form -->
-                        <div class='text-center'>
-                          <img src="/imgs/logo.png" class='form-logo' alt="">
-                        </div>
+                        <div class='user-form'>
+                          <div class='text-center'>
+                            <img src="/imgs/logo.png" class='form-logo' alt="">
+                          </div>
 
-                        <div class='text-center'>
-                          <form action="/login" method="POST" class="text-center member-form">
+                          <div class='text-center'>
+                            <form action="/login" method="POST" class="text-center member-form">
 
-                            <div class="mb-3">
-                              <label for="email" class="form-label">Email address</label>
-                              <input type="email" class="form-control" id="email" placeholder="example@email.com"
-                                aria-describedby="email" name="email" autofocus />
-                            </div>
+                              <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" placeholder="example@email.com"
+                                  aria-describedby="email" name="email" autofocus />
+                              </div>
 
-                            <div class="mb-3">
-                              <label for="password" class="form-label">Password</label>
-                              <input type="password" class="form-control" id="password" placeholder="********"
-                                name="password" />
-                            </div>
+                              <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" placeholder="********"
+                                  name="password" />
+                              </div>
 
-                            <button type="submit" class="btn btn-form">Log In</button>
-                          </form>
-                          <p class="text-center">Not a member? <a data-toggle="tab" href="/signup">Sign Up</a></p>
+                              <button type="submit" class="btn btn-form">Log In</button>
+                            </form>
+                            <p class="text-center">Not a member? <a data-toggle="tab" href="/signup">Sign Up</a></p>
+                          </div>
                         </div>
                         <!-- Login Form -->
       </section>

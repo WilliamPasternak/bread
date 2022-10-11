@@ -839,6 +839,19 @@ th {
     margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+    .form-logo {
+        width: 50vw;
+    }
+
+    .user-form {
+        width: 100%;
+    }
+
+
+
+}
+
 .btn-form {
     color: #000;
     border: 1px solid #000;
@@ -1072,7 +1085,6 @@ main div h2 {
 
 .data-card h4 {
     color: #627084;
-    /*text-transform: uppercase;*/
     font-size: 1.125em;
     font-weight: 700;
     line-height: 1;
