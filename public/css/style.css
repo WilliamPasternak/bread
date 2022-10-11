@@ -8,6 +8,7 @@
 body {
     font-family: "Open Sans", sans-serif;
     color: #585a61;
+    max-width: 100%;
     overflow-x: hidden;
     scrollbar-face-color: slategray;
     scrollbar-track-color: #b8c0c8;
@@ -1166,7 +1167,10 @@ thead {
 }
 
 @media screen and (max-width: 600px) {
-    table thead {
+
+
+    table thead,
+    .feed {
         display: none;
     }
 
@@ -1182,12 +1186,8 @@ thead {
         min-width: 120px;
     }
 
-    .feed {
-        display: none;
-    }
-
     .mobile-feed {
-        display: block;
+        display: flex;
     }
 
 }
