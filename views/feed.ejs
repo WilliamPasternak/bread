@@ -5,7 +5,11 @@
     <div class="container w-75">
 
       <h1 class='post-header'> Most Recent Salaries</h1>
+      <p>
+        <i class="bi bi-patch-check"> Denotes a Verified Salary submitted with supporting documents.</i>
+      </p>
       <span> Your Submission(s):</span>
+
       <% for(let i=0; i<posts.length; i++) {%>
         <% if(posts[i].approved && posts[i].user==user.id ){ %>
           <a href="/post/<%= posts[i]._id%>">
@@ -43,14 +47,18 @@
                         -->
 
                         <td label='Company'>
-                          <%= posts[i].name%>
+                          <% if(posts[i].verified ){ %>
+                            <i class="bi bi-patch-check"></i>
+                            <% } %>
 
-                            (<%= posts[i].location%>)
+                              <%= posts[i].name%>
+
+                                (<%= posts[i].location%>)
 
 
-                              <%=
-                                `${posts[i].createdAt.toISOString().slice(5,10)}-${posts[i].createdAt.toISOString().slice(0,4)}
-                                `%>
+                                  <%=
+                                    `${posts[i].createdAt.toISOString().slice(5,10)}-${posts[i].createdAt.toISOString().slice(0,4)}
+                                    `%>
 
                         </td>
 
@@ -97,11 +105,16 @@
                       <!-- Only approved posts-->
                       <% if(posts[i].approved ){ %>
 
+
+
                         <td label='Name'>
-                          <%= posts[i].name%>
-                            <span class=' subtext'>
-                              <%= posts[i].location%>
-                                <span>
+                          <% if(posts[i].verified ){ %>
+                            <i class="bi bi-patch-check"></i>
+                            <% } %>
+                              <%= posts[i].name%>
+                                <span class=' subtext'>
+                                  <%= posts[i].location%>
+                                    <span>
                         </td>
 
                         <td label='Type'>
