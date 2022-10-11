@@ -44,9 +44,14 @@
 
                         <td label='Company'>
                           <%= posts[i].name%>
-                            <span class=' subtext'>
-                              <%= posts[i].location%>
-                                <span>
+
+                            (<%= posts[i].location%>)
+
+
+                              <%=
+                                `${posts[i].createdAt.toISOString().slice(5,10)}-${posts[i].createdAt.toISOString().slice(0,4)}
+                                `%>
+
                         </td>
 
 
