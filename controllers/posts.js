@@ -13,9 +13,8 @@ module.exports = {
   },
   getVerified: async (req, res) => {
     try {
-      //const posts = await Verify.find({ user: req.user.id });
-      //res.render("verify.ejs", { posts: posts, user: req.user, title: 'bread | Verify Your Salary'  });
-      res.render("verify.ejs", 'bread | Verify Your Salary');
+      const posts = await Verify.find({ user: req.user.id });
+      res.render("verify.ejs", { posts: posts, user: req.user, title: 'bread | Verify Your Salary'  });
     } catch (err) {
       console.log('not working')
       console.log(err);
