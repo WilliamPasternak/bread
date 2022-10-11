@@ -492,6 +492,10 @@ section {
         text-align: center;
     }
 
+    .features .content .icon-box i {
+        font-size: 36px;
+    }
+
     .features .image img {
         max-width: 80%;
     }
@@ -501,7 +505,14 @@ section {
     .features .image img {
         max-width: 100%;
     }
+
+    .features .content .icon-box i {
+        font-size: 24px;
+    }
+
 }
+
+
 
 /*--------------------------------------------------------------
   # Details
@@ -1005,6 +1016,17 @@ h1 {
         opacity: 1;
     }
 }
+
+/* Center align p text on mobile */
+@media (max-width: 768px) {
+    .words p {
+        justify-content: center;
+        color: red;
+    }
+}
+
+
+
 
 /*--------------------------------------------------------------
   # Data Display
