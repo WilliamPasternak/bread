@@ -638,6 +638,7 @@ section {
 }
 
 .contact {
+    width: 100%;
     width: 50%;
 }
 
@@ -839,17 +840,9 @@ th {
     margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-    .form-logo {
-        width: 50vw;
-    }
-
-    .user-form {
-        width: 100%;
-    }
-
-
-
+@media screen and (max-width: 768px) {
+    /* Fix Dimensions of Logo */
+    /* Fix Dimensions of Form Width */
 }
 
 .btn-form {
@@ -878,7 +871,6 @@ fieldset {
     border-radius: 5px;
     box-shadow: 0px 2px 15px rgba(0, 0, 0, .15);
 }
-
 
 /*--------------------------------------------------------------
   # Flipping animation
@@ -1085,6 +1077,7 @@ main div h2 {
 
 .data-card h4 {
     color: #627084;
+    /*text-transform: uppercase;*/
     font-size: 1.125em;
     font-weight: 700;
     line-height: 1;
