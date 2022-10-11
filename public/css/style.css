@@ -1135,24 +1135,20 @@ main div h2 {
     }
 
 
+    .data-card {
+        width: 80vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .post-head {
+        height: 35vh;
+    }
+
+    .post-header {
+        line-height: 1.5;
+    }
 }
-
-.data-card {
-
-    width: 80vw;
-    height: 100vh;
-    overflow: hidden;
-
-}
-
-.post-head {
-    height: 25vh;
-}
-
-.post-header {
-    line-height: 1.5;
-}
-
 
 
 
