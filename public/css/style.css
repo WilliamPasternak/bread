@@ -1156,10 +1156,22 @@ thead {
     margin-bottom: 0;
 }
 
+@media screen and (max-width: 600px) {
+    table thead {
+        display: none;
+    }
 
-/* 
-Trying to fix mobile situation
-*/
+    table td {
+        display: flex;
+    }
+
+    table td::before {
+        content: attr(label);
+        font-weight: bold;
+        width: 120px;
+        min-width: 120px;
+    }
+}
 
 
 /*--------------------------------------------------------------
