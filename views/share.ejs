@@ -211,7 +211,18 @@
                -->
             </fieldset>
 
-            <button type="submit" class="btn btn-form btn-save" value="Upload">Submit</button>
+            <button type="submit" id='share-button' class="btn btn-form btn-save" value="Upload">Submit</button>
+
+            <script>
+              document.getElementById('share-button').addEventListener('click', function () {
+                Swal.fire({
+                  title: 'Error!',
+                  text: 'Do you want to continue',
+                  icon: 'error',
+                  confirmButtonText: 'Cool'
+                })
+              })
+            </script>
 
             <script>
               Swal.fire({
