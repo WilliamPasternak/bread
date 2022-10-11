@@ -637,33 +637,6 @@ section {
     margin: 0 auto;
 }
 
-.contact .info {
-    padding: 20px 40px;
-    background: #f1f3f6;
-    color: #47536e;
-    text-align: center;
-    border: 1px solid #fff;
-}
-
-.contact .info i {
-    font-size: 48px;
-    color: #9fb2d8;
-    margin-bottom: 15px;
-}
-
-.contact .info h4 {
-    padding: 0;
-    margin: 0 0 10px 0;
-    font-size: 16px;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-family: "Poppins", sans-serif;
-}
-
-.contact .info p {
-    font-size: 15px;
-}
-
 .contact {
     width: 100%;
     width: 50%;
@@ -716,9 +689,14 @@ section {
     }
 }
 
+
 @media (max-width: 768px) {
     .contact .contact-form {
         padding: 15px 0 0 0;
+    }
+
+    .contact {
+        width: 80%;
     }
 }
 
