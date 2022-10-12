@@ -2,6 +2,10 @@
 
   <div class='container sort mt-5'>
     <h1 class='post-header'> Recent Salaries</h1>
+    <div class='text-center'>
+      <p>Salaries marked with <i class="bi bi-patch-check"></i> have been verified with supporting documents. </p>
+      <p> <a href="/verify">Verifying your salary </a> helps others trust its accuracy.</p>
+    </div>
 
     <!-- Desktop Feed-->
     <div id='feed'>
@@ -26,13 +30,20 @@
             <!-- Only approved posts-->
             <% if(posts[i].approved ){ %>
               <td label='Name'>
-                <% if(posts[i].verified ){ %>
-                  <i class="bi bi-patch-check"></i>
-                  <% } %>
-                    <%= posts[i].name%>
-                      <span class=' subtext'>
-                        <%= posts[i].location%>
-                          <span>
+
+                <%= posts[i].name%>
+                  <% if(posts[i].verified ){ %>
+                    <i class="bi bi-patch-check"></i>
+                    <span class=' subtext'>
+                      <%= posts[i].location%>
+                        <span>
+
+
+
+
+
+                          <% } %>
+
               </td>
 
               <td label='Type'>
@@ -105,17 +116,19 @@
           <!-- Only approved posts-->
           <% if(posts[i].approved ){ %>
             <td label='Name'>
-              <% if(posts[i].verified ){ %>
-                <i class="bi bi-patch-check"></i>
-                <% } %>
-                  <div class='text-center'>
-                    <p>
-                      <%= posts[i].name%>
-                    </p>
-                    <span class='subtext text-center'>
-                      <%= posts[i].location%>
-                    </span>
-                  </div>
+
+              <div class='text-center'>
+                <p>
+                  <%= posts[i].name%>
+                    <% if(posts[i].verified ){ %>
+                      <i class="bi bi-patch-check"></i>
+                      <% } %>
+                </p>
+
+                <span class='subtext text-center'>
+                  <%= posts[i].location%>
+                </span>
+              </div>
             </td>
 
             <td label='Title'>
