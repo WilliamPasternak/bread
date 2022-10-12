@@ -1245,7 +1245,11 @@ thead {
     }
 
     .mobile-feed {
-        display: flex;
+        display: block;
+    }
+
+    #feed {
+        display: none;
     }
 }
 
