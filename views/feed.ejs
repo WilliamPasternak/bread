@@ -12,7 +12,7 @@
 
     <!-- Desktop Feed-->
     <div id='feed'>
-      <table id="salaries" class="table table-striped" style="width:100%">
+      <table id="salaries" class="table table-striped">
         <thead>
           <tr>
             <th>Company</th>
@@ -37,15 +37,11 @@
                 <%= posts[i].name%>
                   <% if(posts[i].verified ){ %>
                     <i class="bi bi-patch-check"></i>
-                    <span class=' subtext'>
-                      <%= posts[i].location%>
-                        <span>
+                    <% } %>
+                      <span class=' subtext'>
+                        <%= posts[i].location%>
+                          <span>
 
-
-
-
-
-                          <% } %>
 
               </td>
 
