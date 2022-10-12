@@ -108,19 +108,27 @@
               <% if(posts[i].verified ){ %>
                 <i class="bi bi-patch-check"></i>
                 <% } %>
-                  <%= posts[i].name%>
-                    <span class=' subtext'>
+                  <div>
+                    <p>
+                      <%= posts[i].name%>
+                    </p>
+                    <span class='subtext text-center'>
                       <%= posts[i].location%>
-                        <span>
+                    </span>
+                  </div>
             </td>
 
             <td label='Title'>
               <%= posts[i].title%>
             </td>
 
+
             <td label="More Info">
               <a href="/post/<%= posts[i]._id%>"> Details</a>
             </td>
+
+
+
             </tr>
 
             <% } %>
