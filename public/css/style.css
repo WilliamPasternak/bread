@@ -1064,7 +1064,7 @@ h3 {
 }
 
 .post-header-mobile h2 {
-    font-size: 1rem;
+    width: 90%;
 }
 
 #delete-post {
