@@ -51,6 +51,10 @@ module.exports = {
           $inc: { flagged: 1 },
         }
       );
+      Toast.fire({
+        icon: 'success',
+        title: 'Signed in successfully'
+      })
       res.redirect(`/post/${req.params.id}`);
     } catch (err) {
       console.log(err);
