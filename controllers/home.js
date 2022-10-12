@@ -28,7 +28,7 @@ getIndexFR: async (req, res) => {
 getComingSoon: async (req, res) => {
   try {
     const posts = await Post.find().lean();
-    res.render("features.ejs",{ title: 'bread | Pay Transparency for the Hospitality Industry', posts: posts, user: req.user}); //user:user,  
+    res.render("features.ejs",{ title: 'bread | Features ', posts: posts, user: req.user}); //user:user,  
   } catch (err) {
     console.log(err);
   }
