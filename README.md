@@ -8,7 +8,7 @@ bread is a free resource for reviewing and sharing salary information for the ho
 
 ## How It's Made:
 
-**Tech used:** Bootstrap, EJS, CSS, JavaScript, Node.js, Express, Mongoose, Cloudinary 
+**Tech used:** Bootstrap, EJS, CSS, JavaScript, Node.js, Express, Mongoose, Cloudinary, Passport.js 
 
 This is a full stack web application in which the user can
 - Create an account which is handled by Passport.js 
