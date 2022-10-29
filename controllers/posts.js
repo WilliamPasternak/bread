@@ -51,7 +51,7 @@ module.exports = {
           $inc: { flagged: 1 },
         }
       );
-      res.redirect(`/post/${req.params.id}`);
+        res.redirect(`/post/${req.params.id}`);  
     } catch (err) {
       console.log(err);
     }

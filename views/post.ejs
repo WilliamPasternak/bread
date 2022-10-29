@@ -39,9 +39,10 @@
           <!-- Flag Post -->
           <%if(post.user !=user.id){ %>
             <form action="/post/flagPost/<%= post.id %>?_method=PUT" method="POST">
-              <button class="btn bi bi-flag" type="submit"> Flag </button>
+              <button class="btn bi bi-flag" id='flag-post' type="submit"> Flag </button>
             </form>
             <%}%>
+
     </div>
 
 
