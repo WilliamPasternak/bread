@@ -764,7 +764,7 @@ section {
 }
 
 #footer .footer-newsletter {
-    padding: 50px 0;
+    padding: 30px 0;
     background: #eff2f8;
     text-align: center;
     font-size: 15px;
@@ -860,8 +860,9 @@ section {
   # 404 Page 
   --------------------------------------------------------------*/
 .error-page {
-    margin-top: 10vh;
+    padding-top: 15vh;
     text-align: center;
+    margin: 0 auto;
 }
 
 #error-img {
@@ -1087,10 +1088,16 @@ h3 {
     font-weight: 600;
     line-height: 1;
     padding-bottom: .25em;
-    margin: 0 0 0.142857143em;
+    margin: 5vh 0 0.142857143em;
     border-bottom: 2px solid #753BBD;
     transition: color .45s ease, border .45s ease;
 }
+
+.post-header {
+    text-align: center;
+}
+
+
 
 .post-header-mobile h2 {
     font-size: 2rem;
