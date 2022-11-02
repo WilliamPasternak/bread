@@ -12,8 +12,15 @@ router.get("/", homeController.getIndex);
   router.get("/fr/", homeController.getIndexFR);  
 // Share Your Salary 
 router.get("/share", ensureAuth, postsController.getProfile);
-// Recent Salaries 
+// Recent Salaries  (Eventually change route below to salaries,)
 router.get("/feed", ensureAuth, postsController.getFeed);
+
+// In Progress HOME Feed / feed / profile change name.
+router.get("/profile", ensureAuth, postsController.getProfile);
+// NEW ROUTE
+
+
+
 // Verify Salary
 router.get("/verify", postsController.getVerified);
 // Login & Out

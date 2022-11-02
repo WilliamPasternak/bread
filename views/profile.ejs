@@ -1,0 +1,162 @@
+<%- include('partials/_loggedInHeader') -%>
+
+    <div class='container sort mt-5'>
+        <h1 class='post-header'> PROFILE </h1>
+        <div class='text-center'>
+            <p> Your Profile
+            </p>
+            <!-- CHANGE FORM ACTION ONCE ROUTE IS CREATED-->
+            <form action="/post/createPost" method="POST" class='mb-3'>
+                <fieldset>
+                    <legend> Track your earnings</legend>
+                    <div class="mb-3">
+
+                        <label for="day" class="form-label">Day</label>
+                        <div>
+                            <select name="day" id="day" name='day' required>
+                                <option value="-">-</option>
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
+                                <option value="Saturday">Saturday</option>
+                                <option value="Sunday">Sunday</option>
+                            </select>
+                        </div>
+
+                        <label for="date" class="form-label">Date</label>
+                        <input autofocus type="date" class="form-control" id="date" name="date" required>
+
+                        <label for="role" class="form-label">Role</label>
+                        <input autofocus type="text" class="form-control" id="role" name="role" placeholder="Bartender"
+                            required>
+
+                        <label for="company" class="form-label">Company</label>
+                        <input autofocus type="text" class="form-control" id="company" name="company"
+                            placeholder="Will's Bar" required>
+
+
+                        <label for="ccTips" class="form-label">CC Tips</label>
+                        <input autofocus type="number" class="form-control" id="ccTips" name="ccTips" placeholder="100"
+                            required>
+
+                        <label for="cashTips" class="form-label">Cash Tips</label>
+                        <input autofocus type="number" class="form-control" id="cashTips" name="cashTips"
+                            placeholder="25" required>
+
+                        <label for="hoursWorked" class="form-label">Hours Worked</label>
+                        <input autofocus type="number" class="form-control" id="hoursWorked" name="hoursWorked"
+                            placeholder="8" required>
+
+                        <label for="payPerHour" class="form-label">Pay Per Hour </label>
+                        <input autofocus type="number" class="form-control" id="payPerHour" name="payPerHour"
+                            placeholder="15" required>
+
+
+
+
+
+
+
+                    </div>
+
+                    <!-- Change Table IDS for different tables-->
+                    <h3> Shift Breakdown </h3>
+                    <table id="salaries" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Day</th>
+                                <th>Shift Length</th>
+                                <th>Hourly Pay</th>
+                                <th>CC Tips</th>
+                                <th>Cash Tips</th>
+                                <th>Position</th>
+                                <th>Company</th>
+                                <th>Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>11/1/22</td>
+                                <td>Tuesday</td>
+                                <td> 8 </td>
+                                <td> 10 </td>
+                                <td>100</td>
+                                <td>20</td>
+                                <td>Bartender</td>
+                                <td>Cote</td>
+                                <td>
+                                    <button class="btn bi bi-pencil" type="submit"></button>
+                                    <button class="btn bi bi-trash" type="submit"></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>11/2/22</td>
+                                <td>Wednesday</td>
+                                <td> 10 </td>
+                                <td> 15 </td>
+                                <td>200</td>
+                                <td>30</td>
+                                <td>Bartender</td>
+                                <td>Cote</td>
+                                <td>
+                                    <button class="btn bi bi-pencil" type="submit"></button>
+                                    <button class="btn bi bi-trash" type="submit"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+                    <!-- Change Table IDS for different tables-->
+                    <h3> Your Average Earnings</h3>
+                    <table id="salaries" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Monday</th>
+                                <th>Tuesday</th>
+                                <th>Wednesday</th>
+                                <th>Thursday</th>
+                                <th>Friday</th>
+                                <th>Saturday</th>
+                                <th>Sunday</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>100</td>
+                                <td>200</td>
+                                <td> - </td>
+                                <td>400</td>
+                                <td>500</td>
+                                <td>600</td>
+                                <td>700</td>
+                            </tr>
+                        </tbody>
+                    </table>
+        </div>
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#salaries').DataTable();
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#mobile-salaries').DataTable();
+            });
+        </script>
+
+
+
+
+        <%- include('partials/_loggedInFooter') -%>

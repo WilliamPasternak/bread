@@ -30,6 +30,21 @@ module.exports = {
       console.log(err);
     }
   },
+
+  // NEW GET HOME 
+  getProfile: async (req, res) => {
+    try {
+      const posts = await Post.find().sort({ createdAt: "desc" }).lean();
+      const post = await Post.findById(req.params.id);
+      res.render("profile.ejs", { posts: posts, post: post, user: req.user, title: 'bread | Profile' });
+      
+    } catch (err) {
+      console.log(err);
+    }
+  },
+ 
+
+  //
  
 
   getPost: async (req, res) => {
