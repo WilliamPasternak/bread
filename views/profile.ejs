@@ -3,66 +3,10 @@
     <div class='container sort mt-5'>
         <h1 class='post-header'> Profile </h1>
         <div class='text-center'>
-            <p> Unstyled Feed </p>
-
-
-
-            <form action="/post/addShift" method="POST" class='mb-3'>
-                <fieldset>
-                    <legend> Track your earnings</legend>
-                    <div class="mb-3">
-
-                        <form action="/addShift" method="POST" class="text-center member-form">
-                            <label for="day" class="form-label">Day</label>
-                            <div>
-                                <select name="day" id="day" name='day' required>
-                                    <option value="">-</option>
-                                    <option value="Monday">Monday</option>
-                                    <option value="Tuesday">Tuesday</option>
-                                    <option value="Wednesday">Wednesday</option>
-                                    <option value="Thursday">Thursday</option>
-                                    <option value="Friday">Friday</option>
-                                    <option value="Saturday">Saturday</option>
-                                    <option value="Sunday">Sunday</option>
-                                </select>
-                            </div>
-
-                            <label for="date" class="form-label">Date</label>
-                            <input autofocus type="text" class="form-control" id="date" name="date"
-                                placeholder="MM/DD/YY" required>
-
-
-                            <label for="company" class="form-label">Company</label>
-                            <input autofocus type="text" class="form-control" id="company" name="company"
-                                placeholder="Will's Bar" required>
-
-                            <label for="role" class="form-label">Role</label>
-                            <input autofocus type="text" class="form-control" id="role" name="role"
-                                placeholder="Bartender" required>
-
-                            <label for="hoursWorked" class="form-label">Hours Worked</label>
-                            <input autofocus type="number" class="form-control" id="hoursWorked" name="hoursWorked"
-                                placeholder="8" required>
-
-                            <label for="payPerHour" class="form-label">Pay Per Hour </label>
-                            <input autofocus type="number" class="form-control" id="payPerHour" name="payPerHour"
-                                placeholder="15" required>
-
-                            <label for="ccTips" class="form-label">CC Tips</label>
-                            <input autofocus type="number" class="form-control" id="ccTips" name="ccTips" value=0
-                                required>
-
-                            <label for="cashTips" class="form-label">Cash Tips</label>
-                            <input autofocus type="number" class="form-control" id="cashTips" name="cashTips" value=0
-                                required>
-
-                            <button type="submit" class="btn btn-form">Track</button>
-                        </form>
-
-                    </div>
-
+            
+            <!-- Shifts Worked -->
                     <!-- Change Table IDS for different tables-->
-                    <h3> Shift Breakdown </h3>
+                    <h3> Shifts Worked </h3>
                     <table id="salaries" class="table table-striped">
                         <thead>
                             <tr>
@@ -121,14 +65,55 @@
                                         <button class="btn bi bi-trash" type="submit"></button>
                                     </td>
                                 </tr>
-
-
-
                                 <% } %>
-
                         </tbody>
                     </table>
+                    <!-- End Shifts Worked-->
 
+             <!-- Average Earnings -->
+                    <!-- Store Each Day -->
+                  
+                    <%  let arr = [mondayCount, mondayEarned, tuesdayCount, tuesdayEarned, wednesdayCount, wednesdayEarned, thursdayCount, thursdayEarned, fridayCount, fridayEarned, saturdayCount, saturdayEarned, sundayCount, sundayEarned] = new Array(14).fill(0) %>
+
+                    <% for(let i=0; i<usersShifts.length; i++) {%>
+                     <% let shiftTotal=usersShifts[i].cashTips + usersShifts[i].ccTips + (usersShifts[i].hoursWorked * usersShifts[i].payPerHour) %>
+                   
+                     <!-- Average Each Day of Week-->
+                    <% if(usersShifts[i].day==='Monday' ){ %>
+                       <% mondayCount++ %>
+                       <% mondayEarned +=shiftTotal %>
+                    <% } %>
+
+                     <% if(usersShifts[i].day==='Tuesday' ){ %>
+                        <% tuesdayCount++ %>
+                        <% tuesdayEarned +=shiftTotal  %>
+                     <% } %>
+
+                     <% if(usersShifts[i].day==='Wednesday' ){  %>
+                        <% wednesdayCount++ %>
+                        <% wednesdayEarned +=shiftTotal  %>  
+                     <% }  %>
+
+                     <% if(usersShifts[i].day==='Thursday' ){ %>
+                       <% thursdayCount++  %> 
+                       <% thursdayEarned  +=shiftTotal  %>
+                     <% } %>
+
+                     <% if(usersShifts[i].day==='Friday'){  %>
+                       <% fridayCount++   %>
+                       <% fridayEarned  +=shiftTotal %>
+                     <% } %>
+
+                     <% if(usersShifts[i].day==='Saturday'  ){  %>
+                       <% saturdayCount++  %>
+                       <% saturdayEarned  +=shiftTotal  %>
+                     <% } %>
+
+                     <% if(usersShifts[i].day==='Sunday'){  %>
+                       <% sundayCount++   %>
+                       <% sundayEarned  +=shiftTotal  %>
+                     <% }  %>
+           <% } %>
                     <!-- Change Table IDS for different tables-->
                     <h3> Your Average Earnings</h3>
                     <table class="table table-striped">
@@ -143,163 +128,96 @@
                                 <th>Sunday</th>
                             </tr>
                         </thead>
+                           
+                        <!-- Display Each Day's Average in table-->
                         <tbody>
-
-                            <!-- Store Each Day -->
-                    <% let mondayCount = mondayEarned = tuesdayCount = tuesdayEarned = wednesdayCount = wednesdayEarned = thursdayCount = thursdayEarned = fridayCount = fridayEarned = saturdayCount = saturdayEarned =sundayCount = sundayEarned = 0 %>
-
-                         
-                             <% for(let i=0; i<usersShifts.length; i++) {%>
-                                                                                        <% let
-                                                                                            shiftTotal=usersShifts[i].cashTips
-                                                                                            + usersShifts[i].ccTips +
-                                                                                            (usersShifts[i].hoursWorked
-                                                                                            * usersShifts[i].payPerHour)
-                                                                                            %>
-
-                                                                                            <!-- Average Each Day of Week-->
-                                                                                            <% if(usersShifts[i].day==='Monday'
-                                                                                                ){ %>
-                                                                                                <% mondayCount++ %>
-                                                                                                    <% mondayEarned
-                                                                                                        +=shiftTotal %>
-                                                                                                        <% } %>
+                        <tr>     
+                            <td> $<%= Number.parseFloat(mondayEarned / mondayCount).toFixed(2)  %> </td>
+                            <td> $<%= Number.parseFloat(tuesdayEarned / tuesdayCount).toFixed(2)  %>  </td>
+                            <td> $<%= Number.parseFloat(wednesdayEarned / wednesdayCount).toFixed(2) %>  </td>
+                            <td> $<%= Number.parseFloat(thursdayEarned /  thursdayCount).toFixed(2)  %>  </td>
+                            <td> $<%= Number.parseFloat(fridayEarned / fridayCount).toFixed(2)  %> </td>
+                            <td> $<%= Number.parseFloat(saturdayEarned / saturdayCount).toFixed(2) %> </td>
+                            <td> $<%= Number.parseFloat(sundayEarned / sundayCount).toFixed(2) %> </td>
+                        </tr>
+                    </tbody>
+                 </table>
+<!-- End Average Earnings-->
 
 
-                                                                                                            <% if(usersShifts[i].day==='Tuesday'
-                                                                                                                ){ %>
-                                                                                                                <% tuesdayCount++
-                                                                                                                    %>
-                                                                                                                    <% tuesdayEarned
-                                                                                                                        +=shiftTotal
-                                                                                                                        %>
-                                                                                                                        <% }
-                                                                                                                            %>
+<!-- Track Your Earnings-->
+            <form action="/post/addShift" method="POST" class='mb-3'>
+                <fieldset>
+                    <h3> Track your earnings</h3>
+                    <div class="mb-3">
 
-                                                                                                                            <% if(usersShifts[i].day==='Wednesday'
-                                                                                                                                ){
-                                                                                                                                %>
-                                                                                                                                <% wednesdayCount++
-                                                                                                                                    %>
-                                                                                                                                    <% wednesdayEarned
-                                                                                                                                        +=shiftTotal
-                                                                                                                                        %>
-                                                                                                                                        <% }
-                                                                                                                                            %>
+                        <form action="/addShift" method="POST" class="text-center member-form">
+                            <label for="day" class="form-label">Day</label>
+                            <div>
+                                <select name="day" id="day" name='day' required>
+                                    <option value="">-</option>
+                                    <option value="Monday">Monday</option>
+                                    <option value="Tuesday">Tuesday</option>
+                                    <option value="Wednesday">Wednesday</option>
+                                    <option value="Thursday">Thursday</option>
+                                    <option value="Friday">Friday</option>
+                                    <option value="Saturday">Saturday</option>
+                                    <option value="Sunday">Sunday</option>
+                                </select>
+                            </div>
 
-                                                                                                                                            <% if(usersShifts[i].day==='Thursday'
-                                                                                                                                                ){
-                                                                                                                                                %>
-                                                                                                                                                <% thursdayCount++
-                                                                                                                                                    %>
-                                                                                                                                                    <% thursdayEarned
-                                                                                                                                                        +=shiftTotal
-                                                                                                                                                        %>
-                                                                                                                                                        <% }
-                                                                                                                                                            %>
-
-                                                                                                                                                            <% if(usersShifts[i].day==='Friday'
-                                                                                                                                                                ){
-                                                                                                                                                                %>
-                                                                                                                                                                <% fridayCount++
-                                                                                                                                                                    %>
-                                                                                                                                                                    <% fridayEarned
-                                                                                                                                                                        +=shiftTotal
-                                                                                                                                                                        %>
-                                                                                                                                                                        <% }
-                                                                                                                                                                            %>
+                            <label for="date" class="form-label">Date</label>
+                            <input autofocus type="text" class="form-control" id="date" name="date"
+                                placeholder="MM/DD/YY" required>
 
 
-                                                                                                                                                                            <% if(usersShifts[i].day==='Saturday'
-                                                                                                                                                                                ){
-                                                                                                                                                                                %>
-                                                                                                                                                                                <% saturdayCount++
-                                                                                                                                                                                    %>
-                                                                                                                                                                                    <% saturdayEarned
-                                                                                                                                                                                        +=shiftTotal
-                                                                                                                                                                                        %>
-                                                                                                                                                                                        <% }
-                                                                                                                                                                                            %>
+                            <label for="company" class="form-label">Company</label>
+                            <input autofocus type="text" class="form-control" id="company" name="company"
+                                placeholder="Will's Bar" required>
 
-                                                                                                                                                                                            <% if(usersShifts[i].day==='Sunday'
-                                                                                                                                                                                                ){
-                                                                                                                                                                                                %>
-                                                                                                                                                                                                <% sundayCount++
-                                                                                                                                                                                                    %>
-                                                                                                                                                                                                    <% sundayEarned
-                                                                                                                                                                                                        +=shiftTotal
-                                                                                                                                                                                                        %>
-                                                                                                                                                                                                        <% }
-                                                                                                                                                                                                            %>
+                            <label for="role" class="form-label">Role</label>
+                            <input autofocus type="text" class="form-control" id="role" name="role"
+                                placeholder="Bartender" required>
 
-                                                                                                                                                                                                            <% }
-                                                                                                                                                                                                                %>
+                            <label for="hoursWorked" class="form-label">Hours Worked</label>
+                            <input autofocus type="number" class="form-control" id="hoursWorked" name="hoursWorked"
+                                placeholder="8" required>
 
-                                                                                                                                                                                                                <tr>
+                            <label for="payPerHour" class="form-label">Pay Per Hour </label>
+                            <input autofocus type="number" class="form-control" id="payPerHour" name="payPerHour"
+                                placeholder="15" required>
 
-                                                                                                                                                                                                                    <td>
-                                                                                                                                                                                                                        $
-                                                                                                                                                                                                                        <%= Number.parseFloat(mondayEarned
-                                                                                                                                                                                                                            /
-                                                                                                                                                                                                                            mondayCount).toFixed(2)
-                                                                                                                                                                                                                            %>
-                                                                                                                                                                                                                    </td>
+                            <label for="ccTips" class="form-label">CC Tips</label>
+                            <input autofocus type="number" class="form-control" id="ccTips" name="ccTips" value=0
+                                required>
 
-                                                                                                                                                                                                                    <td>$
-                                                                                                                                                                                                                        <%= Number.parseFloat(tuesdayEarned
-                                                                                                                                                                                                                            /
-                                                                                                                                                                                                                            tuesdayCount).toFixed(2)
-                                                                                                                                                                                                                            %>
-                                                                                                                                                                                                                    </td>
-                                                                                                                                                                                                                    <td>$
-                                                                                                                                                                                                                        <%= Number.parseFloat(wednesdayEarned
-                                                                                                                                                                                                                            /
-                                                                                                                                                                                                                            wednesdayCount).toFixed(2)
-                                                                                                                                                                                                                            %>
-                                                                                                                                                                                                                    </td>
-                                                                                                                                                                                                                    <td>$
-                                                                                                                                                                                                                        <%= Number.parseFloat(thursdayEarned
-                                                                                                                                                                                                                            /
-                                                                                                                                                                                                                            thursdayCount).toFixed(2)
-                                                                                                                                                                                                                            %>
-                                                                                                                                                                                                                    </td>
-                                                                                                                                                                                                                    <td>$
-                                                                                                                                                                                                                        <%= Number.parseFloat(fridayEarned
-                                                                                                                                                                                                                            /
-                                                                                                                                                                                                                            fridayCount).toFixed(2)
-                                                                                                                                                                                                                            %>
-                                                                                                                                                                                                                    </td>
-                                                                                                                                                                                                                    <td>$
-                                                                                                                                                                                                                        <%= Number.parseFloat(saturdayEarned
-                                                                                                                                                                                                                            /
-                                                                                                                                                                                                                            saturdayCount).toFixed(2)
-                                                                                                                                                                                                                            %>
-                                                                                                                                                                                                                    </td>
-                                                                                                                                                                                                                    <td>$
-                                                                                                                                                                                                                        <%= Number.parseFloat(sundayEarned
-                                                                                                                                                                                                                            /
-                                                                                                                                                                                                                            sundayCount).toFixed(2)
-                                                                                                                                                                                                                            %>
-                                                                                                                                                                                                                    </td>
-                                                                                                                                                                                                                </tr>
-                        </tbody>
-                    </table>
+                            <label for="cashTips" class="form-label">Cash Tips</label>
+                            <input autofocus type="number" class="form-control" id="cashTips" name="cashTips" value=0
+                                required>
+
+                            <button type="submit" class="btn btn-form">Track</button>
+                        </form>
+
+                    </div>
+<!-- End Track Your Earnings-->
+
+ <!-- Timeline / Feed-->
+                <h3> Feed </h3>
+                <% for(let i=0; i<allShifts.length; i++) {%>
+                    <p> A <%= allShifts[i].role %> from <%= allShifts[i].company %> made $<%= allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour) %> working <%= allShifts[i].hoursWorked%> hours  <%= allShifts[i].day %> </p>
+
+    <!-- Need to create a post/put action form to update flags-->
+    <button class="btn bi bi-flag" id='flag-post' type="submit"> </button>
+    <% } %>
+        <!-- Feed Ends -->
+               
+
+           
+
         </div>
 
-        <!-- Timeline / Feed-->
-        <% for(let i=0; i<allShifts.length; i++) {%>
-            <p>
-                A <%= allShifts[i].role %>
-                    from <%= allShifts[i].company %>
-                        made $<%= allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked *
-                            allShifts[i].payPerHour) %>
-                            working <%= allShifts[i].hoursWorked%> hours
-                                <%= allShifts[i].day %>
-            </p>
-            <!-- Need to create a post/put action form to update flags-->
-            <button class="btn bi bi-flag" id='flag-post' type="submit"> </button>
-            <% } %>
-                <!-- Feed Ends -->
+       
+       
 
 
 
