@@ -1,3 +1,25 @@
+/*
+CSS Contents
+# General
+# Header
+# Navigation Menu
+# Hero Section
+# Sections General
+# App Features
+# Details
+# Frequently Asked Questions
+# Contact
+# Footer
+# Coming Soon 
+# 404 Page 
+# Forms: ( Login, Signup, Share)
+# Flipping animation
+# Data Display (Post Page)
+# Feed
+# Mobile Salaries Feed
+# Navigation Menu
+*/
+
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -7,6 +29,7 @@
 
 body {
     font-family: "Open Sans", sans-serif;
+    font-family: "Poppins", sans-serif;
     color: #585a61;
     max-width: 100%;
     overflow-x: hidden;
@@ -60,6 +83,9 @@ h6 {
     transition: all 0.5s;
     padding: 15px 0;
     background: rgba(255, 255, 255, .98);
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+
+
 }
 
 #header.header-transparent {
@@ -73,7 +99,7 @@ h6 {
 
 #header .logo img {
     margin: 0;
-    max-height: 50px;
+    max-height: 55px;
 }
 
 .logo:hover {
@@ -859,25 +885,22 @@ section {
 
 
 .form-logo {
-    width: 25vw;
+    width: 20vh;
     margin: 0 auto;
+
 }
 
-.user-form {
-    margin: 0 auto;
-    width: 50%;
-}
 
 .user-form {
     width: 40%;
-    margin: 0 auto;
+    margin: 5% auto;
 }
 
 @media screen and (max-width: 768px) {
 
     /* Fix Dimensions of Logo */
     .form-logo {
-        width: 50vw;
+        width: 20vw;
         margin: 0 auto;
     }
 
@@ -1073,6 +1096,11 @@ h3 {
     font-size: 2rem;
 }
 
+th {
+
+    font-weight: 100;
+}
+
 @media screen and (max-width: 600px) {
     .post-header-mobile h2 {
         font-size: 1.5rem;
@@ -1086,7 +1114,10 @@ h3 {
 
 main div h2 {
     display: inline;
+}
 
+main {
+    padding-top: 5%;
 }
 
 .comments {
@@ -1449,8 +1480,8 @@ thead {
         }
     }
 
-    /**
-  * Mobile Navigation 
+    /*
+   Mobile Navigation 
   */
     .mobile-nav-toggle {
         color: #47536e;
