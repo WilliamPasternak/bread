@@ -146,23 +146,10 @@
                         <tbody>
 
                             <!-- Store Each Day -->
-                            <% let mondayCount=0 %>
-                            <% let mondayEarned=0 %>
-                            <% let tuesdayCount=0 %>
-                            <% let tuesdayEarned=0 %>
-                            <% let wednesdayCount=0 %>
-                            <% let wednesdayEarned=0 %>
-                            <% let thursdayCount=0 %>
-                            <% let thursdayEarned=0 %>
-                            <% let fridayCount=0 %>
-                            <% let fridayEarned=0 %>
-                            <% let saturdayCount=0 %>
-                            <% let saturdayEarned=0 %>
-                            <% let sundayCount=0 %>
-                            <% let sundayEarned=0 %>
+                    <% let mondayCount = mondayEarned = tuesdayCount = tuesdayEarned = wednesdayCount = wednesdayEarned = thursdayCount = thursdayEarned = fridayCount = fridayEarned = saturdayCount = saturdayEarned =sundayCount = sundayEarned = 0 %>
 
-                                                                                    <% for(let i=0;
-                                                                                        i<usersShifts.length; i++) {%>
+                         
+                             <% for(let i=0; i<usersShifts.length; i++) {%>
                                                                                         <% let
                                                                                             shiftTotal=usersShifts[i].cashTips
                                                                                             + usersShifts[i].ccTips +
