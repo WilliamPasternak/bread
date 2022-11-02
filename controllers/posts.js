@@ -1,9 +1,10 @@
 const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
 const Verify = require("../models/Verify");
+const Shift= require("../models/Shift");
 
 module.exports = {
-  getProfile: async (req, res) => {
+  getShare: async (req, res) => {
     try {
       const posts = await Post.find({ user: req.user.id });
       res.render("share.ejs", { posts: posts, user: req.user, title: 'bread | Share Your Salary' });
@@ -30,8 +31,6 @@ module.exports = {
       console.log(err);
     }
   },
-
-  // NEW GET HOME 
   getProfile: async (req, res) => {
     try {
       const posts = await Post.find().sort({ createdAt: "desc" }).lean();
@@ -43,10 +42,6 @@ module.exports = {
     }
   },
  
-
-  //
- 
-
   getPost: async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
@@ -71,6 +66,32 @@ module.exports = {
       console.log(err);
     }
   },
+
+
+  addShift: async (req, res) => {
+    try {
+     
+      await Shift.create({
+        user: req.user.id,
+        day: req.body.day,
+        date: req.body.date,
+        company: req.body.company,
+        role: req.body.role,
+        hoursWorked: req.body.hoursWorked,
+        payPerHour: req.body.payPerHour,
+        ccTips: req.body.ccTips,
+        cashTips: req.body.cashTips,
+        createdAt: req.body.createdAt,
+        approved: req.body.approved,
+        verified: req.body.verified,
+        flagged:  0 
+      });
+     
+      res.redirect("/profile");
+    } catch (err) {
+      console.log(err);
+    }
+  }, 
 
   createPost: async (req, res) => {
     try {

@@ -6,58 +6,55 @@
             <p> Your Profile
             </p>
             <!-- CHANGE FORM ACTION ONCE ROUTE IS CREATED-->
-            <form action="/post/createPost" method="POST" class='mb-3'>
+            <form action="/post/addShift" method="POST" class='mb-3'>
                 <fieldset>
                     <legend> Track your earnings</legend>
                     <div class="mb-3">
 
-                        <label for="day" class="form-label">Day</label>
-                        <div>
-                            <select name="day" id="day" name='day' required>
-                                <option value="-">-</option>
-                                <option value="Monday">Monday</option>
-                                <option value="Tuesday">Tuesday</option>
-                                <option value="Wednesday">Wednesday</option>
-                                <option value="Thursday">Thursday</option>
-                                <option value="Friday">Friday</option>
-                                <option value="Saturday">Saturday</option>
-                                <option value="Sunday">Sunday</option>
-                            </select>
-                        </div>
+                        <form action="/addShift" method="POST" class="text-center member-form">
+                            <label for="day" class="form-label">Day</label>
+                            <div>
+                                <select name="day" id="day" name='day' required>
+                                    <option value="-">-</option>
+                                    <option value="Monday">Monday</option>
+                                    <option value="Tuesday">Tuesday</option>
+                                    <option value="Wednesday">Wednesday</option>
+                                    <option value="Thursday">Thursday</option>
+                                    <option value="Friday">Friday</option>
+                                    <option value="Saturday">Saturday</option>
+                                    <option value="Sunday">Sunday</option>
+                                </select>
+                            </div>
 
-                        <label for="date" class="form-label">Date</label>
-                        <input autofocus type="date" class="form-control" id="date" name="date" required>
+                            <label for="date" class="form-label">Date</label>
+                            <input autofocus type="date" class="form-control" id="date" name="date" required>
 
-                        <label for="role" class="form-label">Role</label>
-                        <input autofocus type="text" class="form-control" id="role" name="role" placeholder="Bartender"
-                            required>
+                            <label for="company" class="form-label">Company</label>
+                            <input autofocus type="text" class="form-control" id="company" name="company"
+                                placeholder="Will's Bar" required>
 
-                        <label for="company" class="form-label">Company</label>
-                        <input autofocus type="text" class="form-control" id="company" name="company"
-                            placeholder="Will's Bar" required>
+                            <label for="role" class="form-label">Role</label>
+                            <input autofocus type="text" class="form-control" id="role" name="role"
+                                placeholder="Bartender" required>
 
+                            <label for="hoursWorked" class="form-label">Hours Worked</label>
+                            <input autofocus type="number" class="form-control" id="hoursWorked" name="hoursWorked"
+                                placeholder="8" required>
 
-                        <label for="ccTips" class="form-label">CC Tips</label>
-                        <input autofocus type="number" class="form-control" id="ccTips" name="ccTips" placeholder="100"
-                            required>
+                            <label for="payPerHour" class="form-label">Pay Per Hour </label>
+                            <input autofocus type="number" class="form-control" id="payPerHour" name="payPerHour"
+                                placeholder="15" required>
 
-                        <label for="cashTips" class="form-label">Cash Tips</label>
-                        <input autofocus type="number" class="form-control" id="cashTips" name="cashTips"
-                            placeholder="25" required>
+                            <label for="ccTips" class="form-label">CC Tips</label>
+                            <input autofocus type="number" class="form-control" id="ccTips" name="ccTips"
+                                placeholder="100" required>
 
-                        <label for="hoursWorked" class="form-label">Hours Worked</label>
-                        <input autofocus type="number" class="form-control" id="hoursWorked" name="hoursWorked"
-                            placeholder="8" required>
+                            <label for="cashTips" class="form-label">Cash Tips</label>
+                            <input autofocus type="number" class="form-control" id="cashTips" name="cashTips"
+                                placeholder="25" required>
 
-                        <label for="payPerHour" class="form-label">Pay Per Hour </label>
-                        <input autofocus type="number" class="form-control" id="payPerHour" name="payPerHour"
-                            placeholder="15" required>
-
-
-
-
-
-
+                            <button type="submit" class="btn btn-form">Track</button>
+                        </form>
 
                     </div>
 

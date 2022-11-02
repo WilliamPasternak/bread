@@ -10,26 +10,28 @@ router.get("/", homeController.getIndex);
 // Different Language Options
   router.get("/es/", homeController.getIndexES);  
   router.get("/fr/", homeController.getIndexFR);  
+
 // Share Your Salary 
-router.get("/share", ensureAuth, postsController.getProfile);
-// Recent Salaries  (Eventually change route below to salaries,)
+router.get("/share", ensureAuth, postsController.getShare);
+
+// Recent Salaries  (Eventually change route name below to salaries,)
 router.get("/feed", ensureAuth, postsController.getFeed);
 
-// In Progress HOME Feed / feed / profile change name.
+// Profile Page
 router.get("/profile", ensureAuth, postsController.getProfile);
-// NEW ROUTE
-
-
 
 // Verify Salary
 router.get("/verify", postsController.getVerified);
+
 // Login & Out
 router.get("/login", authController.getLogin);
 router.post("/login", authController.postLogin);
 router.get("/logout", authController.logout);
+
 // Sign Up 
 router.get("/signup", authController.getSignup);
 router.post("/signup", authController.postSignup);
+
 // Coming Soon
 router.get("/features/", homeController.getComingSoon);
 
