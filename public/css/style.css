@@ -10,6 +10,7 @@ CSS Contents
 # Frequently Asked Questions
 # Contact
 # Footer
+# Profile
 # Coming Soon 
 # 404 Page 
 # Forms: ( Login, Signup, Share)
@@ -28,7 +29,6 @@ CSS Contents
 }
 
 body {
-    font-family: "Open Sans", sans-serif;
     font-family: "Poppins", sans-serif;
     color: #585a61;
     max-width: 100%;
@@ -836,6 +836,63 @@ section {
         padding: 5px 0;
     }
 }
+
+/*--------------------------------------------------------------
+  # Profile
+  --------------------------------------------------------------*/
+
+.timeline-item{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1vh 1vw;
+    margin: 1vh 0;
+    background: #fff;
+}
+
+.timeline-item:hover{
+    background: #F7F7F7;
+}
+
+.profile-container{
+    display: flex;
+    justify-content: center;
+}
+
+.profile-left{
+width: 60%;
+padding: 0 1vw;
+}
+
+.profile-group {
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, .15);
+    padding: 1%;
+    margin-bottom: 1%;
+}
+
+.profile-right{
+width: 38%;
+}
+
+
+.shifts-worked{
+    table-layout: fixed;
+    width: 100%;
+}
+
+.avg-earnings{
+    table-layout: fixed;
+    width: 100%;
+}
+
+.profile {
+    border: 1px solid lightgrey;
+    margin: 2vh 0;
+    padding: 5%;
+    border-radius: 5px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, .15);
+}
+
+
 
 /*--------------------------------------------------------------
   # Coming Soon 
