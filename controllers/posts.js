@@ -31,11 +31,24 @@ module.exports = {
       console.log(err);
     }
   },
-  getProfile: async (req, res) => {
+  /*getProfile: async (req, res) => {
     try {
       const posts = await Post.find().sort({ createdAt: "desc" }).lean();
       const post = await Post.findById(req.params.id);
       res.render("profile.ejs", { posts: posts, post: post, user: req.user, title: 'bread | Profile' });
+      
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  */
+
+  getProfile: async (req, res) => {
+    try {
+      const allShifts = await Shift.find().sort({ createdAt: "desc" }).lean();
+      const usersShifts = await Shift.find({ user: req.user.id });
+      
+      res.render("profile.ejs", { allShifts: allShifts, usersShifts: usersShifts, user: req.user, title: 'bread | Profile' });
       
     } catch (err) {
       console.log(err);
