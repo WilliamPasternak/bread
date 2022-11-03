@@ -847,6 +847,7 @@ section {
     padding: 1vh 1vw;
     margin: 1vh 0;
     background: #fff;
+    font-size: 1.25rem;
 }
 
 .timeline-item:hover{
@@ -890,6 +891,11 @@ width: 38%;
     padding: 5%;
     border-radius: 5px;
     box-shadow: 0px 2px 15px rgba(0, 0, 0, .15);
+}
+
+.timeline{
+    height: 100vh;
+    overflow-y:scroll;
 }
 
 

@@ -13,6 +13,7 @@ bread is a free resource for reviewing and sharing salary information for the ho
 This is a full stack web application in which the user can
 - Create an account which is handled by Passport.js 
 - Submit a Pay form which is stored on our servers.
+- Track their earnings and determine their average daily earnings.
 - Logged in users can edit and delete their own posts.
 - Upload salary verification documentation. Their image is temporarily stored on Cloudinary and a link to that image is stored in a MongoDB collection.
 - Review salaries in a dynamic table populated by EJS
@@ -21,25 +22,36 @@ This is a full stack web application in which the user can
 ## Optimizations
 
 **Design:**
-- Implement stylized alert on 
+- Implement stylized alerts after form submissions
 - Ensure all screen sizes work
+- Check spacing of section headers from nav bar
 - International locations & dates
-- Spanish and French native translations
-- User Profile page
+- Spanish and French native translations implemented (in Progress)
+- User Profile Page layout (in Progress)
 
-**Functionality:**
-- Calculate & Track your weekly earnings 
+**Functionality / Usability:**
+- Calculate & Track your weekly earnings (Complete - refactor code)
 - Signup with other methods
 - Ability to reset password
 - Give admin account ability to edit DB documents in app
 - Limit 'Flags' to one per user, per post
 - Clean up user data on form submit
 - Edit post should pre-fill with selected drop down option
+- Fix date/day formatting issue using date HTML5 input type
+- Add Companies to a watchlist
+- More info on shift feed (location, link to company, etc.)
+- Add Event Work and Consulting option to share
+- Create pages for each business in db
+- Add filters to Salaries Table
+- Add translated versions of profile page
+- Auto suggest or complete form data
+- Make image upload optional in Salaries form
 
 
-**Efficiency:**
+**Efficiency / Code Improvement:**
 - Remove unused styling
 - Reduce unneeded data passed into ejs
+- Change Post Model name and data types
 
 ## More Projects
 <table bordercolor="#66b2b2">
