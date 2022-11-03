@@ -878,6 +878,7 @@ width: 38%;
 .shifts-worked{
     table-layout: fixed;
     width: 100%;
+    text-align: center;
 }
 
 .avg-earnings{
