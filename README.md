@@ -71,13 +71,14 @@ This is a full stack web application in which the user can
         </a>
     </td>
     <td width="33.3%" valign="top">
-<a target="_blank" href="https://github.com/WilliamPasternak/MovieNight">Movie Night</a>
-        <br />
-        <a target="_blank" href="https://github.com/WilliamPasternak/MovieNight">
-          <img src="https://github.com/WilliamPasternak/MovieNight/blob/main/MovieNight%20Walkthrough.gif" width="100%" alt="Portfolio"/>
+<a target="_blank" href="https://github.com/WilliamPasternak/Theophilio">Theophilio</a> 
+      <br />
+        <a target="_blank" href="https://github.com/WilliamPasternak/Theophilio">
+          <img src="https://github.com/WilliamPasternak/Theophilio/blob/main/Theophilio.png" width="100%" alt="Matching Card Game"/>
         </a>
     </td>
-  </tr>
+
+
 </table>
 
 
