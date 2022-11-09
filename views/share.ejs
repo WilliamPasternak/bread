@@ -23,7 +23,7 @@
 
               <div class="mb-3">
                 <label for="name" class="form-label"> Company Name</label>
-                <input type="text" class="form-control" id="name" name="name" value="-" required>
+                <input type="text" class="form-control" id="name" name="name" placeholder="-" required>
               </div>
             </fieldset>
 
@@ -52,7 +52,7 @@
                 <label for="base" class="form-label">Base Pay</label>
                 <span> (<em>After</em> employer tip credit) $15/hr with a $5 tip credit should be
                   $10/hr</span>
-                <input type="text" class="form-control" id="base" name="base" placeholder="10" required>
+                <input type="string" class="form-control" id="base" name="base" placeholder="10" required>
               </div>
 
               <div class="mb-3">
@@ -70,7 +70,7 @@
 
               <div class="mb-3">
                 <label for="numShifts" class="form-label">Shifts Worked Per Week</label>
-                <input type="text" class="form-control" id="numShifts" name="numShifts" placeholder="4" required>
+                <input type="string" class="form-control" id="numShifts" name="numShifts" placeholder="4" required>
               </div>
 
               <div class="mb-3">
@@ -78,7 +78,7 @@
                 <input type="text" class="form-control" id="shiftLength" name="shiftLength" placeholder="8-10" required>
               </div>
 
-              <p> Average Tips Earned (If tipped employee)</p>
+              <p> Average Tips Earned </p>
 
               <div class="mb-3">
                 <label for="slowTips" class="form-label"> Slow Shift</label>
@@ -89,6 +89,7 @@
                 <label for="busyTips" class="form-label"> Busy Shift</label>
                 <input type="text" class="form-control" id="busyTips" name="busyTips" placeholder="0">
               </div>
+           
 
               <div class="mb-3">
                 <label for="cashTips" class="form-label"> Do you receive cash tips nightly or in your paycheck?</label>

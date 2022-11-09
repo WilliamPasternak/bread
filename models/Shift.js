@@ -5,12 +5,7 @@ const ShiftSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-   /* Date is off by 1, make changes and delete workaround.
-   date: {
-    type: Date,
-    require: true,
-  }, 
-  */
+
  date: {
   type: String,
   required: true,

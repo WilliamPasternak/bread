@@ -47,6 +47,7 @@ module.exports = {
     try {
       const allShifts = await Shift.find().sort({ createdAt: "desc" }).lean();
       const usersShifts = await Shift.find({ user: req.user.id });
+      //const shift = await Shift.findById(req.params.id);
       
       res.render("profile.ejs", { allShifts: allShifts, usersShifts: usersShifts, user: req.user, title: 'bread | Profile' });
       
@@ -199,6 +200,8 @@ module.exports = {
     }
   },
 
+  // Delete Post
+
   deletePost: async (req, res) => {
     try {
       // let post = await Post.findById({ _id: req.params.id });
@@ -212,4 +215,17 @@ module.exports = {
       res.redirect("/profile");
     }
   },
+
+
+deleteShift: async (req, res) => {
+  try {
+    await Shift.remove({ _id: req.params.id });
+    console.log("Deleted Shift");
+    res.redirect("/profile");
+  } catch (err) {
+    res.redirect("/profile");
+  }
+},
+
 };
+

@@ -12,7 +12,12 @@ router.post("/addShift", postsController.addShift);
 //Verify Posts
 router.post("/verify", upload.single("file"), postsController.verifyPost);
 
+// Delete Post from Recent Salaries Table
 router.delete("/deletePost/:id", postsController.deletePost);
+
+// Delete Shift from Profile
+router.delete("/deleteShift/:id", postsController.deleteShift);
+
 router.put("/flagPost/:id", postsController.flagPost);
 // Edit Posts
 router.get("/editPost/:id", ensureAuth, postsController.editPost);

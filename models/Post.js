@@ -50,6 +50,7 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+
   cashTips: {
     type: String,
     required: false,

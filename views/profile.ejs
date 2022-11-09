@@ -135,13 +135,13 @@
                 <div>
                     <select name="day" id="day" name='day' required>
                         <option value="">-</option>
-                        <option value="Monday">Monday</option>
-                        <option value="Tuesday">Tuesday</option>
-                        <option value="Wednesday">Wednesday</option>
-                        <option value="Thursday">Thursday</option>
-                        <option value="Friday">Friday</option>
-                        <option value="Saturday">Saturday</option>
-                        <option value="Sunday">Sunday</option>
+                        <option value="Mon">Monday</option>
+                        <option value="Tues">Tuesday</option>
+                        <option value="Wed">Wednesday</option>
+                        <option value="Thur">Thursday</option>
+                        <option value="Fri">Friday</option>
+                        <option value="Sat">Saturday</option>
+                        <option value="Sun">Sunday</option>
                     </select>
                 </div>
 
@@ -184,7 +184,7 @@
 
  <!-- Shifts Worked -->
                     <!-- Change Table IDS for different tables-->
-                    <div > </div>
+                
                     <h3> Shifts Worked </h3>
                     <table id="salaries" class="table table-striped shifts-worked">
                         <thead>
@@ -243,8 +243,13 @@
                                     </td>
 
                                     <td>
-                                        <!-- Needs route to actually delete-->
-                                        <button class="btn bi bi-trash" type="submit"></button>
+                                        <!--  Deletes Shift From Table -->
+                                        <form id='delete-shift' action="/post/deleteShift/<%= usersShifts[i].id %>?_method=DELETE" method="POST">
+                                            <button class="btn bi bi-trash" type="submit"> Remove</button>
+                                          </form>
+ 
+
+
                                     </td>
                                 </tr>
                                 <% } %>
@@ -261,9 +266,20 @@
         <div class = 'timeline'>
     <% for(let i=0; i<allShifts.length; i++) {%>
         <div class = 'timeline-item'> 
-            <p> A <%= (allShifts[i].role).toUpperCase() %> from <%= allShifts[i].company %> made $<%= allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour) %> working <%= allShifts[i].hoursWorked%> hours  <%= allShifts[i].day %> </p>
+
+            <!-- If Single hour worked -->
+            <% if(allShifts[i].hoursWorked == 1){ %>
+                <p> A <%= (allShifts[i].role).toUpperCase() %> from <%= allShifts[i].company %> made $<%= allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour) %> working <%= allShifts[i].hoursWorked%> hour <%= allShifts[i].day %> </p>
+
+                <% } else{ %>
+                    <p> A <%= (allShifts[i].role).toUpperCase() %> from <%= allShifts[i].company %> made $<%= allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour) %> working <%= allShifts[i].hoursWorked%> hours  <%= allShifts[i].day %> </p>
+                  <% } %>
+
+
+
+                
             <!-- Need to create a post/put action form to update flags-->
-            <button class="btn bi bi-flag" id='flag-post' type="submit"> </button>
+            
         </div>
 
     <% } %>
