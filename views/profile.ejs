@@ -336,13 +336,46 @@
     <h1> Mobile SZN </h1>
     <h3> Your Average Earnings</h3>
 <div class = 'averages'>
-    <p>Mon <br> $220.99 </p>
-    <p>Tues <br> $220.99 </p>
-    <p>Wed <br> $220.99 </p>
-    <p>Thur <br> $220.99 </p>
-    <p>Fri <br> $220.99 </p>
-    <p>Sat <br> $220.99 </p>
-    <p>Sun <br> $220.99 </p>
+    <% if(mondayCount > 0){ %>
+        <p>Mon <br> $<%= Number.parseFloat(mondayEarned / mondayCount).toFixed(2)  %></p>
+        <% } else{ %>
+                <p>Mon <br> - </p>
+            <% } %>
+    <% if(tuesdayCount > 0){ %>
+        <p>Tue <br> $<%= Number.parseFloat(tuesdayEarned / tuesdayCount).toFixed(2)  %></p>
+        <% } else{ %>
+                <p>Tue <br> - </p>
+            <% } %>
+
+    <% if(wednesdayCount > 0){ %>
+        <p>Wed <br> $<%= Number.parseFloat(wednesdayEarned / wednesdayCount).toFixed(2)  %></p>
+        <% } else{ %>
+                <p>Wed <br> - </p>
+            <% } %>
+
+    <% if(thursdayCount > 0){ %>
+        <p>Thur <br> $<%= Number.parseFloat(thursdayEarned / thursdayCount).toFixed(2)  %></p>
+        <% } else{ %>
+                <p>Thu <br> - </p>
+            <% } %>
+
+    <% if(fridayCount > 0){ %>
+        <p>Fri <br> $<%= Number.parseFloat(fridayEarned / fridayCount).toFixed(2)  %></p>
+        <% } else{ %>
+                <p>Fri<br> - </p>
+            <% } %>
+
+    <% if(saturdayCount > 0){ %>
+        <p>Sat <br> $<%= Number.parseFloat(saturdayEarned / saturdayCount).toFixed(2)  %></p>
+        <% } else{ %>
+                <p>Sat <br> - </p>
+            <% } %>
+
+    <% if(sundayCount > 0){ %>
+        <p>Sun <br> $<%= Number.parseFloat(sundayEarned / sundayCount).toFixed(2)  %></p>
+        <% } else{ %>
+                <p>Sun <br> - </p>
+            <% } %>
 </div>
     
  

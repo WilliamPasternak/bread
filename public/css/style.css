@@ -1437,7 +1437,7 @@ thead {
 .averages{
     text-align: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .mobile-feed .averages p{
