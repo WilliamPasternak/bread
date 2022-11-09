@@ -420,8 +420,7 @@
 
 
                     <!-- Below will prompt user for location, company, position, and hourly rate the first time, and auto fill subsequent times.-->
-                
-                        <!-- User HAS previously submitted a shfit -->
+                        <!-- User HAS previously submitted a shift -->
                         <% if(usersShifts[usersShifts.length -1]){ %>
                             <label for="payPerHour" class="form-label">Pay Per Hour </label>
                             <input autofocus type="number" step="0.01" value="<%- usersShifts[usersShifts.length -1].payPerHour -%>" class="form-control" id="payPerHour" name="payPerHour"
@@ -465,7 +464,6 @@
                                 <input autofocus type="checkbox" id="share" name="share" value ='true'
                                          checked>
 
-                    
                         <% } %>
                     <br>
                     <button type="submit" class="btn btn-form">Track</button>
