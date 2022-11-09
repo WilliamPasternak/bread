@@ -14,6 +14,10 @@ const ShiftSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  location: {
+    type: String,
+    required: true,
+  },
   role: {
     type: String,
     required: true,
@@ -32,6 +36,10 @@ const ShiftSchema = new mongoose.Schema({
   },
   cashTips: {
     type: Number,
+    required: false,
+  },
+  share: { 
+    type: Boolean,
     required: false,
   },
   createdAt: {

@@ -45,7 +45,7 @@ module.exports = {
 
   getProfile: async (req, res) => {
     try {
-      const allShifts = await Shift.find().sort({ createdAt: "desc" }).lean();
+      const allShifts = await Shift.find({share: "true"}).sort({ createdAt: "desc" }).lean();
       const usersShifts = await Shift.find({ user: req.user.id });
       //const shift = await Shift.findById(req.params.id);
       
@@ -90,11 +90,13 @@ module.exports = {
         day: req.body.day,
         date: req.body.date,
         company: req.body.company,
+        location: req.body.location,
         role: req.body.role,
         hoursWorked: req.body.hoursWorked,
         payPerHour: req.body.payPerHour,
         ccTips: req.body.ccTips,
         cashTips: req.body.cashTips,
+        share: req.body.share,
         createdAt: req.body.createdAt,
         approved: req.body.approved,
         verified: req.body.verified,

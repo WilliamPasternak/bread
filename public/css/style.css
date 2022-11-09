@@ -845,9 +845,11 @@ section {
     border: 1px solid black;
     border-radius: 5px;
     padding: 1vh 1vw;
-    margin: 1vh 0;
+    margin: 1vh auto;
     background: #fff;
     font-size: 1.25rem;
+    width: 90%;
+    text-align: center;
 }
 
 .timeline-item:hover{
@@ -860,9 +862,13 @@ section {
 }
 
 .profile-left{
-width: 60%;
+width: 75%;
 padding: 0 1vw;
 }
+.profile-right{
+    width: 25%;
+    padding: 0 1vw;
+    }
 
 .profile-group {
     box-shadow: 0px 2px 15px rgba(0, 0, 0, .15);
@@ -870,9 +876,17 @@ padding: 0 1vw;
     margin-bottom: 1%;
 }
 
-.profile-right{
-width: 38%;
+.shifts-worked{
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, .15);
+    padding: 1%;
+    margin: 0 auto;
+    
 }
+
+.centered-heading{
+    text-align: center;
+}
+
 
 
 .shifts-worked{
@@ -895,7 +909,7 @@ width: 38%;
 }
 
 .timeline{
-    height: 100vh;
+    height: 110vh;
     overflow-y:scroll;
 }
 
@@ -1412,13 +1426,6 @@ thead {
     }
 
 
-
-
-
-
-
-
-
     /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -1661,3 +1668,4 @@ thead {
         display: block;
     }
 }
+
