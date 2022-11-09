@@ -2,7 +2,9 @@
 
 <div class ='mt-5'> 
    
+    
     <!-- Destkop Feed -->
+    <div class = 'desktop-feed'> 
         <div class = 'profile-container'>
         <div class = 'profile-left'>
             <div class = 'profile-group'>
@@ -52,7 +54,7 @@
                 <% } %>
                             <!-- Change Table IDS for different tables-->
                             <h3> Your Average Earnings</h3>
-                        <table class="table table-striped avg-earnings">
+                        <table class="table table-striped">
                     
                                 <thead>
                                     <tr>
@@ -236,7 +238,7 @@
                                             <th>Position</th>
                                             <th>Company</th>
                                             <td>Total</td>
-                                            <th>Edit</th>
+                                            <th>Remove</th>
                                         </tr>
                                     </thead>
 
@@ -323,8 +325,153 @@
 
         </div>
         </div>
-    </div>
+   
+    <!-- Desktop Feed Ends-->
 
+
+</div>
+</div>
+
+<div class='mobile-feed'>
+    <h1> Mobile SZN </h1>
+    <h3> Your Average Earnings</h3>
+<div class = 'averages'>
+    <p>Mon <br> $220.99 </p>
+    <p>Tues <br> $220.99 </p>
+    <p>Wed <br> $220.99 </p>
+    <p>Thur <br> $220.99 </p>
+    <p>Fri <br> $220.99 </p>
+    <p>Sat <br> $220.99 </p>
+    <p>Sun <br> $220.99 </p>
+</div>
+    
+ 
+
+    <h1> new ish</h1>
+    <% if(mondayCount > 0){ %>
+        <p> Mon. $<%= Number.parseFloat(mondayEarned / mondayCount).toFixed(2)  %> </p>
+        <% } else{ %>
+            <span>
+                Mon. - 
+            </span>
+            <% } %>
+        <% if(tuesdayCount > 0){ %>
+            <p> Tues. $<%= Number.parseFloat(tuesdayEarned / tuesdayCount).toFixed(2)  %> </p>
+            <% } else{ %>
+                <span>
+                    Tues. - 
+                </span>
+                <% } %>
+            <% if(wednesdayCount > 0){ %>
+                <p> Wed. $<%= Number.parseFloat(wednesdayEarned / wednesdayCount).toFixed(2)  %> </p>
+                <% } else{ %>
+                    <span>
+                       Wed. - 
+                    </span>
+                    <% } %>
+                <% if(thursdayCount > 0){ %>
+                    <p> Thur. $<%= Number.parseFloat(thursdayEarned / thursdayCount).toFixed(2)  %> </p>
+                    <% } else{ %>
+                        <span>
+                           Thur - 
+                        </span>
+                        <% } %>
+                    <% if(fridayCount > 0){ %>
+                        <p> Fri. $<%= Number.parseFloat(fridayEarned / fridayCount).toFixed(2)  %> </p>
+                        <% } else{ %>
+                            <span>
+                                Fri. - 
+                            </span>
+                            <% } %>
+                        <% if(saturdayCount > 0){ %>
+                            <p> Sat. $<%= Number.parseFloat(saturdayEarned / saturdayCount).toFixed(2)  %> </p>
+                            <% } else{ %>
+                                <span>
+                                    Sat. - 
+                                </span>
+                                <% } %>
+                            <% if(sundayCount > 0){ %>
+                                <p> Sun. $<%= Number.parseFloat(sundayEarned / sundayCount).toFixed(2)  %> </p>
+                                <% } else{ %>
+                                    <span>
+                                       Sun. - 
+                                    </span>
+                                    <% } %>
+
+
+    <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Mon</th>
+                    <th>Tues</th>
+                    <th>Wed</th>
+                    <th>Thur</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                    <th>Sun</th>
+                </tr>
+            </thead>
+            
+            <!-- Display Each Day's Average in IF data exists table-->
+            <tbody>
+            <tr>     
+                <% if(mondayCount > 0){ %>
+                    <td> $<%= Number.parseFloat(mondayEarned / mondayCount).toFixed(2)  %> </td>
+                    <% } else{ %>
+                    <span>
+                        <td> - </td>
+                    </span>
+                    <% } %>
+                    <% if(tuesdayCount > 0){ %>
+                        <td> $<%= Number.parseFloat(tuesdayEarned / tuesdayCount).toFixed(2)  %> </td>
+                        <% } else{ %>
+                        <span>
+                            <td> - </td>
+                        </span>
+                        <% } %>
+                        <% if(wednesdayCount > 0){ %>
+                            <td> $<%= Number.parseFloat(wednesdayEarned / wednesdayCount).toFixed(2)  %> </td>
+                            <% } else{ %>
+                            <span>
+                                <td> - </td>
+                            </span>
+                            <% } %>
+                            <% if(thursdayCount > 0){ %>
+                                <td> $<%= Number.parseFloat(thursdayEarned / thursdayCount).toFixed(2)  %> </td>
+                                <% } else{ %>
+                                <span>
+                                    <td> - </td>
+                                </span>
+                                <% } %>
+                                <% if(fridayCount > 0){ %>
+                                    <td> $<%= Number.parseFloat(fridayEarned / fridayCount).toFixed(2)  %> </td>
+                                    <% } else{ %>
+                                    <span>
+                                        <td> - </td>
+                                    </span>
+                                    <% } %>
+                                    <% if(saturdayCount > 0){ %>
+                                        <td> $<%= Number.parseFloat(saturdayEarned / saturdayCount).toFixed(2)  %> </td>
+                                        <% } else{ %>
+                                        <span>
+                                            <td> - </td>
+                                        </span>
+                                        <% } %>
+                                        <% if(sundayCount > 0){ %>
+                                            <td> $<%= Number.parseFloat(sundayEarned / sundayCount).toFixed(2)  %> </td>
+                                            <% } else{ %>
+                                            <span>
+                                                <td> - </td>
+                                            </span>
+                                            <% } %>
+
+            
+            </tr>
+        </tbody>
+    </table>
+    </div>
+<!-- End Average Earnings-->
+    <div>
 
 
 
