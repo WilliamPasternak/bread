@@ -1437,14 +1437,14 @@ thead {
 .averages{
     text-align: center;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .mobile-feed .averages p{
     font-weight: bold;
     border: 1px solid lightgray;
     padding: 1%;
-    font-size: .50rem;
+    font-size: .60rem;
 }
 
 .mobile-feed br{
