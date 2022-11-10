@@ -31,17 +31,6 @@ module.exports = {
       console.log(err);
     }
   },
-  /*getProfile: async (req, res) => {
-    try {
-      const posts = await Post.find().sort({ createdAt: "desc" }).lean();
-      const post = await Post.findById(req.params.id);
-      res.render("profile.ejs", { posts: posts, post: post, user: req.user, title: 'bread | Profile' });
-      
-    } catch (err) {
-      console.log(err);
-    }
-  },
-  */
 
   getProfile: async (req, res) => {
     try {
@@ -84,7 +73,6 @@ module.exports = {
 
   addShift: async (req, res) => {
     try {
-     
       await Shift.create({
         user: req.user.id,
         day: req.body.day,
@@ -111,9 +99,6 @@ module.exports = {
 
   createPost: async (req, res) => {
     try {
-      // Upload image to cloudinary (MAKE THIS OPTIONAL)     
-        // const result = await cloudinary.uploader.upload(req.file.path);
-  
       await Post.create({
         user: req.user.id,
         location: req.body.location,

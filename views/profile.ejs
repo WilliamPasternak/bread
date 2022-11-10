@@ -274,8 +274,8 @@
                                                 </td>
                                                 <td>
 
-                                                    $<%= usersShifts[i].cashTips + usersShifts[i].ccTips +
-                                                        (usersShifts[i].hoursWorked * usersShifts[i].payPerHour) %>
+                                                    $<%= (usersShifts[i].cashTips + usersShifts[i].ccTips +
+                                                        (usersShifts[i].hoursWorked * usersShifts[i].payPerHour)).toFixed(2) %>
                                                 </td>
 
                                                 <td>
@@ -308,14 +308,14 @@
                          A <%= (allShifts[i].role).toUpperCase() %>  from <br> 
                         <%= (allShifts[i].company).toUpperCase() %> <br>
                          (<%=allShifts[i].location %>) <br>
-                        Made $<%= allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour) %> <br>
+                        Made $<%= (allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour)).toFixed(2) %> <br>
                         working <%= allShifts[i].hoursWorked%> hour <br> </p>
                     <% } else{ %>
                         <p> <%= allShifts[i].day %> <%= allShifts[i].date %> <br>
                             A <%= (allShifts[i].role).toUpperCase() %>  from <br> 
                            <%= (allShifts[i].company).toUpperCase() %> <br>
                            (<%=allShifts[i].location %>) <br>
-                           Made $<%= allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour) %> <br>
+                           Made $<%= (allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour)).toFixed(2) %> <br>
                            working <%= allShifts[i].hoursWorked%> hours <br> </p>
                     <% } %>
                     <!-- Need to create a post/put action form to update flags-->
@@ -494,8 +494,8 @@
             <tbody>
                 <% for(let i=0; i<usersShifts.length; i++) {%>
                     <tr>
-                        <td><%= usersShifts[i].day %>  <%= usersShifts[i].date %> <br> $<%= usersShifts[i].cashTips + usersShifts[i].ccTips +
-                            (usersShifts[i].hoursWorked * usersShifts[i].payPerHour) %>  </td>
+                        <td><%= usersShifts[i].day %>  <%= usersShifts[i].date %> <br> $<%= (usersShifts[i].cashTips + usersShifts[i].ccTips +
+                            (usersShifts[i].hoursWorked * usersShifts[i].payPerHour)).toFixed(2) %>  </td>
                         <td> <%= usersShifts[i].company %> </td>
                         <td> <%= usersShifts[i].role %>  </td>
                         <td> Hours Worked <br> <%= usersShifts[i].hoursWorked %> </td>
@@ -519,14 +519,14 @@
      A <%= (allShifts[i].role).toUpperCase() %>  from <br> 
     <%= (allShifts[i].company).toUpperCase() %> <br>
     (<%=allShifts[i].location %>) <br>
-    Made $<%= allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour) %> <br>
+    Made $<%= (allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour)).toFixed(2) %> <br>
     working <%= allShifts[i].hoursWorked%> hour <br> </p>
 <% } else{ %>
     <p> <%= allShifts[i].day %> <%= allShifts[i].date %> <br>
         A <%= (allShifts[i].role).toUpperCase() %>  from <br> 
        <%= (allShifts[i].company).toUpperCase() %> <br>
        (<%=allShifts[i].location %>) <br>
-       Made $<%= allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour) %> <br>
+       Made $<%= (allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour)).toFixed(2) %> <br>
        working <%= allShifts[i].hoursWorked%> hours <br> </p>
 <% } %>
         <!-- Mobile End Timeline-->
