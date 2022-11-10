@@ -912,9 +912,6 @@ padding: 0 1vw;
 }
 
 
-
-
-
 /* Desktop Profile Feed */ 
 .desktop-feed {
     overflow-y: scroll;
@@ -947,8 +944,6 @@ padding: 0 1vw;
 
 /* Mobile Profile Feed */
 @media screen and (max-width: 600px) {
-
-
     /* Show Mobile and Hide Desktop */ 
     .mobile-feed {
         display: block;
@@ -958,6 +953,18 @@ padding: 0 1vw;
         display: none;
         width: 90%;
     }
+
+    .mobile-feed nav{
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .mobile-feed li{
+        color: red;
+        list-style-type: none;
+        justify-content: space-between;
+    }
+
 }
 /* ============================================ */
 

@@ -331,6 +331,12 @@
 <!-- Mobile -->
 <div class='mobile-feed'>
     <h1> Mobile SZN </h1>
+    <p> Potentially add links below if mobile needs</p>
+    <nav> 
+            <a href="#track-earnings"><span>Track Your Earnings</span></a>
+            <a href="#"><span>Your Shifts</span> </a>
+            <a href="#"> <span>Feed</span></a>
+    </nav>
     <h3> Your Average Earnings</h3>
     <div class = 'averages'>
         <% if(mondayCount > 0){ %>
@@ -467,7 +473,7 @@
 
             </div>
         </div>
-             <!-- End Mobile Track Your Earnings-->
+    <!-- End Mobile Track Your Earnings-->
 
         <!-- Mobile Shifts Worked -->                            
         <h3> Your Shifts </h3>
@@ -495,8 +501,7 @@
                             (usersShifts[i].hoursWorked * usersShifts[i].payPerHour) %>  </td>
                         <td> <%= usersShifts[i].company %> </td>
                         <td> <%= usersShifts[i].role %>  </td>
-
-                        <td> Shift Length <br> <%= usersShifts[i].hoursWorked %> </td>
+                        <td> Hours Worked <br> <%= usersShifts[i].hoursWorked %> </td>
                         <td> CC Tips <br> $<%= usersShifts[i].ccTips %>  </td>
                         <td> Cash Tips <br> $<%= usersShifts[i].cashTips %>  </td>
 
@@ -511,6 +516,22 @@
             </tbody>
         </table>
         <!-- End Mobile Shifts Worked-->
+
+    <!-- Mobile Begin Timeline -->
+    <h3 class ='centered-heading'> Recent Shifts </h3>
+    <div class = 'timeline'>
+    <% for(let i=0; i<allShifts.length; i++) {%>
+    <div class = 'timeline-item'> 
+
+ <!-- If Single hour worked -->
+ <% if(allShifts[i].hoursWorked == 1){ %>
+    <p> <%= allShifts[i].day %> <%= allShifts[i].date %> <br> A <%= (allShifts[i].role).toUpperCase() %>  from <br> <%= (allShifts[i].company).toUpperCase() %> (<%=allShifts[i].location %>) <br> Made $<%= allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour) %>  working <%= allShifts[i].hoursWorked%> hour </p>
+    <% } else{ %>
+        <p>  <%= allShifts[i].day %> <%= allShifts[i].date %> <br> A <%= (allShifts[i].role).toUpperCase() %>  from <br>  <%= (allShifts[i].company).toUpperCase() %> (<%=allShifts[i].location %>) <br> Made $<%= allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour) %>  working <%= allShifts[i].hoursWorked%> hours  </p>
+    <% } %>
+    <% } %>
+        <!-- Mobile End Timeline-->
+
 
 
 </div>
