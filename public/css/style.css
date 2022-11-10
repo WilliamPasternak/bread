@@ -954,16 +954,10 @@ padding: 0 1vw;
         width: 90%;
     }
 
-    .mobile-feed nav{
-        display: flex;
-        justify-content: space-evenly;
+    #mobile-shifts-worked-table td{
+        text-align: center;
     }
 
-    .mobile-feed li{
-        color: red;
-        list-style-type: none;
-        justify-content: space-between;
-    }
 
 }
 /* ============================================ */
@@ -1461,12 +1455,14 @@ table thead{
         justify-content: center;
     }
 
-    .mobile-feed {
-        display: block;
-    }
-
     #feed {
         display: none;
+    }
+
+    .mobile-feed {
+        box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        display: block;
     }
 
     .mobile-feed p {
@@ -1476,12 +1472,6 @@ table thead{
     .mobile-feed tbody td:first-child {
         color: #6fa684;
         font-weight: 600;
-    }
-
-    .mobile-feed {
-        box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-
     }
 
     .mobile-feed table {

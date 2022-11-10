@@ -256,14 +256,14 @@
                                                     <%= usersShifts[i].hoursWorked %>
                                                 </td>
                                                 <td>
-                                                    <%= usersShifts[i].payPerHour %>
+                                                   $<%= usersShifts[i].payPerHour %>
                                                 </td>
 
                                                 <td>
-                                                    <%= usersShifts[i].ccTips %>
+                                                    $<%= usersShifts[i].ccTips %>
                                                 </td>
                                                 <td>
-                                                    <%= usersShifts[i].cashTips %>
+                                                    $<%= usersShifts[i].cashTips %>
                                                 </td>
 
                                                 <td>
@@ -338,6 +338,7 @@
 
 <!-- Mobile -->
 <div class='mobile-feed'>  
+    <!-- Average Earnings-->
     <h3> Your Average Earnings</h3>
     <div class = 'averages'>
         <% if(mondayCount > 0){ %>
@@ -477,51 +478,33 @@
     <!-- End Mobile Track Your Earnings-->
 
         <!-- Mobile Shifts Worked -->  
-        
-        
-
-
-
-        <h3> Your Shifts </h3>
-        <table id="#mobile-shifts-worked-table" class="table table-striped">
+        <h3> Your Shifts </h3>  
+        <table id="mobile-shifts-worked-table" class="table table-striped"" style="width:100%">
             <thead>
                 <tr>
-                    <th>Date</th>
-                    <th>Day</th>
-                    <th>Shift Length</th>
-                    <th>Hourly Pay</th>
-                    <th>CC Tips</th>
-                    <th>Cash Tips</th>
-                    <th>Position</th>
-                    <th>Company</th>
-                    <td>Total</td>
-                    <th>Remove</th>
+                    <th>Date & Total</th>
+                    <th> Company </th>
+                    <th> Role </th>
+                    <th> Hours Worked </th>
+                    <th> CC Tips </th>
+                    <th> Cash Tips </th>
+                    
                 </tr>
             </thead>
-
-            <tbody class="text-center">
-                <!-- Loop through all of the users shifts -->
+            <tbody>
                 <% for(let i=0; i<usersShifts.length; i++) {%>
                     <tr>
-                        <td class="text-center"><%= usersShifts[i].day %>  <%= usersShifts[i].date %> <br> $<%= usersShifts[i].cashTips + usersShifts[i].ccTips +
+                        <td><%= usersShifts[i].day %>  <%= usersShifts[i].date %> <br> $<%= usersShifts[i].cashTips + usersShifts[i].ccTips +
                             (usersShifts[i].hoursWorked * usersShifts[i].payPerHour) %>  </td>
                         <td> <%= usersShifts[i].company %> </td>
                         <td> <%= usersShifts[i].role %>  </td>
                         <td> Hours Worked <br> <%= usersShifts[i].hoursWorked %> </td>
                         <td> CC Tips <br> $<%= usersShifts[i].ccTips %>  </td>
                         <td> Cash Tips <br> $<%= usersShifts[i].cashTips %>  </td>
-
-                        <td>
-                            <!--  Deletes Shift From Table -->
-                            <form id='delete-shift' action="/post/deleteShift/<%= usersShifts[i].id %>?_method=DELETE" method="POST">
-                                <button class="btn bi bi-trash" type="submit"> Remove</button>
-                            </form>
-                        </td>
                     </tr>
                     <% } %>
             </tbody>
         </table>
-    
         <!-- End Mobile Shifts Worked-->
 
     <!-- Mobile Begin Timeline -->
@@ -552,9 +535,6 @@
     <!-- End Mobile -->
 
     
-
-
-
                 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
                 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
                 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
@@ -567,6 +547,13 @@
                         $('#mobile-shifts-worked-table').DataTable();
                     });
                 </script>
+
+                <script>
+                    $(document).ready( function () {
+                    $('#mobile-shifts-worked-table').DataTable();
+                } );
+                </script>
+
 
 
 
