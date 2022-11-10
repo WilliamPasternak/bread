@@ -958,6 +958,9 @@ padding: 0 1vw;
         text-align: center;
     }
 
+    div.dataTables_wrapper div.dataTables_filter input{
+        width: 75%;
+    }
 
 }
 /* ============================================ */
