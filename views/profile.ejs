@@ -130,7 +130,7 @@
         <form action="/post/addShift" method="POST" class='mb-3' id ='track-earnings'>
 
             <div class = 'profile-group'>
-                <h3> Track your earnings</h3>
+                <h3> Track Your Earnings</h3>
                 <div class="mb-3">
                     <form action="/addShift" method="POST" class="text-center member-form">
                         
@@ -292,7 +292,6 @@
                                     </tbody>
                                 </table>
                                 <!-- End Shifts Worked-->
-
         </div>
         <div class = 'profile-right'>
             <div class = 'profile-group'>
@@ -379,7 +378,7 @@
      <form action="/post/addShift" method="POST" class='mb-3' id ='track-earnings'>
 
         <div class = 'profile-group'>
-            <h3> Track your earnings</h3>
+            <h3> Track Your Earnings</h3>
             <div class="mb-3">
                 <form action="/addShift" method="POST" class="text-center member-form">
                     
@@ -522,12 +521,9 @@
     <% } else{ %>
         <p>  <%= allShifts[i].day %> <%= allShifts[i].date %> <br> A <%= (allShifts[i].role).toUpperCase() %>  from <br>  <%= (allShifts[i].company).toUpperCase() %> (<%=allShifts[i].location %>) <br> Made $<%= allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour) %>  working <%= allShifts[i].hoursWorked%> hours  </p>
     <% } %>
-    <% } %>
         <!-- Mobile End Timeline-->
-
-
-
 </div>
+<% } %>
     <!-- End Mobile -->
 
     
