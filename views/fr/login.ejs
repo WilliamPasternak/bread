@@ -1,8 +1,9 @@
-<%- include('partials/_header') -%>
+<%- include('partials/_header-bare') -%>
+
 
   <main class="container ">
     <div class="row justify-content-center">
-      <section class="col-6 mt-5">
+      <section class="mt-5">
         <% if (locals.messages.errors) { %>
           <% messages.errors.forEach( el=> { %>
             <div class="alert alert-danger">
@@ -19,12 +20,13 @@
                       <% } %>
 
                         <!-- Login Form -->
-                        <div class='text-center'>
-                          <img src="/imgs/logo.png" class='form-logo' alt="">
-                        </div>
 
-                        <div class='text-center'>
-                          <form action="/login" method="POST" class="text-center">
+                        <div class='text-center user-form'>
+                          <div class='text-center'>
+                            <a href="/"> <img src="/imgs/logo.png" class='form-logo' alt="Company Logo"></a>
+                          </div>
+
+                          <form action="/login" method="POST" class="text-center member-form">
 
                             <div class="mb-3">
                               <label for="email" class="form-label">Email address</label>
@@ -42,8 +44,11 @@
                           </form>
                           <p class="text-center">Not a member? <a data-toggle="tab" href="/signup">Sign Up</a></p>
                         </div>
+
                         <!-- Login Form -->
       </section>
 
     </div>
   </main>
+
+  <%- include('partials/_footer-bare') -%>

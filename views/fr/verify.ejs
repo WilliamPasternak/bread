@@ -1,0 +1,53 @@
+<%- include('partials/_loggedInHeader') -%>
+
+    <div class="container mt-5">
+        <div class='text-center user-form'>
+            <div class="mt-5">
+                <h1 class='post-header'>Verify Your Salary </h1>
+                <fieldset> 
+                <p>
+                    Salaries can be submitted with proof such as paystub, tip sheets or tax forms. Verified salaries
+                    will show up with a <i class="bi bi-patch-check"> </i> next to them on our <a href="feed"> Salaries
+                    </a>
+                    page.
+                </p>
+
+                <span>
+                    <strong> Once
+                        verified uploaded documents will be deleted from our servers. </strong>
+                </span>
+                <span class='subtext pb-1'>
+                    Accepted file types (.jpg .jpeg .png .pdf)
+                </span>
+
+
+                <form action="/post/verify" enctype="multipart/form-data" method="POST">
+                    <div class="mb-3">
+                        <label for="imgUpload" class="form-label">Supporting Document</label>
+                        <input type="file" class="form-control" id="imageUpload" name="file">
+                    </div>
+
+                    <button type="submit" class="btn btn-form">Verify</button>
+                </fieldset>
+                </form>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    </div>
+    <!-- Login Form -->
+
+
+
+
+
+
+
+
+
+    <%- include('partials/_footer-bare') -%>

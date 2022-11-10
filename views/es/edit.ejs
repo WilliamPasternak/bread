@@ -1,14 +1,11 @@
 <%- include('partials/_loggedInHeader') -%>
-    <div class="container d-flex justify-content-center w-50">
+    <div class="container d-flex justify-content-center share">
         <div class="row mt-5">
             <div class="col-12">
                 <div class="mt-5">
-                    <h1>Edit your salary</h1>
+                    <h1>Editar su sueldo</h1>
 
-                    <!-- enctype multipart form data might casue problems IF no images are uploaded-->
-                    <!-- removed this from after form action below enctype="multipart/form-data" -->
-
-                    <!-- Essentially this EDIT form needs to be a PUT NOT a POST. -->
+            
                     <form action="/post/editPost/<%= post.id %>?_method=PUT" method="POST" class="mb-3">
 
                         <fieldset>

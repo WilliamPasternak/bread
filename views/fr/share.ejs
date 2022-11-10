@@ -1,37 +1,38 @@
 <%- include('partials/_loggedInHeader') -%>
-  <div class="container d-flex justify-content-center w-50">
+  <!-- <div class="container d-flex justify-content-center w-50 share"> -->
+  <div class="container d-flex justify-content-center share">
     <div class="row mt-5">
       <div class="col-12">
         <div class="mt-5">
           <h1 class='post-header'>Share your salary</h1>
 
-          <!-- enctype multipart form data might casue problems IF no images are uploaded-->
-          <!-- removed this from after form action below enctype="multipart/form-data" -->
           <form action="/post/createPost" method="POST" class='mb-3'>
             <fieldset>
               <legend> Where do you work?</legend>
               <div class="mb-3">
-                <label for="location" class="form-label">City & State</label>
+                <label for="location" class="form-label">Location</label>
                 <input autofocus type="text" class="form-control" id="location" name="location"
                   placeholder="New York, NY" required>
               </div>
 
 
               <div class="mb-3">
-                <label for="type" class="form-label">Type of establishment</label>
+                <label for="type" class="form-label">Establishment Type</label>
                 <input type="'text" class="form-control" id="type" name="type" placeholder="Restaurant" required>
               </div>
 
               <div class="mb-3">
-                <label for="name" class="form-label">Name of establishment</label>
-                <input type="text" class="form-control" id="name" name="name" value="-" required>
+                <label for="name" class="form-label"> Company Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="-" required>
               </div>
             </fieldset>
 
             <fieldset>
               <legend> How much do you earn?</legend>
               <p> Our goal is to provide the most accurate information. When filling out below, omit outliers and try to
-                focus on average earnings.</p>
+                focus on average earnings. </p>
+                <p>
+                If you are unsure how much you make, you can <a href="/profile">track your earnings</a> for a few weeks and then share your results.</p>
               <div class="mb-3">
                 <label for="title" class="form-label">Job Title</label>
                 <input type="text" class="form-control" id="title" name="title" placeholder="Bartender" required>
@@ -53,7 +54,7 @@
                 <label for="base" class="form-label">Base Pay</label>
                 <span> (<em>After</em> employer tip credit) $15/hr with a $5 tip credit should be
                   $10/hr</span>
-                <input type="text" class="form-control" id="base" name="base" placeholder="10" required>
+                <input type="string" class="form-control" id="base" name="base" placeholder="10" required>
               </div>
 
               <div class="mb-3">
@@ -71,7 +72,7 @@
 
               <div class="mb-3">
                 <label for="numShifts" class="form-label">Shifts Worked Per Week</label>
-                <input type="text" class="form-control" id="numShifts" name="numShifts" placeholder="4" required>
+                <input type="string" class="form-control" id="numShifts" name="numShifts" placeholder="4" required>
               </div>
 
               <div class="mb-3">
@@ -79,7 +80,7 @@
                 <input type="text" class="form-control" id="shiftLength" name="shiftLength" placeholder="8-10" required>
               </div>
 
-              <p> Average Tips Earned (If tipped employee)</p>
+              <p> Average Tips Earned </p>
 
               <div class="mb-3">
                 <label for="slowTips" class="form-label"> Slow Shift</label>
@@ -90,6 +91,7 @@
                 <label for="busyTips" class="form-label"> Busy Shift</label>
                 <input type="text" class="form-control" id="busyTips" name="busyTips" placeholder="0">
               </div>
+           
 
               <div class="mb-3">
                 <label for="cashTips" class="form-label"> Do you receive cash tips nightly or in your paycheck?</label>
@@ -138,7 +140,9 @@
               </div>
 
               <div class=" mb-3">
-                <label for="fullTips" class="form-label">Do new hires receive full tips?</label>
+                <label for="fullTips" class="form-label"><em> After </em> completing training, do new hires receive
+                  full
+                  tips?</label>
                 <div>
                   <select name="fullTips" id="fullTips">
                     <option value='-'>-</option>
@@ -183,7 +187,7 @@
               </div>
 
               <div class=" mb-3">
-                <label for="familyMeal" class="form-label">Is family meal provided? </label>
+                <label for="familyMeal" class="form-label">Is staff meal provided? </label>
                 <div>
                   <select name="familyMeal" id="familyMeal">
                     <option value='-'>-</option>
@@ -199,18 +203,11 @@
                 <textarea class="form-control" id="comments" name="comments"> </textarea>
               </div>
 
-              <h3> Add Supporting Documents</h3>
-              <p> Upload a W2, Paystub or Tipsheet to verify your salary (Coming Soon!) </p>
-              <!-- 
-              <div class=" mb-3">
-                <label for="imgUpload" class="form-label">Supporting Documents</label>
-                <p> You can upload a W2, Paystubs or Tipsheet to verify your salary</p>
-                <input type="file" class="form-control" id="imageUpload" name="file">
-              </div>
-               -->
             </fieldset>
 
             <button type="submit" class="btn btn-form btn-save" value="Upload">Submit</button>
+
+
 
 
           </form>

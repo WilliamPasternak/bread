@@ -1,110 +1,173 @@
 <%- include('partials/_loggedInHeader') -%>
 
-  <!-- Recent Salaries -->
-  <div class="row justify-content-center mt-5">
-    <div class="container w-75">
+  <div class='container sort mt-5'>
+    <h1 class='post-header'> Shared Salaries</h1>
+    <div class='text-center'>
+      <p> Wages marked 'verified' <i class="bi bi-patch-check"></i> have been submitted with supplemental information
+        such as paystubs, W2s or tipsheets.
+      </p>
 
-      <h1 class='post-header'> Most Recent Salaries</h1>
-      <span> Your Submission(s):</span>
-      <% for(let i=0; i<posts.length; i++) {%>
-        <% if(posts[i].approved && posts[i].user==user.id ){ %>
-          <a href="/post/<%= posts[i]._id%>">
-            <%= posts[i].name %>
-          </a>
+      <p> <a href="/verify">Verifying your salary </a> helps others trust its accuracy.</p>
+    </div>
 
-          <% } %>
-            <% } %>
+    <!-- Desktop Feed-->
+    <div id='feed'>
+      <table id="salaries" class="table table-striped">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Business Type</th>
+            <th>Job Title</th>
+            <th>Shifts Worked</th>
+            <th>Shift Length</th>
+            <th>Base Pay</th>
+            <th>Tip Range</th>
+            <th>Additional Pay</th>
+            <th>More Info </th>
+          </tr>
+        </thead>
 
-              <a href="/share" class="download-btn"><i class="bi bi-person-plus"></i> Add your
-                salary</a>
+        <tbody>
+          <% for(let i=0; i<posts.length; i++) {%>
 
-              <div class='feed'>
-                <table class='table table-striped'>
+            <!-- Only approved posts-->
+            <% if(posts[i].approved ){ %>
+              <td label='Name'>
 
-                  <thead>
-                    <tr>
-                      <th scope="col">Company</th>
-                      <th scope="col">Business Type</th>
-                      <th scope="col">Job Title</th>
-                      <th scope="col">Shifts Worked</th>
-                      <th scope="col">Shift Length</th>
-                      <th scope="col">Base Pay</th>
-                      <th scope="col">Tip Range</th>
-                      <th scope="col">Additional Pay</th>
-                      <th scope="col">Additional </th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                    <% for(let i=0; i<posts.length; i++) {%>
-
-                      <!-- Only approved posts-->
-                      <% if(posts[i].approved ){ %>
-
-                        <td>
-                          <%= posts[i].name%>
-                            <span class=' subtext'>
-                              <%= posts[i].location%>
-                                <span>
-                        </td>
-
-                        <td>
-                          <%= posts[i].type%>
-                        </td>
-
-                        <td>
-                          <%= posts[i].title%>
-                        </td>
-
-                        <td>
-                          <%= posts[i].numShifts%>
-                        </td>
-                        <td>
-                          <%= posts[i].shiftLength%>
-                            <span class='subtext'> Hours </span>
-                        </td>
+                <%= posts[i].name%>
+                  <% if(posts[i].verified ){ %>
+                    <i class="bi bi-patch-check"></i>
+                    <% } %>
+                      <span class=' subtext'>
+                        <%= posts[i].location%>
+                          <span>
 
 
-                        <td>
-                          <%= `$ ${posts[i].base}`%>
-                            <span class='subtext'>
-                              <%= posts[i].payType%>
-                            </span>
-                        </td>
+              </td>
 
+              <td label='Type'>
+                <%= posts[i].type%>
+              </td>
 
-                        <!-- Show 'Non-Tipped' if user did not enter tips, or inputted 0-->
-                        <td>
-                          <% if(!posts[i].slowTips || !posts[i].busyTips || posts[i].slowTips==0 || posts[i].busyTips==0
-                            ){ %>
-                            Non-Tipped
-                            <% } else{ %>
-                              <%= `$${posts[i].slowTips}`%>-<%= `$${posts[i].busyTips}`%>
-                                  <% } %>
-                        </td>
+              <td label='Title'>
+                <%= posts[i].title%>
+              </td>
 
-                        <!-- Show None if user did not include extra pay-->
-                        <td>
-                          <% if(!posts[i].extraPay || posts[i].extraPay==0){ %>
-                            None
-                            <% } else{ %>
-                              <%= `$ ${posts[i].extraPay}`%>
-                                <% } %>
-                        </td>
+              <td label='Shifts'>
+                <%= posts[i].numShifts%>
+              </td>
 
-                        <td>
-                          <a href="/post/<%= posts[i]._id%>"> Click Here</a>
-                        </td>
-                        </tr>
+              <td label='Shift Length'>
+                <%= posts[i].shiftLength%>
+                  <span class='subtext'> Hours </span>
+              </td>
 
+              <td label="Pay">
+                <%= `$${posts[i].base}`%>
+                  <span class='subtext'>
+                    <%= posts[i].payType%>
+                  </span>
+              </td>
+
+              <!-- Show 'Non-Tipped' if user did not enter tips, or inputted 0-->
+              <td label="Tip Range">
+                <% if(!posts[i].slowTips || !posts[i].busyTips || posts[i].slowTips==0 || posts[i].busyTips==0 ){ %>
+                  Non-Tipped
+                  <% } else{ %>
+                    <%= `$${posts[i].slowTips}`%>-<%= `$${posts[i].busyTips}`%>
                         <% } %>
-                          <%}%>
-                  </tbody>
-                </table>
+              </td>
 
-              </div>
+              <!-- Show None if user did not include extra pay-->
+              <td label="Extra Pay">
+                <% if(!posts[i].extraPay || posts[i].extraPay==0){ %>
+                  None
+                  <% } else{ %>
+                    <%= `${posts[i].extraPay}`%>
+                      <% } %>
+              </td>
+
+              <td label="More Info">
+                <a href="/post/<%= posts[i]._id%>"> Details</a>
+              </td>
+              </tr>
+
+              <% } %>
+                <%}%>
+        </tbody>
+      </table>
     </div>
   </div>
+
+  <!-- MOBILE FEED -->
+  <div class='mobile-feed'>
+    <table id="mobile-salaries" class="table table-striped" style="width:100%">
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Job Title</th>
+          <th>More Info </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% for(let i=0; i<posts.length; i++) {%>
+          <!-- Only approved posts-->
+          <% if(posts[i].approved ){ %>
+            <td label='Name'>
+
+              <div class='text-center'>
+                <p>
+                  <%= posts[i].name%>
+                    <% if(posts[i].verified ){ %>
+                      <i class="bi bi-patch-check"></i>
+                      <% } %>
+                </p>
+
+                <span class='subtext text-center'>
+                  <%= posts[i].location%>
+                </span>
+              </div>
+            </td>
+
+            <td label='Title'>
+              <%= posts[i].title%>
+            </td>
+
+
+            <td label="More Info">
+              <a href="/post/<%= posts[i]._id%>"> Details</a>
+            </td>
+
+
+
+            </tr>
+
+            <% } %>
+              <%}%>
+      </tbody>
+    </table>
+  </div>
+  <!-- End Mobile Feed-->
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#salaries').DataTable();
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      $('#mobile-salaries').DataTable();
+    });
+  </script>
+
+
+
+
 
 
   <%- include('partials/_loggedInFooter') -%>

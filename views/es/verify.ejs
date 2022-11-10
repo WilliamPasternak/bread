@@ -1,0 +1,54 @@
+<%- include('partials/_loggedInHeader') -%>
+
+    <div class="container mt-5">
+        <div class='text-center user-form'>
+            <div class="mt-5">
+                <h1 class='post-header'> Verificar la Página </h1>
+                <fieldset> 
+                <p>
+                    Los sueldos pueden enviarse con pruebas como recibos de pagos, hojas de propinas o formularios de impuestos. Los sueldos verificados aparecerán con un <i class="bi bi-patch-check"> </i> junto a ellos en nuestra página de <a href="feed"> Sueldos </a>.
+                     
+                   
+                    
+                </p>
+
+                <span>
+                    <strong> Una vez verificados, los documentos subidos se eliminarán de nuestros servidores. 
+                    </strong>
+                </span>
+                <span class='subtext pb-1'>
+                    Tipos de Archivo Aceptados (.jpg .jpeg .png .pdf)
+                </span>
+
+
+                <form action="/post/verify" enctype="multipart/form-data" method="POST">
+                    <div class="mb-3">
+                        <label for="imgUpload" class="form-label">Documento Justificativo
+                        </label>
+                        <input type="file" class="form-control" id="imageUpload" name="file">
+                    </div>
+
+                    <button type="submit" class="btn btn-form">Verificar</button>
+                </fieldset>
+                </form>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    </div>
+    <!-- Login Form -->
+
+
+
+
+
+
+
+
+
+    <%- include('partials/_footer-bare') -%>

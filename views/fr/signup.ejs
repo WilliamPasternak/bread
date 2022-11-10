@@ -1,7 +1,9 @@
-<%- include('partials/_header') -%>
+<%- include('partials/_header-bare') -%>
+
+
   <main class="container">
     <div class="row justify-content-center">
-      <section class="col-6 mt-5">
+      <section class="mt-5">
         <% if (locals.messages.errors) { %>
           <% messages.errors.forEach( el=> { %>
             <div class="alert alert-danger">
@@ -17,38 +19,39 @@
                     <% }) %>
                       <% } %>
 
-
-
-
                         <!-- Signup Form -->
-                        <div class='text-center'>
-                          <img src="/imgs/logo.png" class='form-logo' alt="">
-                          <form action="/signup" method="POST" class="text-center">
+                        <div class='user-form'>
+                          <div class='text-center'>
+                            <a href="/"> <img src="/imgs/logo.png" class='form-logo' alt="Company Logo"></a>
+                            <form action="/signup" method="POST" class="text-center">
 
-                            <div class="mb-3">
-                              <label for="exampleInputEmail1" class="form-label">Email
-                                address</label>
-                              <input type="email" class="form-control" placeholder="example@email.com" id="email"
-                                aria-describedby="email" name="email" autofocus>
-                            </div>
+                              <div class="mb-3">
+                                <label for="email" class="form-label">Email
+                                  address</label>
+                                <input type="email" class="form-control" placeholder="example@email.com" id="email"
+                                  aria-describedby="email" name="email" autofocus>
+                              </div>
 
-                            <div class="mb-3">
-                              <label for="password" class="form-label">Password</label>
-                              <input type="password" class="form-control" id="password" placeholder="Min. 8 characters"
-                                name="password" required>
-                            </div>
+                              <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password"
+                                  placeholder="Min. 8 characters" name="password" required>
+                              </div>
 
-                            <div class="mb-3">
-                              <label for="confirmPassword" class="form-label">Confirm Password</label>
-                              <input type="password" class="form-control" id="confirmPassword"
-                                placeholder="Confirm Password" name="confirmPassword" required>
-                            </div>
+                              <div class="mb-3">
+                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirmPassword"
+                                  placeholder="Confirm Password" name="confirmPassword" required>
+                              </div>
 
-                            <button type="submit" class="btn btn-form">Sign Up</button>
-                          </form>
-                          <p class="text-center">Already a member? <a href="/login">Log In</a></p>
+                              <button type="submit" class="btn btn-form">Sign Up</button>
+                            </form>
+                            <p class="text-center">Already a member? <a href="/login">Log In</a></p>
+                          </div>
                         </div>
                         <!-- End Signup Form-->
       </section>
     </div>
   </main>
+
+  <%- include('partials/_footer-bare') -%>

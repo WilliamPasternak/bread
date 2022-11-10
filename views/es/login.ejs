@@ -1,8 +1,9 @@
-<%- include('partials/_header') -%>
+<%- include('partials/_header-bare') -%>
+
 
   <main class="container ">
     <div class="row justify-content-center">
-      <section class="col-6 mt-5">
+      <section class="mt-5">
         <% if (locals.messages.errors) { %>
           <% messages.errors.forEach( el=> { %>
             <div class="alert alert-danger">
@@ -19,31 +20,36 @@
                       <% } %>
 
                         <!-- Login Form -->
-                        <div class='text-center'>
-                          <img src="/imgs/logo.png" class='form-logo' alt="">
-                        </div>
 
-                        <div class='text-center'>
-                          <form action="/login" method="POST" class="text-center">
+                        <div class='text-center user-form'>
+                          <div class='text-center'>
+                            <a href="/"> <img src="/imgs/logo.png" class='form-logo' alt="Company Logo"></a>
+                          </div>
+
+                          <form action="/login" method="POST" class="text-center member-form">
 
                             <div class="mb-3">
-                              <label for="email" class="form-label">Email address</label>
+                              <label for="email" class="form-label">Dirección de Correo Electrónico
+                              </label>
                               <input type="email" class="form-control" id="email" placeholder="example@email.com"
                                 aria-describedby="email" name="email" autofocus />
                             </div>
 
                             <div class="mb-3">
-                              <label for="password" class="form-label">Password</label>
+                              <label for="password" class="form-label">Contraseña</label>
                               <input type="password" class="form-control" id="password" placeholder="********"
                                 name="password" />
                             </div>
 
-                            <button type="submit" class="btn btn-form">Log In</button>
+                            <button type="submit" class="btn btn-form">Iniciar Sesión</button>
                           </form>
-                          <p class="text-center">Not a member? <a data-toggle="tab" href="/signup">Sign Up</a></p>
+                          <p class="text-center">¿No es miembro? <a data-toggle="tab" href="/signup">Regístrate</a></p>
                         </div>
+
                         <!-- Login Form -->
       </section>
 
     </div>
   </main>
+
+  <%- include('partials/_footer-bare') -%>

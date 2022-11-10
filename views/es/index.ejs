@@ -1,88 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>
-        <%= title %>
-    </title>
-
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <!-- Favicons -->
-    <link href="/imgs/favicon.png" rel="icon">
-    <link href="/imgs/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
-
-    <!-- Boostrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
-
-    <!-- Font Awesome (Might need to be updated)-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-        crossorigin="anonymous" />
-
-    <!-- Vendor CSS Files -->
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-    <!-- Main CSS File -->
-    <link href="/css/style.css" rel="stylesheet">
-</head>
-
-<body>
-    <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top ">
-        <div class="container d-flex align-items-center justify-content-between">
-
-            <div class="logo">
-                <a href="/"><img src="/imgs/logo.png" alt="" class="img-fluid"></a>
-            </div>
-
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li class="dropdown"><a href="#"><span> <i class="bi bi-globe"></i> Idioma | ES</span> <i
-                                class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="/">English</a></li>
-                            <li><a href="/es/">Español</a></li>
-                            <li><a href="/fr">Français</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="nav-link scrollto" href="/#main">Learn More</a></li>
-                    <li><a class="nav-link scrollto" href="/#faq">F.A.Q</a></li>
-                    <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
-                    <!-- If User is not logged in, show login and signup links-->
-                    <%if(!user){ %>
-                        <li><a class="getstarted" href="/login">Log In</a></li>
-                        <li><a class="getstarted" href="/signup">Signup</a></li>
-                        <%}%>
-
-
-                            <!-- END USER LOGGED IN-->
-
-
-
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav><!-- .navbar -->
-
-        </div>
-    </header>
-    <!-- End Header -->
+<%- include('../partials/_header') -%>
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
@@ -93,65 +9,64 @@
                     <div>
                         <div class="flipping">
                             <div class="container">
-                                <h1> Próximamente En Español </h1>
                                 <h1>
-                                    Pay transparency for
+                                    Transparencia para
                                     <div class="words">
-                                        <p>Line Cooks</p>
-                                        <p>Bussers</p>
-                                        <p>Bartenders</p>
-                                        <p>Dishwashers</p>
-                                        <p>Bakers</p>
-                                        <p>Barbacks</p>
-                                        <p>Servers</p>
-                                        <p>Sommeliers</p>
-                                        <p>Runners</p>
-                                        <p>Polishers</p>
-                                        <p>Hosts</p>
-                                        <p>Porters</p>
-                                        <p>Chefs</p>
+                                        <p>Cocineros de Línea </p>
+                                        <p>Camarero</p>
+                                        <p>Lava Trastes</p>
+                                        <p>Panaderos</p>
+                                        <p>Ayudantes</p>
+                                        <p>Meseros</p>
+                                        <p>Corredores</p>
+                                        <p>La Recepción </p>
+                                        <p>Porteros</p>
+                                        <p>Jefe de Cocina</p>
                                     </div>
-                                    <p class='final'>everyone</p>
+                                    <p class='final'>todos</p>
                                 </h1>
                             </div>
                         </div>
 
 
-                        <h2 id='description'> We offer a free resource for reviewing and sharing salary
-                            information for
-                            individuals in
-                            the hospitality
-                            community. It is crowd-sourced and completely anonymous .</h2>
+                        <h2 id='description'> Ofrecemos un recurso gratuito para revisar y compartir el sueldo
+                            información para
+                           las personas 
+                            en la comunidad de
+                            la hostelería. Se trata de una fuente colectiva y completamente anónima.</h2>
 
-                        <a href="#main" class="download-btn"><i class="bi bi-info-circle"></i> Learn
-                            More</a>
+                        <a href="#main" class="download-btn"><i class="bi bi-info-circle"></i> Conocer Más</a>
 
                         <!-- Toggled Button Appearance-->
-                        <%if(user){ %>
-                            <a href="/feed" class="download-btn"><i class="bi bi-search"></i>
-                                View Salaries
+
+                        <%if(!user){ %>
+                            <a href="/signup" class="download-btn"><i class="bi bi-person-plus"></i>
+                                Registrarse
                             </a>
                             <%}%>
 
-                                <%if(!user){ %>
-                                    <a href="/signup" class="download-btn"><i class="bi bi-person-plus"></i>
-                                        Sign Up
+                                <%if(user){ %>
+                                    <a href="/feed" class="download-btn"><i class="bi bi-search"></i>
+                                        Ver Sueldos
                                     </a>
                                     <%}%>
+
+
                                         <!-- End Button Toggle-->
                     </div>
                 </div>
 
+
+
                 <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img"
                     data-aos="fade-up">
                     <img src="/imgs/hero-img.svg" class="img-fluid"
-                        alt="Two restaurant servers. Server on left is taking an order. Server on right is holding a tray.">
+                        alt="Dos meseros de un restaurante. El mesero de la izquierda está tomando un pedido. El mesero de la derecha sostiene una bandeja.">
                 </div>
             </div>
         </div>
     </section>
     <!-- ======= End Hero ======= -->
-
 
     <main id="main">
         <section id="details" class="details">
@@ -161,19 +76,21 @@
                 <div class="row content">
                     <div class="col-md-4" data-aos="fade-right">
                         <img src="/imgs/talking.svg" class="img-fluid"
-                            alt="One person talking and three others listening">
+                            alt="Una persona hablando y otras tres escuchando.">
                     </div>
 
                     <div class="col-md-8 pt-4" data-aos="fade-up">
-                        <h3> We need to talk about pay in the hospitality industry </h3>
+                        <h3> Hay que hablar sobre los salarios en la industria de la hostelería </h3>
+
                         <ul>
-                            <li><i class="bi bi-check"></i> Workload and compensation are unclear and inconsistent.
+                            <li><i class="bi bi-check"></i> La carga de trabajo y la remuneración son poco claras e incoherentes.
+
                             </li>
 
-                            <li><i class="bi bi-check"></i> Switching jobs can be extremely costly.
+                            <li><i class="bi bi-check"></i> Cambiar de trabajo puede ser muy costoso.
                             </li>
 
-                            <li><i class="bi bi-check"></i> Large pay gaps exists across companies and positions.
+                            <li><i class="bi bi-check"></i> Existen grandes diferencias salariales entre empresas y puestos.
                             </li>
 
                         </ul>
@@ -186,34 +103,33 @@
                 <!-- ======= Section Two ======= -->
                 <div class="row content">
                     <div class="col-md-4 order-1 order-md-2" data-aos="fade-left">
-                        <img src="/imgs/charts.svg" class="img-fluid" alt="Two people looking at charts and bar graphs">
+                        <img src="/imgs/charts.svg" class="img-fluid" alt="Dos personas mirando gráficos y diagramas de barras">
                     </div>
 
                     <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
-                        <h3>Pay transparency is good for everyone</h3>
+                        <h3> La transparencia en los salarios es buena para todos</h3>
+
 
                         <p class="fst-italic">
-                            "Across the board, salary transparency helps eliminate asymmetric information
-                            problems that can contribute to the gender wage gap, racial wage issues and the labor
-                            market."
+                            "En general, la transparencia de los salarios ayuda a eliminar los problemas de información asimétrica que pueden contribuir a la brecha salarial de género, los problemas salariales raciales y el mercado laboral".
                         </p>
 
 
                         <ul>
-                            <li><i class="bi bi-check"></i> Women who work full-time in the US still <a
-                                    href="https://www.census.gov/library/stories/2022/03/what-is-the-gender-wage-gap-in-your-state.html">only
-                                    earn around
-                                    83% of what men do.</a>
+                            <li><i class="bi bi-check"></i> Las mujeres que trabajan a tiempo completo en E.U <a
+                                    href="https://www.census.gov/library/stories/2022/03/what-is-the-gender-wage-gap-in-your-state.html">siguen ganando sólo alrededor del 83% de lo que ganan los hombres.
+                                </a>
                             </li>
-                            <li><i class="bi bi-check"></i> More people are now
+                            <li><i class="bi bi-check"></i> Ahora hay más personas que
                                 <a
                                     href="https://www.bankrate.com/banking/federal-reserve/younger-workers-sharing-salaries">
-                                    openly sharing </a> their salaries with their colleagues.
+                                    comparten abiertamente </a> sus salarios con sus compañeros”.
+
                             </li>
 
                             <li><i class="bi bi-check"></i> <a
                                     href="https://pequity.com/blog/pay-transparency-in-2022-which-states-require-employers-to-provide-salary-ranges%EF%BF%BC/">
-                                    Many states</a> are now requiring employers to share compensation data.
+                                    Muchos estados </a> exigen ahora a los empresarios que compartan los datos sobre la remuneración.
                             </li>
                         </ul>
                     </div>
@@ -224,24 +140,27 @@
                 <div class="row content">
                     <div class="col-md-4" data-aos="fade-right">
                         <img src="/imgs/arrow.svg" class="img-fluid"
-                            alt="Three people holding an upward business graphic arrow">
+                            alt="Tres personas sosteniendo una flecha gráfica de negocios hacia arriba">
                     </div>
 
                     <div class="col-md-8 pt-4" data-aos="fade-up">
-                        <h3> Benefits for individuals</h3>
+                        <h3> Beneficios para los trabajadores
+                        </h3>
                         <ul>
-                            <li><i class="bi bi-check"></i> <strong> Ensure you are being paid fairly </strong></li>
-                            <li> Be paid for the job you are doing. Equal pay for equal work. </li>
-                            <li><i class="bi bi-check"></i> <strong> Allows you to advocate for yourself </strong>
+                            <li><i class="bi bi-check"></i> <strong> Garantizar una remuneración justa                             
+                            </strong></li>
+                            <li> Cobrar por el trabajo que se realiza. Igual salario por igual trabajo. 
+                            </li>
+                            <li><i class="bi bi-check"></i> <strong> Te permite abogar por ti mismo
+                                f </strong>
                             </li>
                             <li>
-                                Seeing what others are earning evens the playing field when it comes to asking for what
-                                you want.
+                                Ver lo que ganan los demás iguala las condiciones a la hora de pedir lo que quieres.
+
                             </li>
-                            <li><i class="bi bi-check"></i> <strong> Allows you to make financial decisions for yourself
-                                    and family</strong></li>
-                            <p> You will not waste time applying, interviewing, trailing and training before finding out
-                                what you will earn. </p>
+                            <li><i class="bi bi-check"></i> <strong> Te permite tomar decisiones financieras para ti y tu familia.
+                            </strong></li>
+                            <p> No perderás tiempo solicitando, entrevistando, haciendo prácticas y formándote antes de saber lo que vas a ganar.  </p>
                         </ul>
                     </div>
                 </div>
@@ -250,31 +169,26 @@
                 <!-- =======  Section Four ======= -->
                 <div class="row content">
                     <div class="col-md-4 order-1 order-md-2" data-aos="fade-left">
-                        <img src="/imgs/clipboard.svg" class="img-fluid" alt="Clipboard with paper and check marks">
+                        <img src="/imgs/clipboard.svg" class="img-fluid" alt="Portapapeles con papel y marcas de verificación">
 
                     </div>
 
                     <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
-                        <h3>Benefits for companies</h3>
+                        <h3>Beneficios para las empresas</h3>
 
                         <ul>
-                            <li><i class="bi bi-check"></i> <strong> Decreased hiring and training expenses </strong>
+                            <li><i class="bi bi-check"></i> <strong>  Disminución de los gastos de contratación y formación
+                            </strong>
                             </li>
                             <li>
-                                You will not waste time interviewing candidates who will not accept a salary in your
-                                budget.
-                                New
-                                hires may leave your company if they learn they won't be earning
-                                enough.
+                                No se perderá tiempo entrevistando a candidatos que no aceptarán un sueldo acorde con su presupuesto. Las personas nuevas para contratar pueden dejar su empresa si se enteran de que no van a ganar lo suficiente.
                             </li>
-                            <li><i class="bi bi-check"></i> <strong> Increased employee job performance </strong></li>
-                            <li> Pay transparency has been shown to have a positive effect on job satisfaction, employee
-                                engagement,
-                                and productivity.</li>
-                            <li><i class="bi bi-check"></i> <strong> Reduced wage bias</strong></li>
-                            <p>By sharing pay information openly, organisations are far more likely to correct any
-                                salary
-                                inequality and explore the reasons behind it.</p>
+                            <li><i class="bi bi-check"></i> <strong> Aumento del rendimiento laboral de los empleados  
+                            </strong></li>
+                            <li> Se ha demostrado que la transparencia salarial tiene un efecto positivo en la satisfacción laboral, el compromiso de los empleados y la productividad.</li>
+                            <li><i class="bi bi-check"></i> <strong> Reducción de los prejuicios salariales
+                            </strong></li>
+                            <p>Al compartir abiertamente la información salarial, es mucho más probable que las organizaciones corrijan cualquier desigualdad salarial y exploren las razones que la motivan..</p>
                         </ul>
                     </div>
                 </div>
@@ -283,26 +197,22 @@
                 <!-- ======= Section Five ======= -->
                 <div class="row content">
                     <div class="col-md-4" data-aos="fade-right">
-                        <img src="/imgs/laptop.svg" class="img-fluid" alt="Person typing on laptop">
+                        <img src="/imgs/laptop.svg" class="img-fluid" alt="Persona tecleando en una laptop">
                     </div>
 
                     <div class="col-md-8 pt-5" data-aos="fade-up">
-                        <h3>Share your salary anonymously</h3>
+                        <h3>Comparte tu salario de forma anónima </h3>
                         <ul>
-                            <li><i class="bi bi-check"></i> It takes less than 60 seconds to submit your salary
-                                anonymously and help others.
+                            <li><i class="bi bi-check"></i> Tardas menos de 60 segundos en enviar la información de tu sueldo de forma anónima y ayudar a los demás.
                             </li>
-                            <li><i class="bi bi-check"></i> Each person who shares is doing their part in transforming
-                                the hospitality industry.
+                            <li><i class="bi bi-check"></i> Cada persona que comparte este tipo de información está haciendo su parte en la transformación de la industria de la hostelería.
                             </li>
 
-                            <li><i class="bi bi-check"></i> Knowing what others get paid affords everyone the
-                                opportunity
-                                to be paid equitably.
+                            <li><i class="bi bi-check"></i> Saber lo que cobran los demás permite que todos tengan la oportunidad de recibir un sueldo equitativo.
 
                             </li>
-                            <li><i class="bi bi-check"></i> We currently have <%= posts.length%> salaries shared from
-                                    people just like you. <a href="/signup"> Create an account </a> to check them out!
+                            <li><i class="bi bi-check"></i> Actualmente tenemos <%= posts.length%> sueldos que han sido compartidos por personas como tú.
+                                <a href="/signup"> Crea una cuenta  </a> para comprobarlo!
 
                             </li>
                         </ul>
@@ -322,51 +232,45 @@
                         <div class="content d-flex flex-column justify-content-center">
                             <div class="row">
 
-                                <h3>Pay ambiguity is a large problem in the hospitality industry but it doesn't have to
-                                    be</h3>
+                                <h3>La incertidumbre en los sueldos es un gran problema en el sector de la hostelería, pero no tiene por qué serlo</h3>
                                 <div class="col-md-6 icon-box" data-aos="fade-up">
                                     <i class="bi bi-clock"></i>
-                                    <h4>Save time
+                                    <h4>Ahorra tiempo
                                     </h4>
-                                    <p>Don't waste your time applying, interviewing, or trailing before you know
-                                        what
-                                        you
-                                        will earn.</p>
+                                    <p>No pierdas tu tiempo solicitando, entrevistando o haciendo un seguimiento antes de saber lo que vas a ganar.</p>
                                 </div>
 
                                 <!-- Icons -->
                                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
                                     <i class="bi bi-cash-stack"></i>
-                                    <h4>Reduce pay gaps</h4>
-                                    <p>Studies show that salary transparency can narrow different pay gaps</p>
+                                    <h4> Reducir las diferencias salariales </h4>
+                                    <p> Los estudios demuestran que la transparencia en los sueldos puede reducir las diferencias salariales</p>
                                 </div>
 
                                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
                                     <i class="bx bx-bar-chart-alt-2"></i>
-                                    <h4>Compare Job Offers</h4>
-                                    <p> Knowing what you will earn on the job allows your to financially plan
-                                        for
-                                        your
-                                        life
+                                    <h4>Comparar ofertas de trabajo</h4>
+                                    <p> Saber lo que vas a ganar en el trabajo te permite planificar tu vida en el ámbito financiero
                                     </p>
                                 </div>
 
                                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
                                     <i class="bx bx-task"></i>
-                                    <h4> View verified salaries</h4>
-                                    <p> Salaries can be submitted with proof such as paystub or tip sheets.</p>
+                                    <h4> Revisa sueldos verificados</h4>
+                                    <p> Los salarios pueden presentarse con pruebas como comprobantes de pago u hojas de propina.</p>
                                 </div>
 
                                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
                                     <i class="bx bx-low-vision"></i>
-                                    <h4>Share anonymously</h4>
-                                    <p> We will never ask for or share your personal details. </p>
+                                    <h4>Comparte de manera anónima</h4>
+                                    <p> Nunca te pediremos ni compartiremos tus datos personales. </p>
                                 </div>
 
                                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
                                     <i class="bx 24 x 24 bx-donate-heart"></i>
-                                    <h4>Help your community</h4>
-                                    <p> By sharing your pay, you are helping others make informed decisions</p>
+                                    <h4>Ayuda a tu comunidad</h4>
+                                    <p> Al compartir tu salario, estás ayudando a otros a tomar decisiones informadas </p>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -375,7 +279,7 @@
                         data-aos="fade-left" data-aos-delay="100">
 
                         <img src="/imgs/piggybank.svg" class="img-fluid"
-                            alt="A piggy bank with coins falling around it">
+                            alt="Una alcancía con monedas cayendo a su alrededor>
                     </div>
                 </div>
             </div>
@@ -384,7 +288,7 @@
                 <!-- View Salaries (If Logged In)-->
                 <%if(user){ %>
                     <a href="/feed" class="download-btn"><i class="bi bi-search"></i>
-                        View Salaries
+                        Ver Salarios
                     </a>
                     <%}%>
 
@@ -395,126 +299,97 @@
 
         <!-- ======= Frequently Asked Questions Section ======= -->
         <section id="faq" class="faq section-bg">
-            <div class="container pt-5" data-aos="fade-up">
+            <div class="container pt-3" data-aos="fade-up">
 
                 <div class="section-title">
-                    <h2>Frequently Asked Questions</h2>
+                    <h2>Preguntas Frecuentes</h2>
                 </div>
 
                 <div class="accordion-list">
                     <ul>
                         <li data-aos="fade-up">
                             <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
-                                data-bs-target="#accordion-list-1">What is pay transparency?<i
+                                data-bs-target="#accordion-list-1">¿Qué es la transparencia en el pago de los sueldos?
+                                <i
                                     class="bx bx-chevron-down icon-show"></i><i
                                     class="bx bx-chevron-up icon-close"></i></a>
                             <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
                                 <p>
-                                    Pay transparency is the practice of companies or individuals sharing compensation
-                                    details to be
-                                    visible to
-                                    other people.
+                                    La transparencia en el pago de los sueldos es la práctica de las empresas o individuos de compartir los detalles de la compensación para que sean visibles para otras personas.
                                 </p>
                             </div>
                         </li>
 
                         <li data-aos="fade-up">
                             <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                data-bs-target="#accordion-list-2" class="collapsed">Can my employer prohibit me from
-                                sharing my salary?
+                                data-bs-target="#accordion-list-2" class="collapsed">¿Puede mi empresa prohibirme que comparta información sobre mi sueldo?
                                 <i class="bx bx-chevron-down icon-show"></i><i
                                     class="bx bx-chevron-up icon-close"></i></a>
                             <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
                                 <p>
-                                    Hell no! In most cases at least. It is illegal to prevent employees from discussing
-                                    wage
-                                    and benefit
-                                    offers. The national labor relations board has made this clear that it’s a workers
-                                    right
-                                    to discuss
-                                    wages. In fact, many states are passing laws requiring employers to post salary
-                                    ranges.
-                                    Only share
-                                    what you are
-                                    comfortable sharing and check the laws in your area.
+                                    Por supuesto que no. Al menos en la mayoría de los casos. Es ilegal impedir que los empleados hablen de sus ofertas salariales y de beneficios. La Junta Nacional de Relaciones Laborales ha dejado claro que es un derecho de los trabajadores discutir los salarios. De hecho, muchos estados están aprobando leyes que obligan a los empresarios a publicar los rangos salariales. Comparte sólo con lo que te sientas cómodo compartiendo y revisa las leyes en donde vives.
                                 </p>
                             </div>
                         </li>
 
                         <li data-aos="fade-up">
                             <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                data-bs-target="#accordion-list-3" class="collapsed"> How accurate are these wages? <i
+                                data-bs-target="#accordion-list-3" class="collapsed"> ¿Cuál es la exactitud de los salarios?
+                                <i
                                     class="bx bx-chevron-down icon-show"></i><i
                                     class="bx bx-chevron-up icon-close"></i></a>
                             <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
                                 <p>
-                                    Wages can be submitted one of two ways: verified or unverified. Wages marked
-                                    'verified'
-                                    have been
-                                    submitted with supplemental information such as
-                                    paystubs, W2s, or bank deposits. That being said wages are submitted anonymously by
-                                    users and for that
-                                    reason, there is a chance that they could be
-                                    misrepresented.
-
+                                    Los salarios pueden presentarse de dos maneras: verificados o no verificados. Los salarios marcados como "verificados" se han enviado con información complementaria, como comprobantes de pago, W2 o depósitos bancarios. Dicho esto, los salarios son enviados de forma anónima por los usuarios y, por esa razón, existe la posibilidad de que sean modificados.
                                 </p>
                             </div>
                         </li>
 
                         <li data-aos="fade-up">
                             <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                data-bs-target="#accordion-list-4" class="collapsed"> How are you preventing fake wages
-                                from
-                                being
-                                posted? <i class="bx bx-chevron-down icon-show"></i><i
+                                data-bs-target="#accordion-list-4" class="collapsed"> ¿Cómo se evita que se publiquen salarios modificados?
+                                <i class="bx bx-chevron-down icon-show"></i><i
                                     class="bx bx-chevron-up icon-close"></i></a>
                             <div id="accordion-list-4" class="collapse" data-bs-parent=".accordion-list">
                                 <p>
-                                    First, we hope noone is doing this. This is a resource to help everyone. If we have
-                                    reason to believe
-                                    a listing is fake, flag it and we will reach out to the user for more information or
-                                    remove the
-                                    listing.
-                                    Additionally if you suspect a listing to be inaccurate let us know.
+                                    En primer lugar, esperamos que nadie haga esto. Este es un recurso para ayudar a todos. Si tenemos motivos para creer que un anuncio es falso, márcalo y nos pondremos en contacto con el usuario para obtener más información o eliminaremos el anuncio. 
                                 </p>
                             </div>
                         </li>
 
                         <li data-aos="fade-up">
                             <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                data-bs-target="#accordion-list-5" class="collapsed">Is this anonymous? <i
+                                data-bs-target="#accordion-list-5" class="collapsed">¿Es anónimo?
+                                <i
                                     class="bx bx-chevron-down icon-show"></i><i
                                     class="bx bx-chevron-up icon-close"></i></a>
                             <div id="accordion-list-5" class="collapse" data-bs-parent=".accordion-list">
                                 <p>
-                                    bread is 100% anonymous. The wages that you submit may be modified
-                                    slightly to further protect your identity.
+                                    bread es 100% anónimo. La información de los sueldos que envíes puede sean modificados ligeramente para proteger tu identidad.
                                 </p>
                             </div>
                         </li>
 
                         <li data-aos="fade-up">
                             <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                data-bs-target="#accordion-list-6" class="collapsed">How long does it take to submit my
-                                earnings? <i class="bx bx-chevron-down icon-show"></i><i
+                                data-bs-target="#accordion-list-6" class="collapsed">¿Cuánto tiempo se tarda en enviar la información de mis ganancias?
+                                <i class="bx bx-chevron-down icon-show"></i><i
                                     class="bx bx-chevron-up icon-close"></i></a>
                             <div id="accordion-list-6" class="collapse" data-bs-parent=".accordion-list">
                                 <p>
-                                    You can submit your earnings in under 60 seconds.
+                                    Puedes enviar la información de tus ingresos en menos de 60 segundos.
                                 </p>
                             </div>
                         </li>
 
                         <li data-aos="fade-up">
                             <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                data-bs-target="#accordion-list-7" class="collapsed"> How do I submit a verified salary?
+                                data-bs-target="#accordion-list-7" class="collapsed"> ¿Cómo puedo enviar información de un salario verificado?
                                 <i class="bx bx-chevron-down icon-show"></i><i
                                     class="bx bx-chevron-up icon-close"></i></a>
                             <div id="accordion-list-7" class="collapse" data-bs-parent=".accordion-list">
                                 <p>
-                                    Soon you will be able to submit your salary along with supplemental information such
-                                    as W2s, Paystubs, or Tip
-                                    sheets.
+                                    Para presentar un salario verificado, ve a la página Verify Your Salary (Verificar tu salario) y sube la información complementaria, como los W2, los comprobantes de pago o la hoja de propinas.
                                 </p>
                             </div>
                         </li>
@@ -526,14 +401,13 @@
         <!-- End Frequently Asked Questions Section -->
 
         <!-- ======= Contact Section ======= -->
-        <!-- <section id="contact" class="contact d-flex justify-content-center"> -->
         <section id="contact" class="contact">
 
             <div class="container pt-4" data-aos="fade-up">
 
                 <div class="section-title">
-                    <h2>Contact</h2>
-                    <p> Want to know more? Have ideas on how this can be improved? Just want to say hello?</p>
+                    <h2>Contacto</h2>
+                    <p> ¿Quiere saber más? ¿Tiene ideas sobre cómo se puede mejorar? ¿Sólo quieres saludar?</p>
                 </div>
 
 
@@ -549,7 +423,7 @@
                     <input type="text" name="_honey" style="display:none">
 
                     <!-- On Submission-->
-                    <input type="hidden" name="_next" value="https://www.williampasternak.com/">
+                    <input type="hidden" name="_next" value="http://www.86bread.com/">
 
                     <div>
                         <div class="form-group">
@@ -571,68 +445,13 @@
                                 required></textarea>
                         </div>
 
-                        <div class="text-center"><button type="submit">Send Message</button></div>
+                        <div class="text-center"><button type="submit">Manda un Mensaje</button></div>
                 </form>
             </div>
         </section>
         <!-- End Contact Section -->
 
     </main>
+    <!-- End #main -->
 
-
-    <!-- ======= Footer ======= -->
-    <footer id="footer">
-        <div class="footer-newsletter">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <h4>Subscribe for updates</h4>
-                        <form action="https://formsubmit.co/2132c172bc729286ba7d2c33efc1eb64" method="post">
-                            <!-- Submission Email Subject-->
-                            <input type="hidden" name="_subject" value="Bread: Subscription Request">
-
-                            <!-- Hide Captcha-->
-                            <input type="hidden" name="_captcha" value="false">
-
-                            <!-- Honeypot -->
-                            <input type="text" name="_honey" style="display:none">
-
-                            <!-- On Submission-->
-
-                            <input type="hidden" name="_next" value="https://www.williampasternak.com/">
-
-                            <input type="email" name="email"><input type="submit" value="Subscribe">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container py-4">
-            <div class="copyright">
-                &copy; Copyright <strong><span> <a href='http://www.williampasternak.com'> William Pasternak
-                        </a></span></strong> All Rights Reserved |
-                <a href="https://storyset.com/people">Illustrations by Storyset</a>
-            </div>
-
-        </div>
-
-    </footer>
-    <!-- End Footer -->
-
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-    <!-- Vendor JS Files -->
-    <script src="/vendor/aos/aos.js"></script>
-    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="/vendor/php-email-form/validate.js"></script>
-
-    <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
-</body>
-
-</html>
+    <%- include('../partials/_footer') -%>
