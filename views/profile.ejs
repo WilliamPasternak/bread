@@ -120,8 +120,6 @@
                                                                     <td> - </td>
                                                                 </span>
                                                                 <% } %>
-
-                                
                                 </tr>
                             </tbody>
                         </table>
@@ -222,9 +220,7 @@
                 </div>
             </div>
         <!-- End Track Your Earnings-->
-        <!-- Shifts Worked -->
-                                <!-- Change Table IDS for different tables-->
-                            
+        <!-- Shifts Worked -->                            
                                 <h3> Your Shifts </h3>
                                 <table id="shifts-worked-table" class="table table-striped shifts-worked">
                                     <thead>
@@ -336,48 +332,48 @@
 <div class='mobile-feed'>
     <h1> Mobile SZN </h1>
     <h3> Your Average Earnings</h3>
-<div class = 'averages'>
-    <% if(mondayCount > 0){ %>
-        <p>Mon <br> $<%= Number.parseFloat(mondayEarned / mondayCount).toFixed(2)  %></p>
-        <% } else{ %>
-                <p> Mon <br> - </p>
-            <% } %>
-    <% if(tuesdayCount > 0){ %>
-        <p> Tue <br> $<%= Number.parseFloat(tuesdayEarned / tuesdayCount).toFixed(2)  %></p>
-        <% } else{ %>
-                <p>Tue <br> - </p>
-            <% } %>
+    <div class = 'averages'>
+        <% if(mondayCount > 0){ %>
+            <p>Mon <br> $<%= Number.parseFloat(mondayEarned / mondayCount).toFixed(2)  %></p>
+            <% } else{ %>
+                    <p> Mon <br> - </p>
+                <% } %>
+        <% if(tuesdayCount > 0){ %>
+            <p> Tue <br> $<%= Number.parseFloat(tuesdayEarned / tuesdayCount).toFixed(2)  %></p>
+            <% } else{ %>
+                    <p>Tue <br> - </p>
+                <% } %>
 
-    <% if(wednesdayCount > 0){ %>
-        <p> Wed <br> $<%= Number.parseFloat(wednesdayEarned / wednesdayCount).toFixed(2)  %></p>
-        <% } else{ %>
-                <p> Wed <br> - </p>
-            <% } %>
+        <% if(wednesdayCount > 0){ %>
+            <p> Wed <br> $<%= Number.parseFloat(wednesdayEarned / wednesdayCount).toFixed(2)  %></p>
+            <% } else{ %>
+                    <p> Wed <br> - </p>
+                <% } %>
 
-    <% if(thursdayCount > 0){ %>
-        <p> Thur <br> $<%= Number.parseFloat(thursdayEarned / thursdayCount).toFixed(2)  %></p>
-        <% } else{ %>
-                <p> Thu <br> - </p>
-            <% } %>
+        <% if(thursdayCount > 0){ %>
+            <p> Thur <br> $<%= Number.parseFloat(thursdayEarned / thursdayCount).toFixed(2)  %></p>
+            <% } else{ %>
+                    <p> Thu <br> - </p>
+                <% } %>
 
-    <% if(fridayCount > 0){ %>
-        <p> Fri <br> $<%= Number.parseFloat(fridayEarned / fridayCount).toFixed(2)  %></p>
-        <% } else{ %>
-                <p> Fri <br> - </p>
-            <% } %>
+        <% if(fridayCount > 0){ %>
+            <p> Fri <br> $<%= Number.parseFloat(fridayEarned / fridayCount).toFixed(2)  %></p>
+            <% } else{ %>
+                    <p> Fri <br> - </p>
+                <% } %>
 
-    <% if(saturdayCount > 0){ %>
-        <p>Sat <br> $<%= Number.parseFloat(saturdayEarned / saturdayCount).toFixed(2)  %></p>
-        <% } else{ %>
-                <p> Sat <br> - </p>
-            <% } %>
+        <% if(saturdayCount > 0){ %>
+            <p>Sat <br> $<%= Number.parseFloat(saturdayEarned / saturdayCount).toFixed(2)  %></p>
+            <% } else{ %>
+                    <p> Sat <br> - </p>
+                <% } %>
 
-    <% if(sundayCount > 0){ %>
-        <p>Sun <br> $<%= Number.parseFloat(sundayEarned / sundayCount).toFixed(2)  %></p>
-        <% } else{ %>
-                <p> Sun <br> - </p>
-            <% } %>
-</div>   
+        <% if(sundayCount > 0){ %>
+            <p>Sun <br> $<%= Number.parseFloat(sundayEarned / sundayCount).toFixed(2)  %></p>
+            <% } else{ %>
+                    <p> Sun <br> - </p>
+                <% } %>
+    </div>   
     <!-- End Average Earnings-->
 
      <!-- Mobile Track Your Earnings-->
@@ -471,9 +467,53 @@
 
             </div>
         </div>
-    <!-- End Mobile Track Your Earnings-->
+             <!-- End Mobile Track Your Earnings-->
 
-    </div>
+        <!-- Mobile Shifts Worked -->                            
+        <h3> Your Shifts </h3>
+        <table id="mobile-shifts-worked-table" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Day</th>
+                    <th>Shift Length</th>
+                    <th>Hourly Pay</th>
+                    <th>CC Tips</th>
+                    <th>Cash Tips</th>
+                    <th>Position</th>
+                    <th>Company</th>
+                    <td>Total</td>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+
+            <tbody class="text-center">
+                <!-- Loop through all of the users shifts -->
+                <% for(let i=0; i<usersShifts.length; i++) {%>
+                    <tr>
+                        <td class="text-center"><%= usersShifts[i].day %>  <%= usersShifts[i].date %> <br> $<%= usersShifts[i].cashTips + usersShifts[i].ccTips +
+                            (usersShifts[i].hoursWorked * usersShifts[i].payPerHour) %>  </td>
+                        <td> <%= usersShifts[i].company %> </td>
+                        <td> <%= usersShifts[i].role %>  </td>
+
+                        <td> Shift Length <br> <%= usersShifts[i].hoursWorked %> </td>
+                        <td> CC Tips <br> $<%= usersShifts[i].ccTips %>  </td>
+                        <td> Cash Tips <br> $<%= usersShifts[i].cashTips %>  </td>
+
+                        <td>
+                            <!--  Deletes Shift From Table -->
+                            <form id='delete-shift' action="/post/deleteShift/<%= usersShifts[i].id %>?_method=DELETE" method="POST">
+                                <button class="btn bi bi-trash" type="submit"> Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+        <!-- End Mobile Shifts Worked-->
+
+
+</div>
     <!-- End Mobile -->
 
     

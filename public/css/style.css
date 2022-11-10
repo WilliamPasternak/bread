@@ -887,8 +887,6 @@ padding: 0 1vw;
     text-align: center;
 }
 
-
-
 .shifts-worked{
     table-layout: fixed;
     width: 100%;
@@ -1447,16 +1445,9 @@ thead {
     font-size: .55rem;
 }
 
-
-
-
-
-
-
-    table thead,
-    .feed {
-        display: none;
-    }
+table thead{
+    display: none;
+}
 
     table td {
         display: flex;
