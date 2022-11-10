@@ -304,11 +304,20 @@
 
                     <!-- If Single hour worked -->
                     <% if(allShifts[i].hoursWorked == 1){ %>
-                        <p> <%= allShifts[i].day %> <%= allShifts[i].date %> <br> A <%= (allShifts[i].role).toUpperCase() %>  from <br> <%= (allShifts[i].company).toUpperCase() %> (<%=allShifts[i].location %>) <br> Made $<%= allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour) %>  working <%= allShifts[i].hoursWorked%> hour </p>
-
-                        <% } else{ %>
-                            <p>  <%= allShifts[i].day %> <%= allShifts[i].date %> <br> A <%= (allShifts[i].role).toUpperCase() %>  from <br>  <%= (allShifts[i].company).toUpperCase() %> (<%=allShifts[i].location %>) <br> Made $<%= allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour) %>  working <%= allShifts[i].hoursWorked%> hours  </p>
-                        <% } %>
+                        <p> <%= allShifts[i].day %> <%= allShifts[i].date %> <br>
+                         A <%= (allShifts[i].role).toUpperCase() %>  from <br> 
+                        <%= (allShifts[i].company).toUpperCase() %> <br>
+                         (<%=allShifts[i].location %>) <br>
+                        Made $<%= allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour) %> <br>
+                        working <%= allShifts[i].hoursWorked%> hour <br> </p>
+                    <% } else{ %>
+                        <p> <%= allShifts[i].day %> <%= allShifts[i].date %> <br>
+                            A <%= (allShifts[i].role).toUpperCase() %>  from <br> 
+                           <%= (allShifts[i].company).toUpperCase() %> <br>
+                           (<%=allShifts[i].location %>) <br>
+                           Made $<%= allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour) %> <br>
+                           working <%= allShifts[i].hoursWorked%> hours <br> </p>
+                    <% } %>
                     <!-- Need to create a post/put action form to update flags-->
                 </div>
 
@@ -467,9 +476,14 @@
         </div>
     <!-- End Mobile Track Your Earnings-->
 
-        <!-- Mobile Shifts Worked -->                            
+        <!-- Mobile Shifts Worked -->  
+        
+        
+
+
+
         <h3> Your Shifts </h3>
-        <table id="mobile-shifts-worked-table" class="table table-striped">
+        <table id="#mobile-shifts-worked-table" class="table table-striped">
             <thead>
                 <tr>
                     <th>Date</th>
@@ -507,6 +521,7 @@
                     <% } %>
             </tbody>
         </table>
+    
         <!-- End Mobile Shifts Worked-->
 
     <!-- Mobile Begin Timeline -->
@@ -517,10 +532,20 @@
 
  <!-- If Single hour worked -->
  <% if(allShifts[i].hoursWorked == 1){ %>
-    <p> <%= allShifts[i].day %> <%= allShifts[i].date %> <br> A <%= (allShifts[i].role).toUpperCase() %>  from <br> <%= (allShifts[i].company).toUpperCase() %> (<%=allShifts[i].location %>) <br> Made $<%= allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour) %>  working <%= allShifts[i].hoursWorked%> hour </p>
-    <% } else{ %>
-        <p>  <%= allShifts[i].day %> <%= allShifts[i].date %> <br> A <%= (allShifts[i].role).toUpperCase() %>  from <br>  <%= (allShifts[i].company).toUpperCase() %> (<%=allShifts[i].location %>) <br> Made $<%= allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour) %>  working <%= allShifts[i].hoursWorked%> hours  </p>
-    <% } %>
+    <p> <%= allShifts[i].day %> <%= allShifts[i].date %> <br>
+     A <%= (allShifts[i].role).toUpperCase() %>  from <br> 
+    <%= (allShifts[i].company).toUpperCase() %> <br>
+    (<%=allShifts[i].location %>) <br>
+    Made $<%= allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour) %> <br>
+    working <%= allShifts[i].hoursWorked%> hour <br> </p>
+<% } else{ %>
+    <p> <%= allShifts[i].day %> <%= allShifts[i].date %> <br>
+        A <%= (allShifts[i].role).toUpperCase() %>  from <br> 
+       <%= (allShifts[i].company).toUpperCase() %> <br>
+       (<%=allShifts[i].location %>) <br>
+       Made $<%= allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour) %> <br>
+       working <%= allShifts[i].hoursWorked%> hours <br> </p>
+<% } %>
         <!-- Mobile End Timeline-->
 </div>
 <% } %>

@@ -907,7 +907,7 @@ padding: 0 1vw;
 }
 
 .timeline{
-    height: 110vh;
+    max-height: 250vh;
     overflow-y:scroll;
 }
 
