@@ -9,217 +9,214 @@
                     <form action="/post/editPost/<%= post.id %>?_method=PUT" method="POST" class="mb-3">
 
                         <fieldset>
-                            <legend> Where do you work?</legend>
+                            <legend> ¿Dónde trabajas?</legend>
                             <div class="mb-3">
-                                <label for="location" class="form-label">City & State</label>
+                                <label for="location" class="form-label">Dónde</label>
                                 <input autofocus type="text" class="form-control" id="location" name="location"
                                     value="<%- post.location -%>" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="type" class="form-label">Type of establishment</label>
+                                <label for="type" class="form-label">Tipo de Establecimiento</label>
                                 <input type="'text" class="form-control" id="type" name="type" placeholder="Restaurant"
                                     value="<%- post.type -%>" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="name" class="form-label">Name of establishment</label>
+                                <label for="name" class="form-label">Nombre de la Empresa</label>
                                 <input type="text" class="form-control" id="name" name="name" value='<%-
                                     post.name -%>' required>
                             </div>
                         </fieldset>
 
                         <fieldset>
-                            <legend> How much do you earn?</legend>
-                            <p> Our goal is to provide the most accurate information. When filling out below, omit
-                                outliers and try to
-                                focus on average earnings.</p>
+                            <legend> ¿Cuánto ganas?</legend>
+                            <p> Nuestro objetivo es proporcionar la información más precisa. Al llenar los datos, omite los valores atípicos e intenta centrarte en los ingresos medios.
+                            </p>
+                           <p> Si no está seguro de cuánto gana, puede <a href="/profile">hacer un seguimiento de sus ganancias</a> durante algunas semanas y luego compartir sus resultados.</p>
+                              
                             <div class="mb-3">
-                                <label for="title" class="form-label">Job Title</label>
+                                <label for="title" class="form-label">Puesto de Trabajo</label>
                                 <input type="text" class="form-control" id="title" name="title" placeholder="Bartender"
                                     value='<%- post.title -%>' required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="payType" class="form-label">Pay Type</label>
+                                <label for="payType" class="form-label">Tipo de Pago</label>
                                 <div>
                                     <select name="payType" id="payType" name='payType' required>
                                         <option>-</option>
-                                        <option value="Hourly">Hourly</option>
-                                        <option value="Weekly">Weekly</option>
-                                        <option value="Annually">Annually</option>
+                                        <option value="Hourly">Por hora</option>
+                                        <option value="Weekly">Semanal</option>
+                                        <option value="Annually">Anualmente</option>
                                     </select>
                                 </div>
                             </div>
 
 
                             <div class="mb-3">
-                                <label for="base" class="form-label">Base Pay</label>
-                                <span> (<em>After</em> employer tip credit) $15/hr with a $5 tip credit should be
-                                    $10/hr</span>
+                                <label for="base" class="form-label">Sueldo Base</label>
+                                <span> (<em>Después </em> del crédito de propina del empleador) $15/hora con $5 de propina deberían ser --$10/hora</span>
                                 <input type="text" class="form-control" id="base" name="base" placeholder="10" value='<%-
                                     post.base -%>' required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="extraPay" class="form-label">Additional Pay Offered </label>
-                                <span>(Bonus, Stipend, Admin Pay, etc. <em>Do not</em> include tips)</span>
+                                <label for="extraPay" class="form-label">Pagos Adicionales Ofrecidos  </label>
+                                <span>(Bonificación, salario, paga administrativa, etc.  <em>No se</em> incluyen las propinas)</span>
                                 <input type="text" class="form-control" id="extraPay" name="extraPay" placeholder="0"
                                     value='<%- post.extraPay -%>'>
                             </div>
 
                             <div class="mb-3">
-                                <label for="benefits" class="form-label">Company Provided Benefits</label>
+                                <label for="benefits" class="form-label">Beneficios Proporcionados por la Empresa</label>
                                 <input type="text" class="form-control" id="benefits" name="benefits"
                                     placeholder="Health Benefits, Dental, 401k, Bonus" value='<%- post.benefits -%>'>
                             </div>
 
 
                             <div class="mb-3">
-                                <label for="numShifts" class="form-label">Shifts Worked Per Week</label>
+                                <label for="numShifts" class="form-label"># de Turnos Trabajados por Semana</label>
                                 <input type="text" class="form-control" id="numShifts" name="numShifts" placeholder="4"
                                     value='<%- post.numShifts -%>' required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="shiftLength" class="form-label">Average Shift Length (Hours)</label>
+                                <label for="shiftLength" class="form-label">Duración Aproximada del Turno (horas)</label>
                                 <input type="text" class="form-control" id="shiftLength" name="shiftLength"
                                     placeholder="8-10" value='<%- post.shiftLength -%>' required>
                             </div>
 
-                            <p> Average Tips Earned (If tipped employee)</p>
+                            <p> Promedio de propinas ganadas</p>
 
                             <div class="mb-3">
-                                <label for="slowTips" class="form-label"> Slow Shift</label>
+                                <label for="slowTips" class="form-label"> Turno Bajo</label>
                                 <input type="text" class="form-control" id="slowTips" name="slowTips" placeholder="0"
                                     value='<%- post.slowTips -%>'>
                             </div>
 
                             <div class="mb-3">
-                                <label for="busyTips" class="form-label"> Busy Shift</label>
+                                <label for="busyTips" class="form-label"> Turno Ocupado </label>
                                 <input type="text" class="form-control" id="busyTips" name="busyTips" placeholder="0"
                                     value='<%- post.busyTips -%>'>
                             </div>
 
                             <div class="mb-3">
-                                <label for="cashTips" class="form-label"> Do you receive cash tips nightly or in
-                                    your
-                                    paycheck?</label>
+                                <label for="cashTips" class="form-label"> ¿Recibes propinas en efectivo cada noche o en tu cheque de pago?</label>
                                 <div>
 
                                     <select name="cashTips" id="cashTips" name="cashTips">
                                         <option value='-'>-</option>
-                                        <option value="Cash">Cash</option>
-                                        <option value="Paycheck">Paycheck</option>
+                                        <option value="Cash">En Efectivo</option>
+                                        <option value="Paycheck">Cheque de Pago</option>
                                     </select>
                                 </div>
                             </div>
                         </fieldset>
 
                         <fieldset>
-                            <legend> Optional Information</legend>
+                            <legend> Información Opcional </legend>
 
                             <div class="mb-3">
-                                <label for="gender" class="form-label">Gender</label>
+                                <label for="gender" class="form-label">Género</label>
                                 <input type="text" class="form-control" id="gender" name="gender" value='<%- post.gender
                                     -%>'>
                             </div>
 
                             <div class=" mb-3">
-                                <label for="ethnicity" class="form-label">Ethnicity</label>
+                                <label for="ethnicity" class="form-label">Origen étnico</label>
                                 <input type="text" class="form-control" id="ethnicity" name="ethnicity" value='<%-
                                     post.ethnicity -%>'>
                             </div>
 
                             <div class=" mb-3">
-                                <label for="age" class="form-label">Age</label>
+                                <label for="age" class="form-label">Edad</label>
                                 <input type="text" class="form-control" id="age" name="age" value='<%- post.age -%>'>
                             </div>
 
                             <div class=" mb-3">
-                                <label for="sameShifts" class="form-label">Do you work the same shifts each
-                                    week?</label>
+                                <label for="orientation" class="form-label">Orientación Sexual</label>
+                                <input type="text" class="form-control" id="orientation" name="orientation">
+                              </div>
+
+                            <div class=" mb-3">
+                                <label for="sameShifts" class="form-label">¿Trabajas los mismos turnos cada semana?</label>
                                 <div>
 
                                     <select name="sameShifts" id="sameShifts">
                                         <option value='-'>-</option>
-                                        <option value="Yes">Yes</option>
+                                        <option value="Yes">Si</option>
                                         <option value="No">No</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class=" mb-3">
-                                <label for="fullTips" class="form-label">Do new hires receive full tips?</label>
+                                <label for="fullTips" class="form-label">¿Los nuevos empleados reciben las propinas completas?</label>
                                 <div>
                                     <select name="fullTips" id="fullTips">
                                         <option value='-'>-</option>
-                                        <option value="Yes">Yes</option>
+                                        <option value="Yes">Si</option>
                                         <option value="No">No</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class=" mb-3">
-                                <label for="poolHouse" class="form-label">Is your establishment a pool house or do you
-                                    keep your own
-                                    tips?</label>
+                                <label for="poolHouse" class="form-label">¿Tu establecimiento es una casa de apuestas o se queda con tus propias propinas?</label>
                                 <div>
                                     <select name="poolHouse" id="poolHouse">
                                         <option value='-'>-</option>
-                                        <option value="Yes">Pool House</option>
-                                        <option value="No">Keep your own tips</option>
+                                        <option value="Yes">Agrupación de Propinas</option>
+                                        <option value="No">Conservas tus Propinas</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class=" mb-3">
-                                <label for="overTime" class="form-label">Does your employer allow you to work
-                                    overtime?</label>
+                                <label for="overTime" class="form-label">¿Tu empleador te permite trabajar horas extras?</label>
                                 <div>
                                     <select name="overTime" id="overTime">
                                         <option value='-'>-</option>
-                                        <option value="Yes">Yes</option>
+                                        <option value="Yes">Si</option>
                                         <option value="No">No</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class=" mb-3">
-                                <label for="breaks" class="form-label">Are you able to take breaks at work? </label>
+                                <label for="breaks" class="form-label">¿Puedes tomar descansos en el trabajo? </label>
                                 <div>
                                     <select name="breaks" id="breaks">
                                         <option value='-'>-</option>
-                                        <option value="Yes">Yes</option>
+                                        <option value="Yes">Si</option>
                                         <option value="No">No</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class=" mb-3">
-                                <label for="familyMeal" class="form-label">Is family meal provided? </label>
+                                <label for="familyMeal" class="form-label">¿Se le proporciona la comida al personal?</label>
                                 <div>
                                     <select name="familyMeal" id="familyMeal">
                                         <option value='-'>-</option>
-                                        <option value="Yes">Yes (for free)</option>
-                                        <option value="Yes">Yes (at a cost)</option>
+                                        <option value="Yes">Sí (gratis)</option>
+                                        <option value="Yes">Sí (con costo)</option>
                                         <option value="No">No</option>
                                     </select>
                                 </div>
                             </div>
 
-
-
                             <div class=" mb-3">
-                                <label for="comments" class="form-label">Additional Comments</label>
+                                <label for="comments" class="form-label">Comentarios Adicionales</label>
                                 <textarea class="form-control" id="comments"
                                     name="comments"><%- post.comments -%></textarea>
                             </div>
 
                         </fieldset>
 
-                        <button type="submit" class="btn btn-form btn-save" value="Upload">Save</button>
-                        <button class="btn btn-form btn-cancel" value="Upload">Cancel</button>
+                        <button type="submit" class="btn btn-form btn-save" value="Upload">Guardar</button>
+                        <button class="btn btn-form btn-cancel" value="Upload">Cancelar</button>
 
 
                     </form>
