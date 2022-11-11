@@ -55,7 +55,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li class="dropdown"><a href="#"><span> <i class="bi bi-globe"></i> Language | EN</span> <i
+          <li class="dropdown"><a href="#"><span> <i class="bi bi-globe"></i> Idioma | ES</span> <i
                 class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="/">English</a></li>
@@ -63,17 +63,18 @@
               <li><a href="/fr">Français</a></li>
             </ul>
           </li>
-          <li><a class="nav-link" href="/features">Features</a></li>
+          <li><a class="nav-link" href="/features">Características</a></li>
           <%if(user){ %>
-            <li><a class="nav-link" href="/feed">Salaries</a></li>
+            <li><a class="nav-link" href="/feed">Salarios</a></li>
             <%}%>
 
-              <li><a class="nav-link scrollto" href="/#faq">F.A.Q</a></li>
-              <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
+              <li><a class="nav-link scrollto" href="#faq">Preguntas Frecuentes</a></li>
+              <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
+              <li><a class="nav-link scrollto" href="#donate">Donar</a></li>
               <!-- If User is not logged in, show login and signup links-->
               <%if(!user){ %>
-                <li><a class="getstarted" href="/login">Log In</a></li>
-                <li><a class="getstarted" href="/signup">Signup</a></li>
+                <li><a class="getstarted" href="/login">Iniciar sesión</a></li>
+                <li><a class="getstarted" href="/signup">Registrarse</a></li>
                 <%}%>
                   <!-- END USER LOGGED IN-->
         </ul>
