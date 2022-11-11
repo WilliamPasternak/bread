@@ -26,7 +26,7 @@ This is a full stack web application in which the user can
 - Ensure all screen sizes work
 - Check spacing of section headers from nav bar
 - International locations & dates
-- Spanish and French native translations implemented (in Progress)
+- Native translations implemented (Spanish Complete, French: In Progress)
 - User Profile Page layout (in Progress)
 
 **Functionality / Usability:**
@@ -43,10 +43,8 @@ This is a full stack web application in which the user can
 - Add Event Work and Consulting option to share
 - Create pages for each business in db
 - Add filters to Salaries Table
-- Add translated versions of profile page
 - Auto suggest or complete form data
 - Make image upload optional in Salaries form
-
 
 **Efficiency / Code Improvement:**
 - Remove unused styling
