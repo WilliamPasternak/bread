@@ -17,14 +17,14 @@ getIndexES: async (req, res) => {
     console.log(err);
   }
 },
-getIndexFR: async (req, res) => {
+/*getIndexFR: async (req, res) => {
   try {
     const posts = await Post.find().lean();
     res.render("fr/index.ejs",{ title: 'bread | Pay Transparency for the Hospitality Industry', posts: posts, user: req.user}); //user:user,  
   } catch (err) {
     console.log(err);
   }
-},
+},*/
 getComingSoon: async (req, res) => {
   try {
     const posts = await Post.find().lean();

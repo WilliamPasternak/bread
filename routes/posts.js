@@ -18,7 +18,9 @@ router.delete("/deletePost/:id", postsController.deletePost);
 // Delete Shift from Profile
 router.delete("/deleteShift/:id", postsController.deleteShift);
 
+// Flag Salary from View Salaries > More Info
 router.put("/flagPost/:id", postsController.flagPost);
+
 // Edit Posts
 router.get("/editPost/:id", ensureAuth, postsController.editPost);
 router.put("/editPost/:id", postsController.updatePost);

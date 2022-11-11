@@ -5,35 +5,61 @@ const homeController = require("../controllers/home");
 const postsController = require("../controllers/posts");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-//Main Routes 
-router.get("/", homeController.getIndex); 
-// Different Language Options
-  router.get("/es/", homeController.getIndexES);  
-  router.get("/fr/", homeController.getIndexFR);  
-
-// Share Your Salary 
-router.get("/share", ensureAuth, postsController.getShare);
-
-// Recent Salaries  (Eventually change route name below to salaries,)
-router.get("/feed", ensureAuth, postsController.getFeed);
-
-// Profile Page
-router.get("/profile", ensureAuth, postsController.getProfile);
-
-// Verify Salary
-router.get("/verify", postsController.getVerified);
-
-// Login & Out
-router.get("/login", authController.getLogin);
-router.post("/login", authController.postLogin);
+// Shared Routes (All Languages)
 router.get("/logout", authController.logout);
 
-// Sign Up 
-router.get("/signup", authController.getSignup);
-router.post("/signup", authController.postSignup);
+//Main Routes English
+    // Home
+    router.get("/", homeController.getIndex); 
+    // Share Your Salary 
+    router.get("/share", ensureAuth, postsController.getShare);
+    // Recent Salaries  (Eventually change route name below to salaries,)
+    router.get("/feed", ensureAuth, postsController.getFeed);
+    // Profile Page
+    router.get("/profile", ensureAuth, postsController.getProfile);
+    // Verify Salary
+    router.get("/verify", postsController.getVerified);
+    // Login
+    router.get("/login", authController.getLogin);
+    // Sign Up 
+    router.get("/signup", authController.getSignup);
+    // Features
+    router.get("/features/", homeController.getComingSoon);
+    // Log In
+    router.post("/login", authController.postLogin);
+    // Sign Up
+    router.post("/signup", authController.postSignup);
+    
+// Spanish Routes
+    // Home Page
+    router.get("/es/", homeController.getIndexES);  
+    // Share Your Salary 
+    router.get("/es/share", ensureAuth, postsController.getShareES);
+    // Recent Salaries 
+    router.get("/es/feed", ensureAuth, postsController.getFeedES);
+    // Profile Page
+    router.get("/es/profile", ensureAuth, postsController.getProfileES);
+    // Verify Salary
+    router.get("/es/verify", postsController.getVerifiedES);
+    // Login
+    router.get("/es/login", authController.getLoginES);
+    // Sign Up 
+    router.get("/es/signup", authController.getSignupES);
+    // Coming Soon
+    router.get("/features/", homeController.getComingSoon);
+    // Log In
+    router.post("/es/login", authController.postLoginES);
+    // Sign Up
+    router.post("/es/signup", authController.postSignupES);
 
-// Coming Soon
-router.get("/features/", homeController.getComingSoon);
+
+// French Routes (Incomplete)
+   //router.get("/fr/", homeController.getIndexFR); 
+
+
+
+
+
 
 
 

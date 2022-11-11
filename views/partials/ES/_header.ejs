@@ -50,7 +50,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <a href="/"><img src="/imgs/logo.png" alt="" class="img-fluid"></a>
+        <a href="/es/"><img src="/imgs/logo.png" alt="" class="img-fluid"></a>
       </div>
 
       <nav id="navbar" class="navbar">
@@ -60,21 +60,21 @@
             <ul>
               <li><a href="/">English</a></li>
               <li><a href="/es/">Español</a></li>
-              <li><a href="/fr">Français</a></li>
+             <!-- <li><a href="/fr">Français</a></li> -->
             </ul>
           </li>
-          <li><a class="nav-link" href="/features">Características</a></li>
+          
           <%if(user){ %>
-            <li><a class="nav-link" href="/feed">Salarios</a></li>
+            <li><a class="nav-link" href="/es/feed">Salarios</a></li>
             <%}%>
 
-              <li><a class="nav-link scrollto" href="#faq">Preguntas Frecuentes</a></li>
-              <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
-              <li><a class="nav-link scrollto" href="#donate">Donar</a></li>
+              <li><a class="nav-link scrollto" href="/es/#faq">Preguntas Frecuentes</a></li>
+              <li><a class="nav-link scrollto" href="/es/#contact">Contacto</a></li>
+              <li><a class="nav-link scrollto" href="/es/#donate">Donar</a></li>
               <!-- If User is not logged in, show login and signup links-->
               <%if(!user){ %>
-                <li><a class="getstarted" href="/login">Iniciar sesión</a></li>
-                <li><a class="getstarted" href="/signup">Registrarse</a></li>
+                <li><a class="getstarted" href="/es/login">Iniciar sesión</a></li>
+                <li><a class="getstarted" href="/es/signup">Registrarse</a></li>
                 <%}%>
                   <!-- END USER LOGGED IN-->
         </ul>

@@ -11,7 +11,16 @@ module.exports = {
     } catch (err) {
       console.log(err);
     }
-  },
+  }, 
+  // Get Spanish Version of Share Page
+        getShareES: async (req, res) => {
+          try {
+            const posts = await Post.find({ user: req.user.id });
+            res.render("es/share.ejs", { posts: posts, user: req.user, title: 'bread | Comparte tu Salario' });
+          } catch (err) {
+            console.log(err);
+          }
+        },
   getVerified: async (req, res) => {
     try {
       const posts = await Verify.find({ user: req.user.id });
@@ -21,6 +30,16 @@ module.exports = {
       console.log(err);
     }
   },
+   // Get Spanish Version of Verified Page
+      getVerifiedES: async (req, res) => {
+        try {
+          const posts = await Verify.find({ user: req.user.id });
+          res.render("es/verify.ejs", { posts: posts, user: req.user, title: 'bread | Verifique su Salario'  });
+        } catch (err) {
+          console.log('not working')
+          console.log(err);
+        }
+      },
   getFeed: async (req, res) => {
     try {
       const posts = await Post.find().sort({ createdAt: "desc" }).lean();
@@ -31,19 +50,39 @@ module.exports = {
       console.log(err);
     }
   },
-
+  // Get Spanish Version of Feed Page
+        getFeedES: async (req, res) => {
+          try {
+            const posts = await Post.find().sort({ createdAt: "desc" }).lean();
+            const post = await Post.findById(req.params.id);
+            res.render("es/feed.ejs", { posts: posts, post: post, user: req.user, title: 'bread | Salarios Compartidos' });
+            
+          } catch (err) {
+            console.log(err);
+          }
+        },
   getProfile: async (req, res) => {
     try {
       const allShifts = await Shift.find({share: "true"}).sort({ createdAt: "desc" }).lean();
-      const usersShifts = await Shift.find({ user: req.user.id });
-      //const shift = await Shift.findById(req.params.id);
-      
+      const usersShifts = await Shift.find({ user: req.user.id }); 
       res.render("profile.ejs", { allShifts: allShifts, usersShifts: usersShifts, user: req.user, title: 'bread | Profile' });
       
     } catch (err) {
       console.log(err);
     }
   },
+    // Get Spanish Version of Profile Page
+        getProfileES: async (req, res) => {
+          try {
+            const allShifts = await Shift.find({share: "true"}).sort({ createdAt: "desc" }).lean();
+            const usersShifts = await Shift.find({ user: req.user.id });
+            
+            res.render("es/profile.ejs", { allShifts: allShifts, usersShifts: usersShifts, user: req.user, title: 'bread | Profile' });
+            
+          } catch (err) {
+            console.log(err);
+          }
+        },
  
   getPost: async (req, res) => {
     try {
