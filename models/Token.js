@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-console.log("Mongoose")
+
 const tokenSchema = new mongoose.Schema({
     Token: {
       type: String,
@@ -13,10 +13,9 @@ const tokenSchema = new mongoose.Schema({
     },
     createdAt: {
       type: Date,
-      //expires: '1m',
-      index: { expires: '1m' },
+      expires: 3600,
       default: Date.now
     },
 })
-  
+
 module.exports = mongoose.model('Token', tokenSchema)

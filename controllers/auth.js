@@ -81,9 +81,12 @@ exports.getReset = (req, res) => {
     return res.redirect('/')
   }
   res.render('passwordReset', {
-    title: 'Password Reset'
+    title: 'Password Reset',
+    user: req.user,
+    title: 'Reset Your Password'
   })
 }
+
 
 exports.getResetForm = async (req, res) => {
   const token = await Token.findOne({Token: req.params.token}) 

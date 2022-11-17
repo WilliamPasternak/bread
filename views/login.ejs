@@ -20,14 +20,13 @@
                       <% } %>
 
                         <!-- Login Form -->
-
                         <div class='text-center user-form'>
                           <div class='text-center'>
-                            <a href="/"> <img src="/imgs/logo.png" class='form-logo' alt="Company Logo"></a>
+                            <a href="/"> <img src="/imgs/logo.png" class='form-logo' alt="Company Logo"></a> 
                           </div>
 
+                          <div class = 'auth-form'> 
                           <form action="/login" method="POST" class="text-center member-form">
-
                             <div class="mb-3">
                               <label for="email" class="form-label">Email address</label>
                               <input type="email" class="form-control" id="email" placeholder="example@email.com"
@@ -39,10 +38,11 @@
                               <input type="password" class="form-control" id="password" placeholder="********"
                                 name="password" />
                             </div>
+                          </div>
 
                             <button type="submit" class="btn btn-form">Log In</button>
                           </form>
-                          <p class="text-center">Not a member? <a data-toggle="tab" href="/signup">Sign Up</a></p>
+                          <p class="text-center mt-3">Not a member? <a data-toggle="tab" href="/signup">Sign Up</a></p>
                         </div>
 
                         <!-- Login Form -->

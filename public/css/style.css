@@ -13,7 +13,7 @@ CSS Contents
 # Profile
 # Coming Soon 
 # 404 Page 
-# Forms: ( Login, Signup, Share)
+# Forms: ( Login, Signup, Share, Reset Password)
 # Flipping animation
 # Data Display (Post Page)
 # Feed
@@ -45,6 +45,11 @@ html {
 a {
     color: #6fa684;
     text-decoration: none;
+}
+
+
+button:active {
+	transform: scale(0.95);
 }
 
 a:hover {
@@ -1036,14 +1041,22 @@ padding: 0 1vw;
 .form-logo {
     width: 20vh;
     margin: 0 auto;
-
 }
 
+.auth-form input.form-control{
+    width: 50%;
+    margin: 0 auto;
+}
 
 .user-form {
-    width: 40%;
-    margin: 5% auto;
+    width: 33%;
+    margin: auto auto;
+    padding: 3% 0;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+    border-radius: 10px;
 }
+
 
 @media screen and (max-width: 768px) {
 
@@ -1501,7 +1514,7 @@ table thead{
     }
 
 
-    /*--------------------------------------------------------------
+/*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
     /*
