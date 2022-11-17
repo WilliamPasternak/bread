@@ -2,6 +2,143 @@ const passport = require("passport");
 const validator = require("validator");
 const User = require("../models/User");
 
+// Password Reset:
+const Token = require("../models/Token")
+const crypto = require("crypto")
+const { token } = require('morgan') // Not sure morgan is needed. Test and delete.
+const nodemailer = require("nodemailer")
+
+exports.forgotPassword = async (req, res) => {
+  const validation = []
+
+  //Check if email exists in DB
+  req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false })
+  let emailUser = await User.findOne({email: req.body.email})
+  if (!emailUser) {
+    console.log("User with email not found")
+    validation.push({ msg: 'Email address was not found. Check email address or signup below.' })
+    req.flash("errors", validation)
+    return res.redirect("/passwordReset")
+  }
+
+  console.log("Email Exists")
+
+  //If token exists, Do not create a new one
+  let tokenAlreadyExists = await Token.findOne({email: req.body.email})
+  if (tokenAlreadyExists) {
+    console.log("Token exists already") 
+    validation.push({ msg: 'A password reset email has previously been sent and is still active, please use the link in that email to reset your password.' })
+    req.flash("errors", validation)
+    return res.redirect('/passwordReset')
+  }
+
+  console.log("Token not found. Creating new token")
+  const token = new Token({
+    Token: crypto.randomBytes(20).toString("hex"),
+    email: req.body.email,
+  })
+
+  token.save()
+
+  //Send Email with reset link
+  const transporter = await nodemailer.createTransport({
+    host: "smtp.office365.com",
+    port: 587,
+    secure: false,
+    auth: {
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASS,
+    }
+  });
+
+  transporter.verify(function (error, success) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Mail transporter is working");
+    }
+  });
+
+  const resetURL = `http://${req.headers.host}/passwordReset/${token.Token}`
+
+  let msg = await transporter.sendMail({
+    from: `Password Reset <${process.env.MAIL_USER}`,
+    to: req.body.email,
+    subject: "bread Password Reset",
+    text: `A password reset request was sent for your account. Please click the following link to reset your password and this link will expire in one hour: ${resetURL} .`
+  })
+
+  validation.push({ msg: 'An email with a password reset link has been sent!' })
+  req.flash("success", validation)
+  console.log("Email was sent")
+
+  //Redirect to login
+  res.redirect('/passwordReset')
+}
+
+exports.getReset = (req, res) => {
+  if (req.user) {
+    return res.redirect('/')
+  }
+  res.render('passwordReset', {
+    title: 'Password Reset'
+  })
+}
+
+exports.getResetForm = async (req, res) => {
+  const token = await Token.findOne({Token: req.params.token}) 
+  if(!token) {
+    req.flash("errors", [{msg: "Reset password link has expired, please try again."}])
+    console.log("Cannot find token in db")
+    return res.redirect('/')
+  }
+  res.render("newPassword.ejs", {  
+    tokenObj: token, 
+  })
+}
+
+exports.resetPassword = async (req, res)=> {
+
+  const validation = []
+  if (!validator.isLength(req.body.password, { min: 8 })) validation.push({ msg: 'Password must be at least 8 characters long' })
+  if (req.body.password !== req.body.confirmPassword) validation.push({ msg: 'Passwords do not match' })
+
+  const token = await Token.findOne({Token: req.params.token})
+  const user = await User.findOne({email: token.email})
+
+  if (!user) { 
+    validation.push({ msg: 'Reset password link has expired, please try again.' })
+    req.flash("errors", validation)
+    console.log("Error finding email")
+    return res.redirect('/')
+  }
+
+  user.password = req.body.password
+
+  User.findOneAndUpdate({$or: [
+    {email: user.email}
+  ]}, (err) => {
+    if (err) { return next(err) }
+    user.save((err) => {
+      if (err) { return next(err) }
+      req.logIn(user, (err) => {
+        if (err) {
+          return next(err)
+        }
+        res.redirect('/')
+      })
+    })
+  })
+
+  user.updateOne({password: req.body.password}) 
+  user.save()
+  res.redirect('/')
+}
+// End Password Rest
+
+
+
+
 exports.getLogin = (req, res) => {
   if (req.user) {
     return res.redirect("/profile");
@@ -222,3 +359,6 @@ exports.postSignupES = (req, res, next) => {
     }
   );
 };
+
+
+
