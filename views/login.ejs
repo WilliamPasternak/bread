@@ -3,7 +3,9 @@
 
   <main class="container ">
     <div class="row justify-content-center">
+
       <section class="mt-5">
+        <!-- If Error Messages -->
         <% if (locals.messages.errors) { %>
           <% messages.errors.forEach( el=> { %>
             <div class="alert alert-danger">
@@ -19,6 +21,13 @@
                     <% }) %>
                       <% } %>
 
+                      <!-- If Success Messages-->
+                      <% if (locals.messages.success) { %>
+                          <div class="alert alert-success">
+                            <span> Password Successfully Changed! Please Log In Below </span>
+                          </div> 
+                            <% } %>
+                     
                         <!-- Login Form -->
                         <div class='text-center user-form'>
                           <div class='text-center'>

@@ -87,6 +87,7 @@ exports.getReset = (req, res) => {
   })
 }
 
+
 exports.getResetForm = async (req, res) => {
   const token = await Token.findOne({Token: req.params.token}) 
   if(!token) {
@@ -118,7 +119,11 @@ exports.resetPassword = async (req, res)=> {
   if (!validator.isLength(req.body.password, { min: 8 })) validation.push({ msg: 'Password must be at least 8 characters long' })
   if (req.body.password !== req.body.confirmPassword) validation.push({ msg: 'Passwords do not match' })
 
- 
+  if(validation.length > 0) {
+    req.flash("errors", validation)
+    console.log("Check Errors")
+    return res.redirect('back')
+  }
 
    user.password = req.body.password
 
@@ -139,7 +144,11 @@ exports.resetPassword = async (req, res)=> {
 
   user.updateOne({password: req.body.password}) 
   user.save()
-  res.redirect('/') // Password Changed Successfully
+
+// Send Success Message
+  req.flash('success', 'Password Successfully Changed! Please Log In Below')
+
+  res.redirect('/login') // Password Changed Successfully
 }
 // End Password Rest
 
