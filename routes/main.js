@@ -6,10 +6,10 @@ const postsController = require("../controllers/posts");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 // Reset Password Routes 
-router.get("/passwordReset", authController.getReset) //Get Form to enter email
-router.post("/passwordReset", authController.forgotPassword) // Post to send email
-router.get("/passwordReset/:token", authController.getResetForm) //Get for link inside of email to enter in new password 
-router.put("/passwordReset/:token", authController.resetPassword) // Put to change password for user
+router.get("/passwordReset", authController.getReset) //Get form to enter email
+router.post("/passwordReset", authController.forgotPassword) // Send email
+router.get("/passwordReset/:token", authController.getResetForm) // Loads reset page using auto generated token. 
+router.put("/passwordReset/:token", authController.resetPassword) // Changes user's Password 
 
 // Shared Routes (All Languages)
 router.get("/logout", authController.logout);

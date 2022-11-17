@@ -31,8 +31,8 @@ exports.forgotPassword = async (req, res) => {
     req.flash("errors", validation)
     return res.redirect('/passwordReset')
   }
+    console.log("Token not found. Creating new token")
 
-  console.log("Token not found. Creating new token")
   const token = new Token({
     Token: crypto.randomBytes(20).toString("hex"),
     email: req.body.email,
@@ -62,7 +62,7 @@ exports.forgotPassword = async (req, res) => {
   const resetURL = `http://${req.headers.host}/passwordReset/${token.Token}`
 
   let msg = await transporter.sendMail({
-    from: `Password Reset <${process.env.MAIL_USER}`,
+    from: `Password Reset ${process.env.MAIL_USER}`,
     to: req.body.email,
     subject: "bread Password Reset",
     text: `A password reset request was sent for your account. Please click the following link to reset your password and this link will expire in one hour: ${resetURL} .`
@@ -87,28 +87,26 @@ exports.getReset = (req, res) => {
   })
 }
 
-
 exports.getResetForm = async (req, res) => {
   const token = await Token.findOne({Token: req.params.token}) 
   if(!token) {
     req.flash("errors", [{msg: "Reset password link has expired, please try again."}])
     console.log("Cannot find token in db")
-    return res.redirect('/')
+    return res.redirect('/passwordReset')
   }
   res.render("newPassword.ejs", {  
     tokenObj: token, 
+    title: 'Set a new password',
+    user: req.user
   })
 }
 
 exports.resetPassword = async (req, res)=> {
-
-  const validation = []
-  if (!validator.isLength(req.body.password, { min: 8 })) validation.push({ msg: 'Password must be at least 8 characters long' })
-  if (req.body.password !== req.body.confirmPassword) validation.push({ msg: 'Passwords do not match' })
-
   const token = await Token.findOne({Token: req.params.token})
   const user = await User.findOne({email: token.email})
+  const validation = []
 
+  // If not logged in
   if (!user) { 
     validation.push({ msg: 'Reset password link has expired, please try again.' })
     req.flash("errors", validation)
@@ -116,7 +114,13 @@ exports.resetPassword = async (req, res)=> {
     return res.redirect('/')
   }
 
-  user.password = req.body.password
+  // Validator
+  if (!validator.isLength(req.body.password, { min: 8 })) validation.push({ msg: 'Password must be at least 8 characters long' })
+  if (req.body.password !== req.body.confirmPassword) validation.push({ msg: 'Passwords do not match' })
+
+ 
+
+   user.password = req.body.password
 
   User.findOneAndUpdate({$or: [
     {email: user.email}
@@ -135,7 +139,7 @@ exports.resetPassword = async (req, res)=> {
 
   user.updateOne({password: req.body.password}) 
   user.save()
-  res.redirect('/')
+  res.redirect('/') // Password Changed Successfully
 }
 // End Password Rest
 
