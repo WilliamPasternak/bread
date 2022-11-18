@@ -7,9 +7,13 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 // Reset Password Routes 
 router.get("/passwordReset", authController.getReset) //Get form to enter email
+  router.get("/es/passwordReset", authController.getResetES) //Get form to enter email
 router.post("/passwordReset", authController.forgotPassword) // Send email
+  router.post("/es/passwordReset", authController.forgotPasswordES) // Send email
 router.get("/passwordReset/:token", authController.getResetForm) // Loads reset page using auto generated token. 
+  router.get("/es/passwordReset/:token", authController.getResetFormES) // Loads reset page using auto generated token. 
 router.put("/passwordReset/:token", authController.resetPassword) // Changes user's Password 
+  router.put("/es/passwordReset/:token", authController.resetPasswordES) // Changes user's Password 
 
 // Shared Routes (All Languages)
 router.get("/logout", authController.logout);

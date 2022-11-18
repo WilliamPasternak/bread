@@ -72,21 +72,104 @@ exports.forgotPassword = async (req, res) => {
   req.flash("success", validation)
   console.log("Email was sent")
 
-  //Redirect to login
   res.redirect('/passwordReset')
+
 }
+
+
+exports.forgotPasswordES = async (req, res) => {
+  const validation = []
+
+  //Check if email exists in DB
+  req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false })
+  let emailUser = await User.findOne({email: req.body.email})
+  if (!emailUser) {
+    console.log("User with email not found")
+    validation.push({ msg: 'No se encontró la dirección de correo electrónico. Verifique la dirección de correo electrónico o regístrese a continuación.' })
+    req.flash("errors", validation)
+    return res.redirect("/es/passwordReset")
+  }
+
+  console.log("Email Exists")
+
+  //If token exists, Do not create a new one
+  let tokenAlreadyExists = await Token.findOne({email: req.body.email})
+  if (tokenAlreadyExists) {
+    console.log("Token exists already") 
+    validation.push({ msg: 'Anteriormente se envió un correo electrónico de restablecimiento de contraseña y aún está activo, use el enlace en ese correo electrónico para restablecer su contraseña.' })
+    req.flash("errors", validation)
+    return res.redirect('/es/passwordReset')
+  }
+    console.log("Token not found. Creating new token")
+
+  const token = new Token({
+    Token: crypto.randomBytes(20).toString("hex"),
+    email: req.body.email,
+  })
+
+  token.save()
+
+  //Send Email with reset link
+  const transporter = await nodemailer.createTransport({
+    host: "smtp.office365.com",
+    port: 587,
+    secure: false,
+    auth: {
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASS,
+    }
+  });
+
+  transporter.verify(function (error, success) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Mail transporter is working");
+    }
+  });
+
+  const resetURL = `http://${req.headers.host}/es/passwordReset/${token.Token}`
+
+  let msg = await transporter.sendMail({
+    from: `Restablecimiento de contraseña ${process.env.MAIL_USER}`,
+    to: req.body.email,
+    subject: "bread Restablecimiento de contraseña",
+    text: `Se envió una solicitud de restablecimiento de contraseña para su cuenta. Haga clic en el siguiente enlace para restablecer su contraseña y este enlace caducará en una hora:
+    ${resetURL} .`
+  })
+
+  validation.push({ msg: '¡Se ha enviado un correo electrónico con un enlace para restablecer la contraseña!'})
+  req.flash("success", validation)
+  console.log("Email was sent")
+
+  //Redirect to login
+  res.redirect('/es/passwordReset')
+
+}
+
+
+
+
 
 exports.getReset = (req, res) => {
   if (req.user) {
     return res.redirect('/')
   }
   res.render('passwordReset', {
-    title: 'Password Reset',
     user: req.user,
     title: 'Reset Your Password'
   })
 }
 
+exports.getResetES = (req, res) => {
+  if (req.user) {
+    return res.redirect('/es/')
+  }
+  res.render('es/passwordReset', {
+    title: 'Restablecimiento de Contraseña',
+    user: req.user,
+  })
+}
 
 exports.getResetForm = async (req, res) => {
   const token = await Token.findOne({Token: req.params.token}) 
@@ -101,6 +184,22 @@ exports.getResetForm = async (req, res) => {
     user: req.user
   })
 }
+
+exports.getResetFormES = async (req, res) => {
+  const token = await Token.findOne({Token: req.params.token}) 
+  if(!token) {
+    req.flash("errors", [{msg: "El enlace para restablecer la contraseña ha caducado, inténtalo de nuevo."}])
+    console.log("Cannot find token in db")
+    return res.redirect('/es/passwordReset')
+  }
+  res.render("es/newPassword.ejs", {  
+    tokenObj: token, 
+    title: 'Set a new password',
+    user: req.user
+  })
+}
+
+
 
 exports.resetPassword = async (req, res)=> {
   const token = await Token.findOne({Token: req.params.token})
@@ -150,6 +249,60 @@ exports.resetPassword = async (req, res)=> {
 
   res.redirect('/login') // Password Changed Successfully
 }
+
+
+exports.resetPasswordES = async (req, res)=> {
+  const token = await Token.findOne({Token: req.params.token})
+  const user = await User.findOne({email: token.email})
+  const validation = []
+
+  // If not logged in
+  if (!user) { 
+    validation.push({ msg: 'Reset password link has expired, please try again.' })
+    req.flash("errors", validation)
+    console.log("Error finding email")
+    return res.redirect('/')
+  }
+
+  // Validator
+  if (!validator.isLength(req.body.password, { min: 8 })) validation.push({ msg: 'La contraseña debe tener al menos 8 caracteres' })
+  if (req.body.password !== req.body.confirmPassword) validation.push({ msg: 'Las contraseñas no coinciden' })
+
+  if(validation.length > 0) {
+    req.flash("errors", validation)
+    console.log("Check Errors")
+    return res.redirect('back')
+  }
+
+   user.password = req.body.password
+
+  User.findOneAndUpdate({$or: [
+    {email: user.email}
+  ]}, (err) => {
+    if (err) { return next(err) }
+    user.save((err) => {
+      if (err) { return next(err) }
+      req.logIn(user, (err) => {
+        if (err) {
+          return next(err)
+        }
+        res.redirect('/es/')
+      })
+    })
+  })
+
+  user.updateOne({password: req.body.password}) 
+  user.save()
+
+// Send Success Message
+  req.flash('success', '¡Contraseña cambiada correctamente! Inicie sesión a continuación')
+
+  res.redirect('/es/login') // Password Changed Successfully
+}
+
+
+
+
 // End Password Rest
 
 
