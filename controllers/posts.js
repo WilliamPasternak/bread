@@ -7,7 +7,8 @@ module.exports = {
   getShare: async (req, res) => {
     try {
       const posts = await Post.find({ user: req.user.id });
-      res.render("share.ejs", { posts: posts, user: req.user, title: 'bread | Share Your Salary' });
+      res.render("share.ejs", { posts: posts, user: req.user, title: 'bread | Share Your Salary',
+    description:'Share your salary to help transform the hospitality industry.' });
     } catch (err) {
       console.log(err);
     }
@@ -16,7 +17,8 @@ module.exports = {
         getShareES: async (req, res) => {
           try {
             const posts = await Post.find({ user: req.user.id });
-            res.render("es/share.ejs", { posts: posts, user: req.user, title: 'bread | Comparte tu Salario' });
+            res.render("es/share.ejs", { posts: posts, user: req.user, title: 'bread | Comparte tu Salario',
+          description: 'Comparte tu salario para ayudar a transformar la industria hotelera.' });
           } catch (err) {
             console.log(err);
           }
@@ -24,7 +26,8 @@ module.exports = {
   getVerified: async (req, res) => {
     try {
       const posts = await Verify.find({ user: req.user.id });
-      res.render("verify.ejs", { posts: posts, user: req.user, title: 'bread | Verify Your Salary'  });
+      res.render("verify.ejs", { posts: posts, user: req.user, title: 'bread | Verify Your Salary', 
+      description: 'Salaries can be submitted with proof such as paystub, tip sheets or tax forms. Verified salaries will show up with a next to them on our Salaries page.'  });
     } catch (err) {
       console.log('not working')
       console.log(err);
@@ -34,7 +37,8 @@ module.exports = {
       getVerifiedES: async (req, res) => {
         try {
           const posts = await Verify.find({ user: req.user.id });
-          res.render("es/verify.ejs", { posts: posts, user: req.user, title: 'bread | Verifique su Salario'  });
+          res.render("es/verify.ejs", { posts: posts, user: req.user, title: 'bread | Verifique su Salario',
+        description: 'Los salarios se pueden presentar con comprobantes, como talones de pago, hojas de propinas o formularios de impuestos. Los salarios verificados se mostrarán con un junto a ellos en nuestra página de Salarios.'  });
         } catch (err) {
           console.log('not working')
           console.log(err);
@@ -44,7 +48,8 @@ module.exports = {
     try {
       const posts = await Post.find().sort({ createdAt: "desc" }).lean();
       const post = await Post.findById(req.params.id);
-      res.render("feed.ejs", { posts: posts, post: post, user: req.user, title: 'bread | Recent Salaries' });
+      res.render("feed.ejs", { posts: posts, post: post, user: req.user, title: 'bread | Recent Salaries',
+    description:'View salaries shared by hospitality employees near you.' });
       
     } catch (err) {
       console.log(err);
@@ -55,7 +60,8 @@ module.exports = {
           try {
             const posts = await Post.find().sort({ createdAt: "desc" }).lean();
             const post = await Post.findById(req.params.id);
-            res.render("es/feed.ejs", { posts: posts, post: post, user: req.user, title: 'bread | Salarios Compartidos' });
+            res.render("es/feed.ejs", { posts: posts, post: post, user: req.user, title: 'bread | Salarios Compartidos',
+          description: 'Vea los salarios compartidos por los empleados de hospitalidad cerca de usted.' });
             
           } catch (err) {
             console.log(err);
@@ -65,7 +71,8 @@ module.exports = {
     try {
       const allShifts = await Shift.find({share: "true"}).sort({ createdAt: "desc" }).lean();
       const usersShifts = await Shift.find({ user: req.user.id }); 
-      res.render("profile.ejs", { allShifts: allShifts, usersShifts: usersShifts, user: req.user, title: 'bread | Profile' });
+      res.render("profile.ejs", { allShifts: allShifts, usersShifts: usersShifts, user: req.user, title: 'bread | Profile',
+      description:'Track your earnings to see your daily averages and see what others are earning' });
       
     } catch (err) {
       console.log(err);
@@ -77,7 +84,8 @@ module.exports = {
             const allShifts = await Shift.find({share: "true"}).sort({ createdAt: "desc" }).lean();
             const usersShifts = await Shift.find({ user: req.user.id });
             
-            res.render("es/profile.ejs", { allShifts: allShifts, usersShifts: usersShifts, user: req.user, title: 'bread | Profile' });
+            res.render("es/profile.ejs", { allShifts: allShifts, usersShifts: usersShifts, user: req.user, title: 'bread | Profile',
+            description: 'Realice un seguimiento de sus ganancias para ver sus promedios diarios y ver lo que otros están ganando' });
             
           } catch (err) {
             console.log(err);
@@ -87,7 +95,8 @@ module.exports = {
   getPost: async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
-      res.render("post.ejs", { post: post, user: req.user,  title: `${post.title} at ${post.name} (${post.id})` });
+      res.render("post.ejs", { post: post, user: req.user,  title: `${post.title} at ${post.name} (${post.id})`,
+      description: 'View more details about the user who submitted this salary and the company they work for' });
 
     } catch (err) {
       console.log(err);
@@ -205,7 +214,8 @@ module.exports = {
       res.redirect("/feed")
 
       } else {
-       res.render("edit.ejs", { post: post, user: req.user, title: 'Edit your post' });
+       res.render("edit.ejs", { post: post, user: req.user, title: 'Edit your post',
+      description: 'Edit your post' });
       }
     } catch (err) {
       console.log(err);

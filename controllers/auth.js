@@ -157,7 +157,8 @@ exports.getReset = (req, res) => {
   }
   res.render('passwordReset', {
     user: req.user,
-    title: 'Reset Your Password'
+    title: 'bread | Reset Your Password',
+    description: 'If you have forgotten your bread password you can reset your password here'
   })
 }
 
@@ -166,8 +167,9 @@ exports.getResetES = (req, res) => {
     return res.redirect('/es/')
   }
   res.render('es/passwordReset', {
-    title: 'Restablecimiento de Contraseña',
+    title: 'bread | Restablecimiento de Contraseña',
     user: req.user,
+    description: 'Si ha olvidado su contraseña de pan, puede restablecer su contraseña aquí',
   })
 }
 
@@ -180,8 +182,9 @@ exports.getResetForm = async (req, res) => {
   }
   res.render("newPassword.ejs", {  
     tokenObj: token, 
-    title: 'Set a new password',
-    user: req.user
+    title: 'bread | Set a new password',
+    user: req.user,
+    description: 'If you have forgotten your bread password you can reset your password here'
   })
 }
 
@@ -194,8 +197,10 @@ exports.getResetFormES = async (req, res) => {
   }
   res.render("es/newPassword.ejs", {  
     tokenObj: token, 
-    title: 'Set a new password',
-    user: req.user
+    title: 'bread | Establecer una nueva contraseña',
+    user: req.user,
+    description: 'Si ha olvidado su contraseña de pan, puede restablecer su contraseña aquí'
+
   })
 }
 
@@ -315,6 +320,7 @@ exports.getLogin = (req, res) => {
   res.render("login", {
     title: "bread | Login",
     user: req.user,
+    description: 'Log into your bread account to share your salary, browse recent salaries, track your earnings and much more. '
   });
 };
 
@@ -325,6 +331,7 @@ exports.getLoginES = (req, res) => {
   res.render("es/login", {
     title: "bread | Acceso",
     user: req.user,
+    description: 'Inicie sesión en su cuenta de pan para compartir su salario, buscar salarios recientes, realizar un seguimiento de sus ganancias y más.',
   });
 };
 
@@ -413,7 +420,8 @@ exports.getSignup = (req, res) => {
   }
   res.render("signup", {
     title: "bread | Sign Up",
-    user: req.user
+    user: req.user,
+    description: 'Join bread today to do your part to transform the hospitality industry. Share your salary, browse recent salaries, track your earnings and much more.'
   });
 };
 
@@ -423,7 +431,8 @@ exports.getSignupES = (req, res) => {
   }
   res.render("es/signup", {
     title: "bread | Registrarse",
-    user: req.user
+    user: req.user,
+    description: 'Únase a bread hoy para hacer su parte para transformar la industria hotelera. Comparta su salario, busque salarios recientes, realice un seguimiento de sus ganancias y mucho más.'
   });
 };
 
