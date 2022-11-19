@@ -13,7 +13,7 @@ const postRoutes = require("./routes/posts");
 
 
 // Heroku http > https
-const sslRedirect = require('heroku-ssl-redirect');
+const sslRedirect = require('heroku-ssl-redirect').default;
 app.use(sslRedirect());
 
 
