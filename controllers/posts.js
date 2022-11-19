@@ -71,7 +71,7 @@ module.exports = {
     try {
       const allShifts = await Shift.find({share: "true"}).sort({ createdAt: "desc" }).lean();
       const usersShifts = await Shift.find({ user: req.user.id }); 
-      res.render("profile.ejs", { allShifts: allShifts, usersShifts: usersShifts, user: req.user, title: 'bread | Profile',
+      res.render("profile.ejs", { allShifts: allShifts, usersShifts: usersShifts, user: req.user, title: 'bread',
       description:'Track your earnings to see your daily averages and see what others are earning' });
       
     } catch (err) {
@@ -84,7 +84,7 @@ module.exports = {
             const allShifts = await Shift.find({share: "true"}).sort({ createdAt: "desc" }).lean();
             const usersShifts = await Shift.find({ user: req.user.id });
             
-            res.render("es/profile.ejs", { allShifts: allShifts, usersShifts: usersShifts, user: req.user, title: 'bread | Profile',
+            res.render("es/profile.ejs", { allShifts: allShifts, usersShifts: usersShifts, user: req.user, title: 'bread',
             description: 'Realice un seguimiento de sus ganancias para ver sus promedios diarios y ver lo que otros están ganando' });
             
           } catch (err) {
