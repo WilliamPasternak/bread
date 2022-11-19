@@ -12,6 +12,11 @@ const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
 
 
+// Heroku http > https
+const sslRedirect = require('heroku-ssl-redirect');
+app.use(sslRedirect());
+
+
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
 
