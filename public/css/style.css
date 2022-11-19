@@ -1445,7 +1445,7 @@ thead {
     margin-bottom: 0;
 }
 
-/*@media screen and (max-width: 600px) {*/
+
 @media screen and (max-width: 1400px) {
 .averages{
     text-align: center;
@@ -1454,10 +1454,9 @@ thead {
 }
 
 .mobile-feed .averages p{
-    font-weight: bold;
-    border: 1px solid lightgray;
     padding: 1%;
-    font-size: .55rem;
+    font-size: .75rem;
+    font-family: "Poppins", sans-serif;
 }
 
 table thead{
@@ -1505,6 +1504,21 @@ table thead{
     .mobile-feed td:last-child {
         border-bottom: 1px solid #000;
     }
+
+    @media screen and (min-width: 825px) {
+        .mobile-feed .averages p{
+            font-size: 1.50rem;
+            font-family: "Poppins", sans-serif;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        .mobile-feed .averages p{
+            font-size: .5rem;
+            font-family: "Poppins", sans-serif;
+        }
+    }
+
 
 
 /*--------------------------------------------------------------
