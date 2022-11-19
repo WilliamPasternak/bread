@@ -5,6 +5,12 @@ const homeController = require("../controllers/home");
 const postsController = require("../controllers/posts");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
+// Site Map
+router.get('/sitemap.xml', function(req, res) {
+  res.sendFile('sitemap.xml', { root: __dirname });
+  });
+
+
 // Reset Password Routes 
 router.get("/passwordReset", authController.getReset) //Get form to enter email
   router.get("/es/passwordReset", authController.getResetES) //Get form to enter email
