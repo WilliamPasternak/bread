@@ -1335,17 +1335,20 @@ comments p {
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1400px) {
     .page-contain {
         flex-direction: column;
+        flex: start;
         height: 375vh;
         padding: 0;
     }
 
     .data-card {
         width: 80vw;
-        height: 100vh;
+        height: 50vh;
         overflow: hidden;
+        margin: 0 auto;
+        align-items: center;
     }
 
     .data-card h3 {
