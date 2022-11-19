@@ -59,7 +59,7 @@ exports.forgotPassword = async (req, res) => {
     }
   });
 
-  const resetURL = `http://${req.headers.host}/passwordReset/${token.Token}`
+  const resetURL = `https://${req.headers.host}/passwordReset/${token.Token}`
 
   let msg = await transporter.sendMail({
     from: `Password Reset ${process.env.MAIL_USER}`,
@@ -128,7 +128,7 @@ exports.forgotPasswordES = async (req, res) => {
     }
   });
 
-  const resetURL = `http://${req.headers.host}/es/passwordReset/${token.Token}`
+  const resetURL = `https://${req.headers.host}/es/passwordReset/${token.Token}`
 
   let msg = await transporter.sendMail({
     from: `Restablecimiento de contraseña ${process.env.MAIL_USER}`,
