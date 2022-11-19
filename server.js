@@ -10,12 +10,10 @@ const logger = require("morgan");
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
-
-
-// Heroku http > https
 const sslRedirect = require('heroku-ssl-redirect').default;
-app.use(sslRedirect());
 
+// Heroku redirect http > https
+app.use(sslRedirect());
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
@@ -66,7 +64,7 @@ app.use("/post", postRoutes);
 // Send 404 Page 
 app.use((req, res, next) => {
   let posts = 0
-  res.status(404).render('404.ejs', { title: 'bread | Pay Transparency for the Hospitality Industry', user: req.user}); 
+  res.status(404).render('404.ejs', { title: 'bread | Pay Transparency for the Hospitality Industry', user: req.user, description: '404 Page Not Found'}); 
 })
 
 //Server Running
