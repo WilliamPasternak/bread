@@ -63,8 +63,10 @@ app.use("/post", postRoutes);
 
 // Send 404 Page 
 app.use((req, res, next) => {
-  let posts = 0
-  res.status(404).render('404.ejs', { title: 'bread | Pay Transparency for the Hospitality Industry', user: req.user, description: '404 Page Not Found'}); 
+  res.status(404).render('404.ejs', { 
+    title: 'bread | Pay Transparency for the Hospitality Industry', 
+    user: req.user, 
+    description: '404 Page Not Found'}); 
 })
 
 //Server Running
