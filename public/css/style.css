@@ -948,7 +948,8 @@ padding: 0 1vw;
 }
 
 /* Mobile Profile Feed */
-@media screen and (max-width: 600px) {
+
+@media screen and (max-width: 1400px) {
     /* Show Mobile and Hide Desktop */ 
     .mobile-feed {
         display: block;
@@ -974,19 +975,6 @@ padding: 0 1vw;
 
 }
 /* ============================================ */
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1454,7 +1442,8 @@ thead {
     margin-bottom: 0;
 }
 
-@media screen and (max-width: 600px) {
+/*@media screen and (max-width: 600px) {*/
+@media screen and (max-width: 1400px) {
 .averages{
     text-align: center;
     display: flex;
