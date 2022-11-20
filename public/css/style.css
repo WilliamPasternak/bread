@@ -858,10 +858,22 @@ section {
     padding: 1vh 1vw;
     margin: 1vh auto;
     background: #fff;
-    font-size: 1.25rem;
+    font-size: 0.95rem;
     width: 90%;
     text-align: center;
+    
 }
+
+.timeline-item .subtext{
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.timeline-item p {
+    width: 90%;
+    margin: 1% auto;
+}
+
 
 .timeline-item:hover{
     background: #F7F7F7;
@@ -1443,6 +1455,7 @@ thead {
     display: block;
     font-size: .75rem;
 }
+
 
 .page-item.active .page-link {
     z-index: 3;

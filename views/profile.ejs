@@ -302,21 +302,22 @@
             <% for(let i=0; i<allShifts.length; i++) {%>
                 <div class = 'timeline-item'> 
 
+                    <div class="d-flex justify-content-between"> 
+                        <span class ='subtext'> <%= allShifts[i].day %>  </span>
+                        <span class ='subtext'> <%=allShifts[i].location %> </span>
+                    </div>
                     <!-- If Single hour worked -->
                     <% if(allShifts[i].hoursWorked == 1){ %>
-                        <p> <%= allShifts[i].day %> <%= allShifts[i].date %> <br>
-                         A <%= (allShifts[i].role).toUpperCase() %>  from <br> 
-                        <%= (allShifts[i].company).toUpperCase() %> <br>
-                         (<%=allShifts[i].location %>) <br>
-                        Made $<%= (allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour)).toFixed(2) %> <br>
-                        working <%= allShifts[i].hoursWorked%> hour <br> </p>
+                        <p> A <%= (allShifts[i].role).toUpperCase() %>  at <br>
+                          <%= (allShifts[i].company).toUpperCase() %> <br>
+                         Made $<%= (allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour)).toFixed(2) %> 
+                         working <%= allShifts[i].hoursWorked%>hr </p>
                     <% } else{ %>
-                        <p> <%= allShifts[i].day %> <%= allShifts[i].date %> <br>
-                            A <%= (allShifts[i].role).toUpperCase() %>  from <br> 
-                           <%= (allShifts[i].company).toUpperCase() %> <br>
-                           (<%=allShifts[i].location %>) <br>
-                           Made $<%= (allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour)).toFixed(2) %> <br>
-                           working <%= allShifts[i].hoursWorked%> hours <br> </p>
+                        <!-- If Multiple Hours Worked-->
+                        <p> A <%= (allShifts[i].role).toUpperCase() %>  at <br>
+                        <%= (allShifts[i].company).toUpperCase() %> <br>
+                       Made $<%= (allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour)).toFixed(2) %> 
+                       working <%= allShifts[i].hoursWorked%>hrs </p>
                     <% } %>
                     <!-- Need to create a post/put action form to update flags-->
                 </div>
@@ -512,23 +513,24 @@
     <div class = 'timeline'>
     <% for(let i=0; i<allShifts.length; i++) {%>
     <div class = 'timeline-item'> 
+        <div class="d-flex justify-content-between"> 
+            <span class ='subtext'> <%= allShifts[i].day %>  </span>
+            <span class ='subtext'> <%=allShifts[i].location %> </span>
+        </div>
+        <!-- If Single hour worked -->
+        <% if(allShifts[i].hoursWorked == 1){ %>
+            <p> A <%= (allShifts[i].role).toUpperCase() %>  at <br>
+              <%= (allShifts[i].company).toUpperCase() %> <br>
+             Made $<%= (allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour)).toFixed(2) %> 
+             working <%= allShifts[i].hoursWorked%>hr </p>
+        <% } else{ %>
+            <!-- If Multiple Hours Worked-->
+            <p> A <%= (allShifts[i].role).toUpperCase() %>  at <br>
+            <%= (allShifts[i].company).toUpperCase() %> <br>
+           Made $<%= (allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour)).toFixed(2) %> 
+           working <%= allShifts[i].hoursWorked%>hrs </p>
+        <% } %>
 
- <!-- If Single hour worked -->
- <% if(allShifts[i].hoursWorked == 1){ %>
-    <p> <%= allShifts[i].day %> <%= allShifts[i].date %> <br>
-     A <%= (allShifts[i].role).toUpperCase() %>  from <br> 
-    <%= (allShifts[i].company).toUpperCase() %> <br>
-    (<%=allShifts[i].location %>) <br>
-    Made $<%= (allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour)).toFixed(2) %> <br>
-    working <%= allShifts[i].hoursWorked%> hour <br> </p>
-<% } else{ %>
-    <p> <%= allShifts[i].day %> <%= allShifts[i].date %> <br>
-        A <%= (allShifts[i].role).toUpperCase() %>  from <br> 
-       <%= (allShifts[i].company).toUpperCase() %> <br>
-       (<%=allShifts[i].location %>) <br>
-       Made $<%= (allShifts[i].cashTips + allShifts[i].ccTips + (allShifts[i].hoursWorked * allShifts[i].payPerHour)).toFixed(2) %> <br>
-       working <%= allShifts[i].hoursWorked%> hours <br> </p>
-<% } %>
         <!-- Mobile End Timeline-->
 </div>
 <% } %>
