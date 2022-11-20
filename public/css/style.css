@@ -536,6 +536,10 @@ section {
     font-size: 1.5rem;
 }
 
+iframe{
+    margin: 0 auto;
+}
+
 @media (max-width: 991px) {
     .features .image {
         text-align: center;
