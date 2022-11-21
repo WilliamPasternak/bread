@@ -23,28 +23,23 @@ This is a full stack web application in which the user can
 
 **Design:**
 - Implement stylized alerts after form submissions
-- Ensure all screen sizes work
-- Check spacing of section headers from nav bar
-- International locations & dates
 - Native translations implemented (Spanish Complete, French: In Progress)
-- User Profile Page layout (in Progress)
 
 **Functionality / Usability:**
 - Calculate & Track your weekly earnings (Complete - refactor code)
 - Signup with other methods
-- Ability to reset password
 - Give admin account ability to edit DB documents in app
 - Limit 'Flags' to one per user, per post
 - Clean up user data on form submit
 - Edit post should pre-fill with selected drop down option
 - Fix date/day formatting issue using date HTML5 input type
 - Add Companies to a watchlist
-- More info on shift feed (location, link to company, etc.)
-- Add Event Work and Consulting option to share
+- More info on shift feed (e.g. link to company)
+- Add Event Work, Brand Work and Consulting option to share
 - Create pages for each business in db
 - Add filters to Salaries Table
 - Auto suggest or complete form data
-- Make image upload optional in Salaries form
+- Make image upload optional in Salaries form (combine verified and share form)
 
 **Efficiency / Code Improvement:**
 - Remove unused styling
