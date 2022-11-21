@@ -22,9 +22,14 @@
 
 
                 <form action="/post/verify" enctype="multipart/form-data" method="POST">
-                    <div class="mb-3">
+                        <div class=" mb-3">
+                            <label for="job" class="form-label"> Company Name</label>
+                            <input type="text" class="form-control" id="job" name="job" required>
+                          </div>
+
+                          <div class="mb-3">
                         <label for="imgUpload" class="form-label">Supporting Document</label>
-                        <input type="file" class="form-control" id="imageUpload" name="file">
+                        <input type="file" class="form-control" id="imageUpload" name="file" required>
                     </div>
 
                     <button type="submit" class="btn btn-form">Verify</button>
