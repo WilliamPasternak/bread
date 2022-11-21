@@ -192,7 +192,7 @@ module.exports = {
       await Verify.create({
         image: result.secure_url,
         cloudinaryId: result.public_id,
-        job: req.user.job,
+        company: req.body.company,
         user: req.user.id,
       });
       console.log("Verification has been submitted!");

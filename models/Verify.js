@@ -17,7 +17,7 @@ const VerifySchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  job:{
+  company:{
     type: String,
     require: true,
   }
