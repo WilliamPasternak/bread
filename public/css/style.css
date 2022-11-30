@@ -1399,7 +1399,7 @@ comments p {
 @media screen and (max-width: 1400px) {
     .page-contain {
         flex-direction: column;
-        height: 100%;
+        height: auto;
         padding: 0;
     }
 
@@ -1430,10 +1430,6 @@ comments p {
 
 }
 
-@media screen and (max-width: 768px) {
-   
-
-}
 
 /*--------------------------------------------------------------
   # Feed
