@@ -1323,12 +1323,18 @@ th {
         font-size: 1.5rem;
     }
 
-    .comments  {
-    width: 90%;
-    }
+}
 
+@media screen and (max-width: 768px) {
+    .comments  {
+        width: 90%;
+        }
 
 }
+
+
+
+
 
 #delete-post {
     display: inline;
