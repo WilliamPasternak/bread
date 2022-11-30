@@ -1316,10 +1316,17 @@ th {
     font-weight: 100;
 }
 
+
+
 @media screen and (max-width: 600px) {
     .post-header-mobile h2 {
         font-size: 1.5rem;
     }
+
+    .comments p {
+    width: 90%;
+    }
+
 
 }
 
