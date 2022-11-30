@@ -1325,16 +1325,6 @@ th {
 
 }
 
-@media screen and (max-width: 768px) {
-    .comments  {
-        width: 90%;
-        }
-
-}
-
-
-
-
 
 #delete-post {
     display: inline;
@@ -1433,6 +1423,16 @@ comments p {
     .post-header {
         line-height: 1.5;
     }
+
+    .comments  {
+        width: 90vw;
+        }
+
+}
+
+@media screen and (max-width: 768px) {
+   
+
 }
 
 /*--------------------------------------------------------------
