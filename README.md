@@ -23,7 +23,7 @@ This is a full stack web application in which the user can
 
 **Design:**
 - Implement stylized alerts after form submissions
-- Native translations implemented (Spanish Complete, French: In Progress)
+- Native translations implemented (French: In Progress)
 
 **Functionality / Usability:**
 - Calculate & Track your weekly earnings (Complete - refactor code)
