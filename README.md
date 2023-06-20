@@ -26,7 +26,6 @@ This is a full stack web application in which the user can
 - Native translations implemented (French: In Progress)
 
 **Functionality / Usability:**
-- Calculate & Track your weekly earnings (Complete - refactor code)
 - Signup with other methods
 - Give admin account ability to edit DB documents in app
 - Limit 'Flags' to one per user, per post
