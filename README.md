@@ -1,5 +1,6 @@
 # bread
 bread is a free resource for reviewing and sharing salary information for the hospitality industry. It is completely anonymous and crowd-sourced.
+bread is not currently being actively maintained.
 
 **Link to project:** http://www.86bread.com
   <p align = 'center'>
