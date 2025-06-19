@@ -5,6 +5,7 @@ const session = require('express-session');
 const flash = require('express-flash');
 const passport = require('passport');
 
+const connectDB = require('../config/database');  // import your connectDB
 const mainRoutes = require('../routes/main');
 
 const app = express();
@@ -25,7 +26,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET || 'yourSecret',
   resave: false,
   saveUninitialized: false,
-  // store: add your session store here
+  // store: add your session store here if needed
 }));
 
 app.use(flash());
@@ -40,4 +41,18 @@ app.use((req, res) => {
   res.status(404).send('Page Not Found');
 });
 
-module.exports = serverless(app);
+// Wrap app with serverless
+let serverlessHandler;
+
+const getHandler = async () => {
+  if (!serverlessHandler) {
+    await connectDB();             // await DB connection once
+    serverlessHandler = serverless(app);  // create handler after DB connected
+  }
+  return serverlessHandler;
+};
+
+module.exports.handler = async (event, context) => {
+  const handler = await getHandler();
+  return handler(event, context);
+};
