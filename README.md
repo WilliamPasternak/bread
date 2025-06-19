@@ -17,16 +17,15 @@ This is a full stack web application in which the user can
 - Logged in users can edit and delete their own posts.
 - Upload salary verification documentation. Their image is temporarily stored on Cloudinary and a link to that image is stored in a MongoDB collection.
 - Review salaries in a dynamic table populated by EJS
-- Report questionable salaries with PUT
+- Report questionable salaries 
 
 ## Optimizations
 
 **Design:**
 - Implement stylized alerts after form submissions
-- Native translations implemented (Spanish Complete, French: In Progress)
+- Native translations implemented (French: In Progress)
 
 **Functionality / Usability:**
-- Calculate & Track your weekly earnings (Complete - refactor code)
 - Signup with other methods
 - Give admin account ability to edit DB documents in app
 - Limit 'Flags' to one per user, per post
