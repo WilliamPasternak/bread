@@ -4,7 +4,7 @@ const path = require('path');
 const session = require('express-session');
 const flash = require('express-flash');
 const passport = require('passport');
-const MongoStore = require('connect-mongo'); 
+const MongoStore = require('connect-mongo')(session);
 const connectDB = require('../config/database');  // import  connectDB
 const mainRoutes = require('../routes/main');
 
@@ -28,11 +28,10 @@ app.use(session({
   secret: process.env.SESSION_SECRET || 'yourSecret',
   resave: false,
   saveUninitialized: false,
-  store: MongoStore.create({
-    mongoUrl: process.env.DB_STRING,   // Your MongoDB connection string
-    collectionName: 'sessions',        // optional: specify collection name for sessions
-    ttl: 14 * 24 * 60 * 60,            // optional: session time to live (14 days here)
-  }),
+  store: new MongoStore({
+    url: process.env.DB_STRING,
+    ttl: 14 * 24 * 60 * 60 // 14 days
+  })
 }));
 
 app.use(flash());
