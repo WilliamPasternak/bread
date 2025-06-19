@@ -37,14 +37,8 @@ app.set('views', path.join(__dirname, '../views'));
 
 
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'yourSecret',
-  resave: false,
-  saveUninitialized: false,
-  store: MongoStore.create({
-  mongoUrl: process.env.DB_STRING,
-  collectionName: 'sessions',
-  ttl: 14 * 24 * 60 * 60 // 14 days
-})
+  secret: 'foo',
+  store: MongoStore.create(options)
 }));
 
 app.use(flash());
