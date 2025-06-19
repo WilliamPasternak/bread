@@ -41,10 +41,10 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({
-    mongoUrl: process.env.DB_STRING,
-    collectionName: 'sessions',
-    ttl: 14 * 24 * 60 * 60 // 14 days
-  })
+  mongoUrl: process.env.DB_STRING,
+  collectionName: 'sessions',
+  ttl: 14 * 24 * 60 * 60 // 14 days
+})
 }));
 
 app.use(flash());
