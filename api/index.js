@@ -4,11 +4,23 @@ const path = require('path');
 const session = require('express-session');
 const flash = require('express-flash');
 const passport = require('passport');
-const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo');
+
 const connectDB = require('../config/database');  // import  connectDB
 const mainRoutes = require('../routes/main');
 
 const app = express();
+
+// Wrap app with serverless
+let serverlessHandler;
+
+const getHandler = async () => {
+  if (!serverlessHandler) {
+    await connectDB();             // await DB connection once
+    serverlessHandler = serverless(app);  // create handler after DB connected
+  }
+  return serverlessHandler;
+};
 
 // Body parsing middleware
 app.use(express.urlencoded({ extended: true }));
@@ -28,8 +40,9 @@ app.use(session({
   secret: process.env.SESSION_SECRET || 'yourSecret',
   resave: false,
   saveUninitialized: false,
-  store: new MongoStore({
-    url: process.env.DB_STRING,
+  store: MongoStore.create({
+    mongoUrl: process.env.DB_STRING,
+    collectionName: 'sessions',
     ttl: 14 * 24 * 60 * 60 // 14 days
   })
 }));
@@ -50,16 +63,7 @@ app.use((req, res) => {
   res.status(404).send('Page Not Found');
 });
 
-// Wrap app with serverless
-let serverlessHandler;
 
-const getHandler = async () => {
-  if (!serverlessHandler) {
-    await connectDB();             // await DB connection once
-    serverlessHandler = serverless(app);  // create handler after DB connected
-  }
-  return serverlessHandler;
-};
 
 module.exports = async (event, context) => {
   const handler = await getHandler();
