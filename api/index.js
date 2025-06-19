@@ -4,8 +4,8 @@ const path = require('path');
 const session = require('express-session');
 const flash = require('express-flash');
 const passport = require('passport');
-
-const connectDB = require('../config/database');  // import your connectDB
+const MongoStore = require('connect-mongo'); 
+const connectDB = require('../config/database');  // import  connectDB
 const mainRoutes = require('../routes/main');
 
 const app = express();
@@ -22,16 +22,26 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../views'));
 
 // Session setup
+
+
 app.use(session({
   secret: process.env.SESSION_SECRET || 'yourSecret',
   resave: false,
   saveUninitialized: false,
-  // store: add your session store here if needed
+  store: MongoStore.create({
+    mongoUrl: process.env.DB_STRING,   // Your MongoDB connection string
+    collectionName: 'sessions',        // optional: specify collection name for sessions
+    ttl: 14 * 24 * 60 * 60,            // optional: session time to live (14 days here)
+  }),
 }));
 
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+
+
+// Handle favicon requests early to avoid 500 errors
+app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 // Routes
 app.use('/', mainRoutes);
@@ -52,7 +62,8 @@ const getHandler = async () => {
   return serverlessHandler;
 };
 
-module.exports.handler = async (event, context) => {
+module.exports = async (event, context) => {
   const handler = await getHandler();
   return handler(event, context);
 };
+
