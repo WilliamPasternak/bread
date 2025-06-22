@@ -1,7 +1,7 @@
 {
-  "name": "binary-upload-boom",
+  "name": "bread",
   "version": "1.0.0",
-  "description": "100Devs Social Network",
+  "description": "Pay Transparency for the Hospitality Industry",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
