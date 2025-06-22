@@ -38,31 +38,29 @@ exports.forgotPassword = async (req, res) => {
     email: req.body.email,
   })
 
-  token.save()
+  await token.save()
 
   //Send Email with reset link
   const transporter = await nodemailer.createTransport({
-    host: "smtp.office365.com",
-    port: 587,
-    secure: false,
+    service: "gmail",
     auth: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASS,
+       user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASS
     }
   });
 
-  transporter.verify(function (error, success) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("Mail transporter is working");
-    }
-  });
+ if (process.env.NODE_ENV !== 'production') {
+  transporter.verify((err, success) => {
+    if (err) console.error("Mail error:", err)
+    else console.log("Mail transporter is working")
+  })
+}
+
 
   const resetURL = `https://${req.headers.host}/passwordReset/${token.Token}`
 
   let msg = await transporter.sendMail({
-    from: `Password Reset ${process.env.MAIL_USER}`,
+    from: `"Password Reset" <${process.env.GMAIL_USER}>`,
     to: req.body.email,
     subject: "bread Password Reset",
     text: `A password reset request was sent for your account. Please click the following link to reset your password and this link will expire in one hour: ${resetURL} .`
@@ -107,7 +105,7 @@ exports.forgotPasswordES = async (req, res) => {
     email: req.body.email,
   })
 
-  token.save()
+  await token.save()
 
   //Send Email with reset link
   const transporter = await nodemailer.createTransport({
@@ -115,23 +113,23 @@ exports.forgotPasswordES = async (req, res) => {
     port: 587,
     secure: false,
     auth: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASS,
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS,
     }
   });
 
-  transporter.verify(function (error, success) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("Mail transporter is working");
-    }
-  });
+  if (process.env.NODE_ENV !== 'production') {
+  transporter.verify((err, success) => {
+    if (err) console.error("Mail error:", err)
+    else console.log("Mail transporter is working")
+  })
+}
+
 
   const resetURL = `https://${req.headers.host}/es/passwordReset/${token.Token}`
 
   let msg = await transporter.sendMail({
-    from: `Restablecimiento de contraseña ${process.env.MAIL_USER}`,
+    from: `"Password Reset" <${process.env.GMAIL_USER}>`,
     to: req.body.email,
     subject: "bread Restablecimiento de contraseña",
     text: `Se envió una solicitud de restablecimiento de contraseña para su cuenta. Haga clic en el siguiente enlace para restablecer su contraseña y este enlace caducará en una hora:
