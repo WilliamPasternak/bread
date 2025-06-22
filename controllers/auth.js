@@ -108,15 +108,13 @@ exports.forgotPasswordES = async (req, res) => {
   await token.save()
 
   //Send Email with reset link
-  const transporter = await nodemailer.createTransport({
-    host: "smtp.office365.com",
-    port: 587,
-    secure: false,
-    auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASS,
-    }
-  });
+ const transporter = await nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_PASS,
+  }
+});
 
   if (process.env.NODE_ENV !== 'production') {
   transporter.verify((err, success) => {
